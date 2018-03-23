@@ -1,0 +1,94 @@
+<div class="quiqqer-bricks-promoslider-wallpaper-container">
+    {strip}
+    <ul class="hide-on-mobile">
+        {foreach $desktopSlides as $key => $slide}
+        <li data-image="{image image=$slide.image onlysrc=1}" data-href="{$slide.url}">
+            <div class="quiqqer-bricks-promoslider-wallpaper-image" style="display: none">&nbsp;</div>
+
+            <div class="grid-container">
+                <div class="quiqqer-bricks-promoslider-wallpaper2Content-left">
+                    {if isset($slide.left)}
+                    {$slide.left}
+                    {/if}
+                </div>
+                <div class="quiqqer-bricks-promoslider-wallpaper2Content-right">
+                    {if isset($slide.right)}
+                    {$slide.right}
+                    {/if}
+                </div>
+            </div>
+
+            {if $key === 0}
+            <noscript>
+                {if $slide.url}
+                <a href="{$slide.url}">
+                    {/if}
+                    {image image=$slide.image class="quiqqer-bricks-promoslider-wallpaper2Content-noScriptImage"}
+                    {if $slide.url}
+                </a>
+                {/if}
+            </noscript>
+            {/if}
+        </li>
+        {/foreach}
+    </ul>
+    {/strip}
+
+    {strip}
+    <ul class="hide-on-desktop">
+        {foreach $mobileSlides as $key => $slide}
+        <li data-image="{image image=$slide.image onlysrc=1}" data-href="{$slide.url}">
+            <div class="quiqqer-bricks-promoslider-wallpaper-image" style="display: none">&nbsp;</div>
+
+            <div class="grid-container">
+                <div class="quiqqer-bricks-promoslider-wallpaper2Content-left">
+                    {if isset($slide.left)}
+                    {$slide.left}
+                    {/if}
+                </div>
+                <div class="quiqqer-bricks-promoslider-wallpaper2Content-right">
+                    {if isset($slide.right)}
+                    {$slide.right}
+                    {/if}
+                </div>
+            </div>
+
+            {if $key === 0}
+            <noscript>
+                {if $slide.url}
+                <a href="{$slide.url}">
+                    {/if}
+                    {image image=$slide.image class="quiqqer-bricks-promoslider-wallpaper2Content-noScriptImage"}
+                    {if $slide.url}
+                </a>
+                {/if}
+            </noscript>
+            {/if}
+        </li>
+        {/foreach}
+    </ul>
+    {/strip}
+</div>
+<div class="quiqqer-bricks-promoslider-wallpaper-dots"></div>
+
+{if count($desktopSlides) > 1 && $this->getAttribute('showarrows') != 'hide'}
+<div class="quiqqer-bricks-promoslider-wallpaper-prev hide-on-mobile
+            {$this->getAttribute('showarrows')}">
+    <span class="fa fa-chevron-left"></span>
+</div>
+<div class="quiqqer-bricks-promoslider-wallpaper-next hide-on-mobile
+            {$this->getAttribute('showarrows')}">
+    <span class="fa fa-chevron-right"></span>
+</div>
+
+<noscript>
+    {literal}
+    <style>
+        .quiqqer-bricks-promoslider-wallpaper-next,
+        .quiqqer-bricks-promoslider-wallpaper-prev {
+            display: none;
+        }
+    </style>
+    {/literal}
+</noscript>
+{/if}

@@ -10,7 +10,7 @@ use QUI;
 use QUI\Projects\Media\Utils;
 
 /**
- * Class PromosliderWallpaper2Content
+ * Class ProductSlider
  *
  * @package QUI\Bricks\Controls
  */
@@ -37,10 +37,10 @@ class ProductSlider extends QUI\Bricks\Controls\Slider\PromosliderWallpaper
             'showarrows'     => 'showHoverScale',
             'autostart'      => false,
             'delay'          => 5000,
-            'template'       => dirname(__FILE__) . '/PromosliderWallpaper2Content.html'
+            'template'       => dirname(__FILE__) . '/ProductSlider.html'
         ));
 
-        $this->addCSSFile(dirname(__FILE__) . '/PromosliderWallpaper2Content.css');
+        $this->addCSSFile(dirname(__FILE__) . '/ProductSlider.css');
 
         $this->addCSSClass('grid-100');
         $this->addCSSClass('mobile-grid-100');

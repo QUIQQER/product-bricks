@@ -1,0 +1,25 @@
+/** text
+ ============================================= */
+
+.quiqqer-bricks-promoslider-wallpaper2Content-left,
+.quiqqer-bricks-promoslider-wallpaper2Content-right {
+    float: left;
+    padding: 20px 0;
+    width: 50%;
+    white-space: normal;
+}
+
+@media screen and (max-width: 768px) {
+    .quiqqer-bricks-promoslider-wallpaper2Content-left,
+    .quiqqer-bricks-promoslider-wallpaper2Content-right {
+        width: 100%;
+    }
+}
+
+.quiqqer-bricks-promoslider-wallpaper-container .quiqqer-bricks-promoslider-wallpaper2Content-noScriptImage {
+    object-fit:contain;
+    object-position:0 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
