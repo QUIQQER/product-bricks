@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locales>
+
+    <groups name="quiqqer/product-slider" datatype="php,js">
+        <locale name="package.title">
+            <de><![CDATA[Produkt Bausteine]]></de>
+            <en><![CDATA[Product bricks]]></en>
+        </locale>
+        <locale name="package.description">
+            <de><![CDATA[Dieses Modul stellt Bausteine zur Verfügung, um Ihre Produkte auf einfache Art und Weise zu präsentieren.]]></de>
+            <en><![CDATA[This module provides several bricks to show your products in an easy way.]]></en>
+        </locale>
+
+        <!-- product slider -->
+        <locale name="brick.control.productSlider.title">
+            <de><![CDATA[Produkt Slider]]></de>
+            <en><![CDATA[Product Slider]]></en>
+        </locale>
+        <locale name="brick.control.productSlider.description">
+            <de><![CDATA[Ein Slider für Ihre Produkte, das Sie zum Beispiel auf der Startseite platzieren können.]]></de>
+            <en><![CDATA[A slider for your products, which you can place on the start page, for example.]]></en>
+        </locale>
+
+        <locale name="brick.control.productSlider.settings.autostart">
+            <de><![CDATA[Autostart]]></de>
+            <en><![CDATA[Autostart]]></en>
+        </locale>
+        <locale name="brick.control.productSlider.settings.delay">
+            <de><![CDATA[Zeit zum nächsten Slide (Verzögerung)]]></de>
+            <en><![CDATA[Time to start next slide (Delay)]]></en>
+        </locale>
+    </groups>
+
+
+    <groups name="quiqqer/product-slider" datatype="php">
+
+
+
+    </groups>
+
+</locales>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiqqer>
+    <bricks>
+
+        <!-- Product Slider -->
+        <brick control="\QUI\ProductBricks\Controls\Slider\ProductSlider">
+            <title>
+                <locale group="quiqqer/product-bricks" var="brick.control.productSlider.title"/>
+            </title>
+            <description>
+                <locale group="quiqqer/product-bricks" var="brick.control.productSlider.description"/>
+            </description>
+
+            <settings>
+
+                <setting name="autostart" type="checkbox">
+                    <locale group="quiqqer/product-bricks" var="brick.control.productSlider.settings.autostart"/>
+                </setting>
+                <setting name="delay" type="number">
+                    <locale group="quiqqer/product-bricks" var="brick.control.productSlider.settings.delay"/>
+                </setting>
+
+
+                <setting name="slides" type="hidden"
+                         data-qui="package/quiqqer/bricks/bin/Controls/Slider/PromosliderSettingsOnlyContent"
+                >
+                    <locale group="quiqqer/bricks" var="brick.control.promoslider.settings.desktopslides"/>
+                </setting>
+
+            </settings>
+        </brick>
+
+    </bricks>
+</quiqqer>

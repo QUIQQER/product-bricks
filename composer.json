@@ -1,0 +1,29 @@
+{
+  "name": "quiqqer/product-bricks",
+  "type": "quiqqer-module",
+  "description": "This module provides several bricks to show your products in an easy way.",
+  "version": "dev-master",
+  "license": "",
+  "authors": [
+    {
+      "name": "Michael Danielczok",
+      "email": "michael@pcsg.de",
+      "homepage": "http://www.pcsg.de",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "support@pcsg.de"
+  },
+  "require": {
+    "quiqqer/quiqqer": "*@dev",
+    "quiqqer\/qui": ">=1|dev-master|dev-dev",
+    "quiqqer/utils": ">=1.4|dev-dev",
+    "quiqqer\/bricks": ">=1|dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "QUI\\ProductBricks\\": "src/QUI/ProductBricks"
+    }
+  }
+}
