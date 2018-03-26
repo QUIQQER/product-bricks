@@ -1,7 +1,11 @@
 QUIQQER Product Bricks
 ========
 
-This module provides several bricks to show your products.
+The Product-Bricks Module gives you the possibility to display your products
+in different sliders and galleries.
+
+Let your products stand in a completely beautiful light.
+The Product-Bricks Module comes with a handful of new controls to put your products in the right light.
 
 
 Paketname:
@@ -11,7 +15,12 @@ Paketname:
 
 Features
 --------
-- (...)
+
+### Product-Slider:
+- Select products to show them in the slider.
+- Set background color and image of the slider.
+- Delay (time between slides).
+- Auto start.
 
 
 

@@ -1,7 +1,7 @@
 {
   "name": "quiqqer/product-bricks",
   "type": "quiqqer-module",
-  "description": "This module provides several bricks to show your products in an easy way.",
+  "description": "The Product-Bricks Module gives you the possibility to display your products in different sliders and galleries.",
   "version": "dev-dev",
   "license": "",
   "authors": [
