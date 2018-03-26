@@ -29,6 +29,14 @@
             <de><![CDATA[Zeit zum nächsten Slide (Verzögerung)]]></de>
             <en><![CDATA[Time to start next slide (Delay)]]></en>
         </locale>
+        <locale name="brick.control.productSlider.bgColor">
+            <de><![CDATA[Hintergrundfarbe]]></de>
+            <en><![CDATA[Background color]]></en>
+        </locale>
+        <locale name="brick.control.productSlider.bgImage">
+            <de><![CDATA[Hintergrundbild]]></de>
+            <en><![CDATA[Background image]]></en>
+        </locale>
     </groups>
 
 

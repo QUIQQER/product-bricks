@@ -8,43 +8,102 @@ namespace QUI\ProductBricks\Controls\Slider;
 
 use QUI;
 use QUI\Projects\Media\Utils;
+use QUI\ERP\Products\Handler\Products;
+
 
 /**
  * Class ProductSlider
  *
  * @package QUI\Bricks\Controls
  */
-class ProductSlider extends QUI\Bricks\Controls\Slider\PromosliderWallpaper
+class ProductSlider extends QUI\Control
 {
     /**
      * constructor
      *
      * @param array $attributes
      */
-    public function __construct($attributes = array())
+    public function __construct($attributes = [])
     {
         parent::__construct($attributes);
 
         // default options
-        $this->setAttributes(array(
+        $this->setAttributes([
             'title'          => '',
             'text'           => '',
-            'class'          => 'quiqqer-bricks-promoslider-wallpaper2Content',
+            'class'          => 'quiqqer-productbricks-productslider',
             'nodeName'       => 'section',
-            'data-qui'       => 'package/quiqqer/bricks/bin/Controls/Slider/PromosliderWallpaper',
-            'role'           => 'listbox',
             'shownavigation' => true,
             'showarrows'     => 'showHoverScale',
             'autostart'      => false,
             'delay'          => 5000,
             'template'       => dirname(__FILE__) . '/ProductSlider.html'
-        ));
+        ]);
 
         $this->addCSSFile(dirname(__FILE__) . '/ProductSlider.css');
+    }
 
-        $this->addCSSClass('grid-100');
-        $this->addCSSClass('mobile-grid-100');
-        $this->addCSSClass('quiqqer-bricks-promoslider-wallpaper');
+    public function getBody()
+    {
+        $Engine = QUI::getTemplateManager()->getEngine();
+        $Slider = new QUI\Bricks\Controls\Slider\Promoslider([
+            'shownavigation' => $this->getAttribute('shownavigation'),
+            'showarrows'     => $this->getAttribute('showHoverScale'),
+            'autostart'      => $this->getAttribute('autostart'),
+            'delay'          => $this->getAttribute('delay'),
+            'template' => dirname(__FILE__) . '/ProductSlider.Template.html'
+        ]);
+
+
+
+        $this->setStyle('background-color', $this->getAttribute('bgColor'));
+        $this->setStyle('background-image', 'url(' . $this->getAttribute('bgImage') . ')');
+
+        $products = Products::getProducts([
+            'limit' => 5
+        ]);
+
+        /* @var $Product QUI\ERP\Products\Product\Product */
+        foreach ($products as $Product) {
+
+            $text = '<p class="slide-product-description">' . $Product->getDescription() . '</p>';
+            $text .= '<p><button class="btn btn-primary btn-large">Jetzt kaufen</button>';
+
+            $Slider->addSlide(
+                $Product->getImage()->getUrl(),
+                $Product->getTitle(),
+                $text,
+                'left',
+                $Product->getUrl()
+            );
+
+            $Slider->addMobileSlide(
+                $Product->getImage()->getUrl(),
+                $Product->getTitle(),
+                $text,
+                'left',
+                $Product->getUrl()
+            );
+
+        }
+
+
+        /* @var $Product QUI\ERP\Products\Product\Product */
+        /*$Product = $products[0];
+        $Product->getImage();
+        $Product->getUrl();
+        $Product->getCategory();
+
+        $this->Slider->addSlide();*/
+
+
+        $Engine->assign([
+            'this'   => $this,
+            'Slider' => $Slider
+        ]);
+
+
+        return $Engine->fetch($this->getAttribute('template'));
     }
 
     /**
@@ -102,12 +161,12 @@ class ProductSlider extends QUI\Bricks\Controls\Slider\PromosliderWallpaper
             $image = false;
         }
 
-        return array(
+        return [
             'image' => $image,
             'left'  => $left,
             'right' => $right,
             'url'   => $url
-        );
+        ];
     }
 
     /**
@@ -131,7 +190,7 @@ class ProductSlider extends QUI\Bricks\Controls\Slider\PromosliderWallpaper
             return;
         }
 
-        $attributes = array('image', 'left', 'right', 'url');
+        $attributes = ['image', 'left', 'right', 'url'];
 
         foreach ($slides as $slide) {
             foreach ($attributes as $attribute) {

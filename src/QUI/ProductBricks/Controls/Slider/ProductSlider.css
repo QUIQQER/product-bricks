@@ -1,25 +1,86 @@
-/** text
- ============================================= */
+.quiqqer-productbricks-productslider {
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: auto;
+}
 
-.quiqqer-bricks-promoslider-wallpaper2Content-left,
-.quiqqer-bricks-promoslider-wallpaper2Content-right {
-    float: left;
-    padding: 20px 0;
-    width: 50%;
-    white-space: normal;
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider {
+    float: none;
+}
+
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-image {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    height: 100%;
+}
+
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-image img {
+    max-width: 45%;
+    max-height: 400px;
+}
+
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-display {
+    position: relative;
+    padding: 0 20px 0 0;
+}
+
+.quiqqer-productbricks-productslider .slide-product-description {
+    line-height: 1.5em;
+}
+
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot {
+    background: rgba(0,0,0,0.2);
+}
+
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot:hover:hover,
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot:hover:focus,
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot:hover:active,
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot-active,
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot-active:hover,
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot-active:focus,
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot-active:active {
+    background-color: #444;
+}
+
+/* mobile */
+
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-mobile-image {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 50%;
+    bottom: 0;
+    top: auto;
+    margin-bottom: 1em;
 }
 
 @media screen and (max-width: 768px) {
-    .quiqqer-bricks-promoslider-wallpaper2Content-left,
-    .quiqqer-bricks-promoslider-wallpaper2Content-right {
-        width: 100%;
-    }
-}
 
-.quiqqer-bricks-promoslider-wallpaper-container .quiqqer-bricks-promoslider-wallpaper2Content-noScriptImage {
-    object-fit:contain;
-    object-position:0 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+    .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider {
+        height: auto;
+    }
+
+    .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-mobile {
+        text-align: center;
+        height: 85vh;
+    }
+
+    .quiqqer-bricks-promoslider-slide-mobile-title {
+        line-height: 100%;
+    }
 }
