@@ -37,6 +37,10 @@
             <de><![CDATA[Hintergrundbild]]></de>
             <en><![CDATA[Background image]]></en>
         </locale>
+        <locale name="brick.control.productSlider.buyNow">
+            <de><![CDATA[Jetzt kaufen]]></de>
+            <en><![CDATA[Buy now]]></en>
+        </locale>
     </groups>
 
 
