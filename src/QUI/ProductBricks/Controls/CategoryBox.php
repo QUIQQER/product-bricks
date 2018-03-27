@@ -42,28 +42,25 @@ class CategoryBox extends QUI\Control
     {
         $Engine = QUI::getTemplateManager()->getEngine();
 
-//        $this->setStyle('background-color', $this->getAttribute('bgColor'));
+        $this->setStyle('background-color', $this->getAttribute('bgColor'));
 
         $categoryIds = $this->getAttribute('categoryIds');
         $categoryIds = explode(',', $categoryIds);
 
-        $categories = [];
+        $entries = [];
 
         foreach ($categoryIds as $categoryId) {
             try {
-                $Category     = Categories::getCategory($categoryId);
-                $categories[] = $Category;
-                $Category->getSite()->getAttribute('');
-//                $categories[]['desc'] = $Category->getDescription();
-//                $categories[]['url'] = $Category->getUrl();
+
+                $Category  = Categories::getCategory($categoryId);
+                $entries[] = $Category;
+
             } catch (QUI\Exception $Exception) {
                 QUI\System\Log::writeException($Exception);
             }
         }
-
         $Engine->assign([
-            'this'       => $this,
-            'categories' => $categories
+            'entries' => $entries
         ]);
 
         return $Engine->fetch($this->getAttribute('template'));
