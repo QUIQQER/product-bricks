@@ -18,7 +18,7 @@ Paketname:
 Features
 --------
 
-### Product-Slider:
+#### Product-Slider:
 - Select products to show them in the slider.
 - Set background color and image of the slider.
 - Delay (time between slides).
