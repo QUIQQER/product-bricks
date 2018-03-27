@@ -80,7 +80,8 @@
                 <setting name="categoryIds" type="hidden"
                          data-qui="package/quiqqer/products/bin/controls/categories/Select"
                 >
-                    <locale group="quiqqer/products" var="quiqqer.products.settings.categoryIds"/>
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.categoryBox.categoryId"/>
                 </setting>
 
             </settings>

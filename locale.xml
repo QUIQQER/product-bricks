@@ -7,7 +7,8 @@
             <en><![CDATA[Product bricks]]></en>
         </locale>
         <locale name="package.description">
-            <de><![CDATA[Dieses Modul stellt Bausteine zur Verfügung, um Ihre Produkte auf einfache Art und Weise zu präsentieren.]]></de>
+            <de>
+                <![CDATA[Dieses Modul stellt Bausteine zur Verfügung, um Ihre Produkte auf einfache Art und Weise zu präsentieren.]]></de>
             <en><![CDATA[This module provides several bricks to show your products in an easy way.]]></en>
         </locale>
 
@@ -17,7 +18,8 @@
             <en><![CDATA[Products: Slider]]></en>
         </locale>
         <locale name="brick.control.productSlider.description">
-            <de><![CDATA[Ein Slider für Ihre Produkte, das Sie zum Beispiel auf der Startseite platzieren können.]]></de>
+            <de>
+                <![CDATA[Ein Slider für Ihre Produkte, das Sie zum Beispiel auf der Startseite platzieren können.]]></de>
             <en><![CDATA[A slider for your products, which you can place on the start page, for example.]]></en>
         </locale>
 
@@ -41,11 +43,29 @@
             <de><![CDATA[Jetzt kaufen]]></de>
             <en><![CDATA[Buy now]]></en>
         </locale>
+
+
+        <!-- category boxes -->
+        <locale name="brick.control.categoryBox.title">
+            <de><![CDATA[Produkte: Kategorie-Boxen]]></de>
+            <en><![CDATA[Products: Category boxes]]></en>
+        </locale>
+        <locale name="brick.control.categoryBox.description">
+            <de><![CDATA[Vorgefertigte Boxen um die Kategorien z.B. auf der Startseite zu platzieren.]]></de>
+            <en><![CDATA[Easy way to show your shop categories on the start page.]]></en>
+        </locale>
+        <locale name="brick.control.categoryBox.bgColor">
+            <de><![CDATA[Hintergrundfarbe]]></de>
+            <en><![CDATA[Background color]]></en>
+        </locale>
+        <locale name="brick.control.categoryBox.categoryId">
+            <de><![CDATA[Kategorien auswählen]]></de>
+            <en><![CDATA[Categories]]></en>
+        </locale>
     </groups>
 
 
     <groups name="quiqqer/product-bricks" datatype="php">
-
 
 
     </groups>
