@@ -1,7 +1,7 @@
 .quiqqer-productbricks-productslider {
     background-repeat: no-repeat;
     background-position: bottom;
-    background-size: auto;
+    background-size: 100% auto;
 }
 
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-wrapper {
@@ -70,6 +70,9 @@
 }
 
 @media screen and (max-width: 768px) {
+    .quiqqer-productbricks-productslider {
+        background-size: auto;
+    }
 
     .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider {
         height: auto;
