@@ -1,0 +1,21 @@
+<h2>Top Categories</h2>
+
+<div class="quiqqer-bricks-categorybox-wrapper">
+    {foreach $categories as $Category}
+
+    <div class="quiqqer-bricks-categorybox-box">
+        {if true}
+        <div class="quiqqer-bricks-categorybox-box-image">
+            <img src="http://via.placeholder.com/300x200" />
+        </div>
+        {/if}
+        <div class="quiqqer-bricks-categorybox-box-content">
+            <h3>{$Category->getTitle()}</h3>
+            <p>{$Category->getDescription()}</p>
+            <a href="{$Category->getUrl()}" class="btn btn-primary btn-outline">View products</a>
+        </div>
+    </div>
+
+    {/foreach}
+
+</div>

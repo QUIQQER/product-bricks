@@ -43,5 +43,48 @@
             </settings>
         </brick>
 
+        <!-- Category Box -->
+        <brick control="\QUI\ProductBricks\Controls\CategoryBox">
+            <title>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.categoryBox.title"/>
+            </title>
+            <description>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.categoryBox.description"/>
+            </description>
+
+            <settings>
+
+                <!--<setting name="autostart" type="checkbox">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.autostart"/>
+                </setting>-->
+                <!--<setting name="delay" type="number">
+
+
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.delay"/>
+                </setting>-->
+
+                <setting name="bgColor" type="color">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.categoryBox.bgColor" />
+                </setting>
+
+                <!--<setting name="bgImage" type="text" class="media-image">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.bgImage" />
+                </setting>-->
+
+                <setting name="categoryIds" type="hidden"
+                         data-qui="package/quiqqer/products/bin/controls/categories/Select"
+                >
+                    <locale group="quiqqer/products" var="quiqqer.products.settings.categoryIds"/>
+                </setting>
+
+            </settings>
+        </brick>
+
     </bricks>
 </quiqqer>
