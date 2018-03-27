@@ -1,3 +1,5 @@
+![QUIQQER Product Bricks](bin/images/Readme.jpg)
+
 QUIQQER Product Bricks
 ========
 
