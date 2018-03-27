@@ -3,7 +3,7 @@
   "type": "quiqqer-module",
   "description": "The Product-Bricks Module gives you the possibility to display your products in different sliders and galleries.",
   "version": "dev-dev",
-  "license": "",
+  "license": "GPL-3.0+",
   "authors": [
     {
       "name": "Michael Danielczok",
