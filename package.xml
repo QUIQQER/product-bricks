@@ -10,6 +10,13 @@
 
         <image src="URL_OPT_DIR/quiqqer/product-bricks/bin/images/Logo.jpg"/>
 
+        <preview>
+            <image src="URL_OPT_DIR/quiqqer/product-bricks/bin/images/preview/Product_Bricks_Slider_1.png"/>
+            <image src="URL_OPT_DIR/quiqqer/product-bricks/bin/images/preview/Product_Bricks_Slider_2.png"/>
+            <image src="URL_OPT_DIR/quiqqer/product-bricks/bin/images/preview/Product_Bricks_Slider_3.png"/>
+            <image src="URL_OPT_DIR/quiqqer/product-bricks/bin/images/preview/Product_Bricks_Slider_4.png"/>
+        </preview>
+
         <support>
             <email><![CDATA[support@pcsg.de]]></email>
             <forum><![CDATA[https://community.quiqqer.com]]></forum>
