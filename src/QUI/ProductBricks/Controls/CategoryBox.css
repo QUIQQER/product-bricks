@@ -45,6 +45,10 @@
     max-height: 100%;
 }
 
+.quiqqer-bricks-categorybox-box-image .fa {
+    font-size: 150px;
+}
+
 .quiqqer-bricks-categorybox-box-content {
     padding: 2em;
     display: flex;
