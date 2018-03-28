@@ -47,5 +47,6 @@ If you have found an error or want improvements, please send an e-mail to suppor
 
 Licence
 -------
+GPL-3.0+
 
 
