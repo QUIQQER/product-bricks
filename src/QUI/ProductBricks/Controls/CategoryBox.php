@@ -28,11 +28,9 @@ class CategoryBox extends QUI\Control
 
         // default options
         $this->setAttributes([
-            'title'    => '',
-            'text'     => '',
-            'class'    => 'quiqqer-productbricks-categorybox',
-            'nodeName' => 'section',
-            'template' => dirname(__FILE__) . '/CategoryBox.html'
+            'class'     => 'quiqqer-productbricks-categorybox',
+            'nodeName'  => 'section',
+            'template'  => dirname(__FILE__) . '/CategoryBox.html'
         ]);
 
         $this->addCSSFile(dirname(__FILE__) . '/CategoryBox.css');
@@ -59,7 +57,9 @@ class CategoryBox extends QUI\Control
                 QUI\System\Log::writeException($Exception);
             }
         }
+
         $Engine->assign([
+            'this'    => $this,
             'entries' => $entries
         ]);
 
