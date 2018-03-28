@@ -24,6 +24,11 @@ Features
 - Delay (time between slides).
 - Auto start.
 
+#### Category-Boxes:
+- Select sites associated with your shop categories.
+- Set background color.
+- Fall back, if you site has no description.
+- If you do not connected site with category, it will be not displayed at all.
 
 
 Installation
