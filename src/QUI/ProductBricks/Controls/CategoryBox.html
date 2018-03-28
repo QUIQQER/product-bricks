@@ -13,7 +13,9 @@
             <div class="quiqqer-bricks-categorybox-box-content">
                 <h3>{$Category->getTitle()}</h3>
                 <p>{$Category->getDescription()}</p>
-                <a href="{$Category->getUrl()}" class="btn btn-primary">View products</a>
+                <a href="{$Category->getUrl()}" class="btn btn-primary">
+                    {locale group="quiqqer/product-bricks" var="brick.control.categoryBox.viewProduct"}
+                </a>
             </div>
         </div>
 

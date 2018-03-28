@@ -62,6 +62,10 @@
             <de><![CDATA[Kategorien auswählen]]></de>
             <en><![CDATA[Categories]]></en>
         </locale>
+        <locale name="brick.control.categoryBox.viewProduct">
+            <de><![CDATA[Produkte ansehen]]></de>
+            <en><![CDATA[View products]]></en>
+        </locale>
     </groups>
 
 
