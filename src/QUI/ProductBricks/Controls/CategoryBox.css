@@ -70,5 +70,12 @@
     .quiqqer-bricks-categorybox-box {
         width: calc(50% - 40px);
         min-width: 180px;
+        max-width: 320px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .quiqqer-bricks-categorybox-box {
+        width: 100%;
     }
 }
