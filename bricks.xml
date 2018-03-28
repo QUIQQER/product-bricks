@@ -61,6 +61,11 @@
                             var="brick.control.categoryBox.bgColor" />
                 </setting>
 
+                <setting name="imageAsBackground" type="checkbox">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.categoryBox.imageAsBackground"/>
+                </setting>
+
                 <setting name="site" type="hidden"
                          data-qui="controls/projects/project/site/Select">
                     <locale group="quiqqer/product-bricks"

@@ -39,6 +39,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-position: center center;
+    background-size: cover;
 }
 
 .quiqqer-bricks-categorybox-box-image img {

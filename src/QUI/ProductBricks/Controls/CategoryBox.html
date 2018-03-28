@@ -15,9 +15,14 @@
         {foreach $entries as $entry}
 
         <div class="quiqqer-bricks-categorybox-box">
+            {if $imageAsBackground}
+            <div class="quiqqer-bricks-categorybox-box-image"
+                 style="background-image: url({$entry.image});"></div>
+            {else}
             <div class="quiqqer-bricks-categorybox-box-image">
                 {image src=$entry.image width=350}
             </div>
+            {/if}
             <div class="quiqqer-bricks-categorybox-box-content">
                 <h3>{$entry.title}</h3>
                 <p>{$entry.desc}</p>

@@ -58,12 +58,12 @@
             <de><![CDATA[Hintergrundfarbe]]></de>
             <en><![CDATA[Background color]]></en>
         </locale>
-        <locale name="brick.control.categoryBox.categoryId">
-            <de><![CDATA[Kategorien auswählen]]></de>
-            <en><![CDATA[Categories]]></en>
+        <locale name="brick.control.categoryBox.imageAsBackground">
+            <de><![CDATA[Seitenbilder als Hintergrund?]]></de>
+            <en><![CDATA[Site images as background?]]></en>
         </locale>
         <locale name="brick.control.categoryBox.categorySites">
-            <de><![CDATA[Seite mit Kategorien auswählen]]></de>
+            <de><![CDATA[Seiten mit Kategorien auswählen]]></de>
             <en><![CDATA[Choose category sites]]></en>
         </locale>
         <locale name="brick.control.categoryBox.viewProduct">

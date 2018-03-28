@@ -29,6 +29,7 @@ Features
 - Set background color.
 - Fall back, if you site has no description.
 - If you do not connected site with category, it will be not displayed at all.
+- Use site image as background (fill in the entire space and ignore padding).
 
 
 Installation

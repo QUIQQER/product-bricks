@@ -28,9 +28,11 @@ class CategoryBox extends QUI\Control
 
         // default options
         $this->setAttributes([
-            'class'    => 'quiqqer-productbricks-categorybox',
-            'nodeName' => 'section',
-            'template' => dirname(__FILE__) . '/CategoryBox.html'
+            'class'             => 'quiqqer-productbricks-categorybox',
+            'nodeName'          => 'section',
+            'bgColor'           => '#fff',
+            'imageAsBackground' => false,
+            'template'          => dirname(__FILE__) . '/CategoryBox.html'
         ]);
 
         $this->addCSSFile(dirname(__FILE__) . '/CategoryBox.css');
@@ -41,6 +43,8 @@ class CategoryBox extends QUI\Control
         $Engine = QUI::getTemplateManager()->getEngine();
 
         $this->setStyle('background-color', $this->getAttribute('bgColor'));
+
+        $imageAsBackground = $this->getAttribute('imageAsBackground');
 
         $sites = QUI\Projects\Site\Utils::getSitesByInputList(
             $this->getProject(),
@@ -65,8 +69,9 @@ class CategoryBox extends QUI\Control
         }
 
         $Engine->assign([
-            'this'    => $this,
-            'entries' => $entries
+            'this'              => $this,
+            'imageAsBackground' => $imageAsBackground,
+            'entries'           => $entries
         ]);
 
 
@@ -99,7 +104,7 @@ class CategoryBox extends QUI\Control
         }
 
         return [
-//            'Site'  => $Site,
+            'Site'  => $Site,
             'title' => $title,
             'desc'  => $desc,
             'url'   => $url,
