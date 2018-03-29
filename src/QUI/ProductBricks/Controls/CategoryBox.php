@@ -32,6 +32,7 @@ class CategoryBox extends QUI\Control
             'nodeName'          => 'section',
             'bgColor'           => '#fff',
             'imageAsBackground' => false,
+            'order'             => 'name ASC',
             'template'          => dirname(__FILE__) . '/CategoryBox.html'
         ]);
 
@@ -49,17 +50,16 @@ class CategoryBox extends QUI\Control
         $sites = QUI\Projects\Site\Utils::getSitesByInputList(
             $this->getProject(),
             $this->getAttribute('site'),
-            ['limit' => 10]
+            [
+                'order' => $this->getAttribute('order'),
+                'limit' => 20
+            ]
         );
 
         $entries = [];
 
         /** @var $Entry \QUI\Projects\Site */
         foreach ($sites as $Site) {
-//            echo "<pre>";
-//            var_dump($this->checkAssignedCategory($Site));
-//            var_dump($Site->getAttribute('title'));
-//            echo "</pre>";
             // no assigned category? then skip and go to next element
             if (!$this->checkAssignedCategory($Site)) {
                 continue;
