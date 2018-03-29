@@ -70,6 +70,14 @@
             <de><![CDATA[Produkte ansehen]]></de>
             <en><![CDATA[View products]]></en>
         </locale>
+        <locale name="brick.control.categoryBox.allCategoriesUrl">
+            <de><![CDATA[URL zu "Alle Kategorien" Seite]]></de>
+            <en><![CDATA[URL to "All categories" site]]></en>
+        </locale>
+        <locale name="brick.control.categoryBox.allCategoriesUrl.button">
+            <de><![CDATA[Alle Kategorien]]></de>
+            <en><![CDATA[All categories]]></en>
+        </locale>
     </groups>
 
 

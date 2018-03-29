@@ -35,4 +35,12 @@
         {/foreach}
 
     </div>
+
+    {if $this->getAttribute('allCategoriesUrl')}
+    <div class="quiqqer-bricks-categorybox-buttonwrapper">
+        <a href="{$this->getAttribute('allCategoriesUrl')}" class="btn btn-secondary btn-outline btn-large">
+            {locale group="quiqqer/product-bricks" var="brick.control.categoryBox.allCategoriesUrl.button"}
+        </a>
+    </div>
+    {/if}
 </div>

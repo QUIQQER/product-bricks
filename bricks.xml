@@ -107,6 +107,12 @@
                             var="brick.control.categoryBox.categorySites"/>
                 </setting>
 
+                <setting name="allCategoriesUrl" class="project-site">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.categoryBox.allCategoriesUrl"/>
+                </setting>
+
+
             </settings>
         </brick>
 

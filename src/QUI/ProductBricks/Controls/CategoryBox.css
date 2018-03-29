@@ -72,6 +72,12 @@
     margin-top: auto;
 }
 
+
+.quiqqer-bricks-categorybox-buttonwrapper {
+    text-align: center;
+    margin: 2em 0;
+}
+
 @media screen and (max-width: 768px) {
     .quiqqer-bricks-categorybox-box {
         width: calc(50% - 40px);
