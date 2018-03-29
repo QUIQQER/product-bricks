@@ -30,6 +30,7 @@ Features
 - Fall back, if you site has no description.
 - If you do not connected site with category, it will be not displayed at all.
 - Use site image as background (fill in the entire space and ignore padding).
+- Select a site to show button "All categories" under the boxes.
 
 
 Installation
