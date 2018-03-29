@@ -1,3 +1,11 @@
+/**
+ * Height comes from child element
+ * (quiqqer-bricks-children-slider-container-wrapper)
+ */
+.quiqqer-productbricks-slider {
+    height: auto !important;
+}
+
 ul.quiqqer-bricks-children-slider-container-slide {
     display: flex;
 }
@@ -6,6 +14,7 @@ ul.quiqqer-bricks-children-slider-container-slide {
     width: 300px;
     display: flex;
     flex-direction: column;
+    backgorund: #fff;
 }
 
 .quiqqer-products-control-product-childrenslider-entry a {
@@ -18,24 +27,16 @@ ul.quiqqer-bricks-children-slider-container-slide {
 .quiqqer-products-control-product-childrenslider-entry-image {
     float: none;
     height: 50%;
-    /*padding: 10px;*/
-    /*width: 100%;*/
 }
 
 .quiqqer-products-control-product-childrenslider-entry-image img {
-    max-height:100%;
-    max-width:100%;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .quiqqer-products-control-product-childrenslider-entry header {
-    /*clear: both;*/
     float: none;
-    /*line-height:20px;*/
-    /*margin: 0;*/
-    /*padding: 0 10px;*/
-    /*width: 100%;*/
 }
-
 
 .quiqqer-products-control-product-childrenslider-entry .product-title {
     font-size: 1.2rem;
@@ -59,7 +60,6 @@ ul.quiqqer-bricks-children-slider-container-slide {
     margin: 0 5px;
     float: none;
 }
-
 
 .quiqqer-bricks-children-slider-container-wrapper .quiqqer-bricks-children-slider-prev,
 .quiqqer-bricks-children-slider-container-wrapper .quiqqer-bricks-children-slider-next {

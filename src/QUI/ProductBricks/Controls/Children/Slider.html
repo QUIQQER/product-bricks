@@ -1,5 +1,17 @@
-<div class="quiqqer-bricks-children-slider-container-wrapper">
-    <div class="quiqqer-bricks-children-slider-container" style="height: {$this->getAttribute('height')}px;">
+{if $this->getAttribute('showTitle') && $this->getAttribute('frontendTitle')}
+<header class="control-header">
+    <h1>{$this->getAttribute('frontendTitle')}</h1>
+</header>
+{/if}
+
+{if $this->getAttribute('content') != ""}
+<div class="control-content">
+    {$this->getAttribute('content')}
+</div>
+{/if}
+
+<div class="quiqqer-bricks-children-slider-container-wrapper" style="height: {$this->getAttribute('height')}px;">
+    <div class="quiqqer-bricks-children-slider-container">
         <div class="quiqqer-bricks-children-slider-container-inner">
             <ul class="quiqqer-bricks-children-slider-container-slide"
                 style="height: {$this->getAttribute('height')}px;"
