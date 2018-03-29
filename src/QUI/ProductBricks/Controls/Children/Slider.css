@@ -14,7 +14,7 @@ ul.quiqqer-bricks-children-slider-container-slide {
     width: 300px;
     display: flex;
     flex-direction: column;
-    backgorund: #fff;
+    background: #fff;
 }
 
 .quiqqer-products-control-product-childrenslider-entry a {
