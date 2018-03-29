@@ -116,5 +116,27 @@
             </settings>
         </brick>
 
+        <!-- Product Children Slider (horizontal) -->
+        <brick control="\QUI\ProductBricks\Controls\Children\Slider">
+            <title>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.productChildrenSlider.title"/>
+            </title>
+            <description>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.productChildrenSlider.description"/>
+            </description>
+
+            <settings>
+
+                <setting name="productIds" type="hidden"
+                         data-qui="package/quiqqer/products/bin/controls/products/Select"
+                >
+                    <locale group="quiqqer/products" var="quiqqer.products.settings.productIds"/>
+                </setting>
+
+            </settings>
+        </brick>
+
     </bricks>
 </quiqqer>
