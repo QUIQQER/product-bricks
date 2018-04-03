@@ -56,32 +56,83 @@
 
             <settings>
 
-                <!--<setting name="autostart" type="checkbox">
-                    <locale group="quiqqer/product-bricks"
-                            var="brick.control.productSlider.settings.autostart"/>
-                </setting>-->
-                <!--<setting name="delay" type="number">
-
-
-                    <locale group="quiqqer/product-bricks"
-                            var="brick.control.productSlider.settings.delay"/>
-                </setting>-->
-
                 <setting name="bgColor" type="color">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.categoryBox.bgColor" />
                 </setting>
 
-                <!--<setting name="bgImage" type="text" class="media-image">
+                <setting name="imageAsBackground" type="checkbox">
                     <locale group="quiqqer/product-bricks"
-                            var="brick.control.productSlider.bgImage" />
-                </setting>-->
+                            var="brick.control.categoryBox.imageAsBackground"/>
+                </setting>
 
-                <setting name="categoryIds" type="hidden"
-                         data-qui="package/quiqqer/products/bin/controls/categories/Select"
-                >
+                <setting name="order" type="select">
+                    <locale group="quiqqer/bricks" var="brick.control.setting.order"/>
+
+                    <option value="name ASC">
+                        <locale group="quiqqer/system" var="name_asc"/>
+                    </option>
+                    <option value="name DESC">
+                        <locale group="quiqqer/system" var="name_desc"/>
+                    </option>
+                    <option value="title ASC">
+                        <locale group="quiqqer/system" var="title_asc"/>
+                    </option>
+                    <option value="title DESC">
+                        <locale group="quiqqer/system" var="title_desc"/>
+                    </option>
+                    <option value="c_date ASC">
+                        <locale group="quiqqer/system" var="c_date_asc"/>
+                    </option>
+                    <option value="c_date DESC">
+                        <locale group="quiqqer/system" var="c_date_desc"/>
+                    </option>
+                    <option value="e_date ASC">
+                        <locale group="quiqqer/system" var="e_date_asc"/>
+                    </option>
+                    <option value="e_date DESC">
+                        <locale group="quiqqer/system" var="e_date_desc"/>
+                    </option>
+                    <option value="release_from ASC">
+                        <locale group="quiqqer/system" var="release_from_asc"/>
+                    </option>
+                    <option value="release_from DESC">
+                        <locale group="quiqqer/system" var="release_from_desc"/>
+                    </option>
+                </setting>
+
+                <setting name="site" type="hidden"
+                         data-qui="controls/projects/project/site/Select">
                     <locale group="quiqqer/product-bricks"
-                            var="brick.control.categoryBox.categoryId"/>
+                            var="brick.control.categoryBox.categorySites"/>
+                </setting>
+
+                <setting name="allCategoriesUrl" class="project-site">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.categoryBox.allCategoriesUrl"/>
+                </setting>
+
+
+            </settings>
+        </brick>
+
+        <!-- Product Children Slider (horizontal) -->
+        <brick control="\QUI\ProductBricks\Controls\Children\Slider">
+            <title>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.productChildrenSlider.title"/>
+            </title>
+            <description>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.productChildrenSlider.description"/>
+            </description>
+
+            <settings>
+
+                <setting name="productIds" type="hidden"
+                         data-qui="package/quiqqer/products/bin/controls/products/Select"
+                >
+                    <locale group="quiqqer/products" var="quiqqer.products.settings.productIds"/>
                 </setting>
 
             </settings>

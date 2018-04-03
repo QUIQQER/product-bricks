@@ -1,6 +1,3 @@
-.quiqqer-productbricks-categorybox {
-    padding: 3rem 0;
-}
 
 .quiqqer-productbricks-categorybox h2 {
     text-align: center;
@@ -39,10 +36,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-position: center center;
+    background-size: cover;
 }
 
 .quiqqer-bricks-categorybox-box-image img {
     max-height: 100%;
+}
+
+.quiqqer-bricks-categorybox-box-image .fa {
+    font-size: 150px;
 }
 
 .quiqqer-bricks-categorybox-box-content {
@@ -66,9 +69,22 @@
     margin-top: auto;
 }
 
+
+.quiqqer-bricks-categorybox-buttonwrapper {
+    text-align: center;
+    margin-top: 2em;
+}
+
 @media screen and (max-width: 768px) {
     .quiqqer-bricks-categorybox-box {
         width: calc(50% - 40px);
         min-width: 180px;
+        max-width: 320px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .quiqqer-bricks-categorybox-box {
+        width: 100%;
     }
 }

@@ -10,7 +10,7 @@ Let your products stand in a completely beautiful light.
 The Product-Bricks Module comes with a handful of new controls to put your products in the right light.
 
 
-Paketname:
+Package name:
 
     quiqqer/product-bricks
 
@@ -23,6 +23,22 @@ Features
 - Set background color and image of the slider.
 - Delay (time between slides).
 - Auto start.
+
+#### Category-Boxes:
+- Select sites associated with your shop categories.
+- Set background color.
+- Fall back, if you site has no description.
+- If you do not connected site with category, it will be not displayed at all.
+- Use site image as background (fill in the entire space and ignore padding).
+- Select a site to show button "All categories" under the boxes.
+
+#### Children Product-Slider:
+- Horizontal slider. To navigate between products use the arrows.
+- Select as many products as you wish.
+- It supports mobile view too.
+- It used the QUIQQER Children-Slider.
+- Add-to-cart animation button.
+
 
 
 

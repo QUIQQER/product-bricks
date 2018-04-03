@@ -1,0 +1,74 @@
+{if $this->getAttribute('showTitle') && $this->getAttribute('frontendTitle')}
+<header class="control-header">
+    <h1>{$this->getAttribute('frontendTitle')}</h1>
+</header>
+{/if}
+
+{if $this->getAttribute('content') != ""}
+<div class="control-content">
+    {$this->getAttribute('content')}
+</div>
+{/if}
+
+<div class="quiqqer-bricks-children-slider-container-wrapper" style="height: {$this->getAttribute('height')}px;">
+    <div class="quiqqer-bricks-children-slider-container">
+        <div class="quiqqer-bricks-children-slider-container-inner">
+            <ul class="quiqqer-bricks-children-slider-container-slide"
+                style="height: {$this->getAttribute('height')}px;"
+            >
+                {strip}
+                {foreach $products as $Entry}
+                {assign var=Product value=$Entry.Product}
+                {assign var=Price value=$Entry.Price}
+                {assign var=hasImage value=0}
+
+                {if $Product->getImage()}
+                {assign var=hasImage value=1}
+                {/if}
+                <li class="quiqqer-bricks-children-slider-child">
+                    <article class="quiqqer-bricks-children-slider-child-display quiqqer-products-control-product-childrenslider-entry"
+                             data-pid="{$Product->getId()}"
+                    >
+                        <div class="quiqqer-products-control-product-childrenslider-entry-image">
+                            <a href="{$Product->getUrl()}"
+                               title="{$Product->getTitle()|escape:" html"}"
+                            data-pid="{$Product->getId()}"
+                            >
+                            {if $hasImage}
+                            {image image=$Product->getImage() height=$this->getAttribute('height')
+                            title=$Product->getTitle()|escape:" html"
+                            alt=$Product->getTitle()|escape:" html"}
+                            {/if}
+                            </a>
+                        </div>
+
+
+                        <header>
+                            <span class="product-title">{$Product->getTitle()}</span>
+                            <span class="product-price">{$Price->create()}</span>
+                        </header>
+
+                        <div class="product-buttons">
+                            {template_event name="quiqqer::product-event::slider::buttonAddToCart" Product=$Product}
+                            <!--<a href="" class="btn btn-link add-to-card">Add to wish list</a>-->
+                            <a href="{$Product->getUrl()}"
+                               class="btn btn-primary add-to-card"
+                               data-product-id="{$Product->getId()}"
+                               data-product-animatable="true"
+                               data-qui="package/quiqqer/product-bricks/bin/controls/basket/AddToBasket"
+                            >
+                                <label>
+                                    {locale group="quiqqer/product-bricks" var="brick.control.product.addToCart"}
+                                </label>
+                                <span class="fa fa-check"></span>
+                            </a>
+                        </div>
+
+                    </article>
+                </li>
+                {/foreach}
+                {/strip}
+            </ul>
+        </div>
+    </div>
+</div>

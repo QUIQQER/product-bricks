@@ -12,10 +12,10 @@
             <en><![CDATA[This module provides several bricks to show your products in an easy way.]]></en>
         </locale>
 
-        <!-- product slider -->
+        <!-- Product Slider -->
         <locale name="brick.control.productSlider.title">
-            <de><![CDATA[Produkte: Slider]]></de>
-            <en><![CDATA[Products: Slider]]></en>
+            <de><![CDATA[Produkte: Promosslider]]></de>
+            <en><![CDATA[Products: Promoslider]]></en>
         </locale>
         <locale name="brick.control.productSlider.description">
             <de>
@@ -45,7 +45,7 @@
         </locale>
 
 
-        <!-- category boxes -->
+        <!-- Category Box -->
         <locale name="brick.control.categoryBox.title">
             <de><![CDATA[Produkte: Kategorie-Boxen]]></de>
             <en><![CDATA[Products: Category boxes]]></en>
@@ -58,13 +58,39 @@
             <de><![CDATA[Hintergrundfarbe]]></de>
             <en><![CDATA[Background color]]></en>
         </locale>
-        <locale name="brick.control.categoryBox.categoryId">
-            <de><![CDATA[Kategorien auswählen]]></de>
-            <en><![CDATA[Categories]]></en>
+        <locale name="brick.control.categoryBox.imageAsBackground">
+            <de><![CDATA[Seitenbilder als Hintergrund?]]></de>
+            <en><![CDATA[Site images as background?]]></en>
+        </locale>
+        <locale name="brick.control.categoryBox.categorySites">
+            <de><![CDATA[Seiten mit Kategorien auswählen]]></de>
+            <en><![CDATA[Choose category sites]]></en>
         </locale>
         <locale name="brick.control.categoryBox.viewProduct">
             <de><![CDATA[Produkte ansehen]]></de>
             <en><![CDATA[View products]]></en>
+        </locale>
+        <locale name="brick.control.categoryBox.allCategoriesUrl">
+            <de><![CDATA[URL zu "Alle Kategorien" Seite]]></de>
+            <en><![CDATA[URL to "All categories" site]]></en>
+        </locale>
+        <locale name="brick.control.categoryBox.allCategoriesUrl.button">
+            <de><![CDATA[Alle Kategorien]]></de>
+            <en><![CDATA[All categories]]></en>
+        </locale>
+
+        <!-- Product Children Slider (horizontal) -->
+        <locale name="brick.control.productChildrenSlider.title">
+            <de><![CDATA[Produkte: Horizontaler Slider]]></de>
+            <en><![CDATA[Products: Horizontal Slider]]></en>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.description">
+            <de><![CDATA[Ein horizontaler Slider für Produkte. Wenn der Platz nicht ausreicht, können die Produkte horizontal gescrollt werden.]]></de>
+            <en><![CDATA[Slider for products, witch can be horizontally scrolled, if there are more items as possible to show]]></en>
+        </locale>
+        <locale name="brick.control.product.addToCart">
+            <de><![CDATA[In den Warenkorb]]></de>
+            <en><![CDATA[Add to cart]]></en>
         </locale>
     </groups>
 

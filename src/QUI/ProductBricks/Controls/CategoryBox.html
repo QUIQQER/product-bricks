@@ -1,19 +1,32 @@
-<h2>Top Categories</h2>
+{if $this->getAttribute('showTitle') && $this->getAttribute('frontendTitle')}
+    <header class="control-header">
+    <h1>{$this->getAttribute('frontendTitle')}</h1>
+</header>
+{/if}
+
+{if $this->getAttribute('content') != ""}
+<div class="control-content">
+    {$this->getAttribute('content')}
+</div>
+{/if}
 
 <div class="grid-children">
     <div class="quiqqer-bricks-categorybox-wrapper grid-children-container">
-        {foreach $entries as $Category}
+        {foreach $entries as $entry}
 
         <div class="quiqqer-bricks-categorybox-box">
-            {if true}
+            {if $imageAsBackground}
+            <div class="quiqqer-bricks-categorybox-box-image"
+                 style="background-image: url({$entry.image});"></div>
+            {else}
             <div class="quiqqer-bricks-categorybox-box-image">
-
+                {image src=$entry.image width=350}
             </div>
             {/if}
             <div class="quiqqer-bricks-categorybox-box-content">
-                <h3>{$Category->getTitle()}</h3>
-                <p>{$Category->getDescription()}</p>
-                <a href="{$Category->getUrl()}" class="btn btn-primary">
+                <h3>{$entry.title}</h3>
+                <p>{$entry.desc}</p>
+                <a href="{$entry.url}" class="btn btn-primary">
                     {locale group="quiqqer/product-bricks" var="brick.control.categoryBox.viewProduct"}
                 </a>
             </div>
@@ -22,4 +35,12 @@
         {/foreach}
 
     </div>
+
+    {if $this->getAttribute('allCategoriesUrl')}
+    <div class="quiqqer-bricks-categorybox-buttonwrapper">
+        <a href="{$this->getAttribute('allCategoriesUrl')}" class="btn btn-secondary btn-outline btn-large">
+            {locale group="quiqqer/product-bricks" var="brick.control.categoryBox.allCategoriesUrl.button"}
+        </a>
+    </div>
+    {/if}
 </div>
