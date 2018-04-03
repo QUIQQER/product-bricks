@@ -57,7 +57,8 @@ ul.quiqqer-bricks-children-slider-container-slide {
     padding: 0 10px;
 }
 
-.quiqqer-products-control-product-childrenslider-entry .product-buttons .btn {
+.quiqqer-products-control-product-childrenslider-entry .product-buttons a {
+    display: inline-block;
     margin: 0 5px;
     float: none;
 }
@@ -100,3 +101,29 @@ ul.quiqqer-bricks-children-slider-container-slide {
     line-height: 100%;
     font-family: 'FontAwesome';
 }
+
+
+/* button animation */
+.product-buttons label {
+    position: relative;
+    /*left: calc(-100% - 0.75rem - 2px);*/
+    width: 100%;
+    /*transition: .25s all ease-in-out;*/
+    /*left: 0;*/
+    cursor: pointer;
+}
+
+.product-buttons .fa {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    line-height: inherit;
+    transform: scale(0);
+    opacity: 0;
+    /*transition: 0.25s all ease-in-out;*/
+}
+
+
+
+
+

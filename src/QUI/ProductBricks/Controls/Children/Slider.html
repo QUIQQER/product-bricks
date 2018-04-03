@@ -49,8 +49,19 @@
                         </header>
 
                         <div class="product-buttons">
-                            <a href="" class="btn btn-link add-to-card">Add to wish list</a>
-                            <a href="" class="btn btn-primary add-to-card">Add to card</a>
+                            {template_event name="quiqqer::product-event::slider::buttonAddToCart" Product=$Product}
+                            <!--<a href="" class="btn btn-link add-to-card">Add to wish list</a>-->
+                            <a href="{$Product->getUrl()}"
+                               class="btn btn-primary add-to-card"
+                               data-product-id="{$Product->getId()}"
+                               data-product-animatable="true"
+                               data-qui="package/quiqqer/product-bricks/bin/controls/basket/AddToBasket"
+                            >
+                                <label>
+                                    {locale group="quiqqer/product-bricks" var="brick.control.product.addToCart"}
+                                </label>
+                                <span class="fa fa-check"></span>
+                            </a>
                         </div>
 
                     </article>

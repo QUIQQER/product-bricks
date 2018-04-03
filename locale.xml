@@ -88,6 +88,10 @@
             <de><![CDATA[Ein horizontaler Slider für Produkte. Wenn der Platz nicht ausreicht, können die Produkte horizontal gescrollt werden.]]></de>
             <en><![CDATA[Slider for products, witch can be horizontally scrolled, if there are more items as possible to show]]></en>
         </locale>
+        <locale name="brick.control.product.addToCart">
+            <de><![CDATA[In den Warenkorb]]></de>
+            <en><![CDATA[Add to cart]]></en>
+        </locale>
     </groups>
 
 

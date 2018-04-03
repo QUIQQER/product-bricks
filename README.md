@@ -37,6 +37,8 @@ Features
 - Select as many products as you wish.
 - It supports mobile view too.
 - It used the QUIQQER Children-Slider.
+- Add-to-cart animation button.
+
 
 
 
