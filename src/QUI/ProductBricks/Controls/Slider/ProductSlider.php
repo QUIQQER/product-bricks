@@ -31,6 +31,7 @@ class ProductSlider extends QUI\Control
             'title'     => '',
             'text'      => '',
             'class'     => 'quiqqer-productbricks-productslider',
+            'showPrice' => false,
             'nodeName'  => 'section',
             'autostart' => false,
             'delay'     => 5000,
@@ -76,7 +77,14 @@ class ProductSlider extends QUI\Control
                 'brick.control.productSlider.buyNow'
             );
 
+            $priceHtml = '';
+
+            if ($this->getAttribute('showPrice')) {
+                $priceHtml = $this->getPriceHtml($Product);
+            }
+
             $text = '<p class="slide-product-description">' . $Product->getDescription() . '</p>';
+            $text .= $priceHtml;
             $text .= '<p><button class="btn btn-primary btn-large">' . $btnLabel . '</button>';
 
             $Slider->addSlide(
@@ -101,5 +109,34 @@ class ProductSlider extends QUI\Control
         ]);
 
         return $Engine->fetch($this->getAttribute('template'));
+    }
+
+    /**
+     * Get parsed html with price and retail price.
+     *
+     * @param $Product QUI\ERP\Products\Product\Product
+     * @return string HTML
+     */
+    private function getPriceHtml($Product)
+    {
+        $html            = '<p class="slide-product-prices">';
+        $retailPriceHtml = '';
+
+        if ($Product->getFieldValue(QUI\ERP\Products\Handler\Fields::FIELD_PRICE_RETAIL)) {
+            // todo UVP mit Peat's hilfe. Frage an Hen: ist getDefaultCurrency() ok?
+            $RetailPrice = new QUI\ERP\Money\Price(
+                $Product->getFieldValue(QUI\ERP\Products\Handler\Fields::FIELD_PRICE_RETAIL),
+                QUI\ERP\Currency\Handler::getDefaultCurrency()
+            );
+
+            $retailPriceHtml = '<span class="slide-product-prices-retail">';
+            $retailPriceHtml .= $RetailPrice->getDisplayPrice() . '</span>';
+        }
+
+        $html .= $retailPriceHtml;
+        $html .= '<span class="slide-product-prices-price">' . $Product->getPrice()->getDisplayPrice();
+        $html .= '</span></p>';
+
+        return $html;
     }
 }

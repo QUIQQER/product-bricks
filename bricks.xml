@@ -15,6 +15,10 @@
 
             <settings>
 
+                <setting name="showPrice" type="checkbox">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.showPrice"/>
+                </setting>
                 <setting name="autostart" type="checkbox">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.productSlider.settings.autostart"/>
@@ -35,9 +39,9 @@
                 </setting>
 
                 <setting name="productIds" type="hidden"
-                       data-qui="package/quiqqer/products/bin/controls/products/Select"
+                         data-qui="package/quiqqer/products/bin/controls/products/Select"
                 >
-                        <locale group="quiqqer/products" var="quiqqer.products.settings.productIds"/>
+                    <locale group="quiqqer/products" var="quiqqer.products.settings.productIds"/>
                 </setting>
 
             </settings>

@@ -1,12 +1,17 @@
 .quiqqer-productbricks-productslider {
-    background-repeat: no-repeat;
     background-position: bottom;
+    background-repeat: no-repeat;
     background-size: 100% auto;
 }
 
+.quiqqer-bricks-promoslider-slide-mobile-slide > a,
+.quiqqer-bricks-promoslider-slide > a {
+    color: inherit;
+}
+
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-wrapper {
-    padding-top: 20px;
     padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider {
@@ -14,35 +19,47 @@
 }
 
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-image {
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 100%;
     justify-content: flex-end;
     padding: 0;
-    height: 100%;
 }
 
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-image img {
-    max-width: 45%;
     max-height: 400px;
+    max-width: 45%;
 }
 
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-wrapper {
-    display: flex;
     align-items: center;
+    display: flex;
     height: 100%;
 }
 
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-display {
-    position: relative;
     padding: 0 20px 0 0;
+    position: relative;
 }
 
 .quiqqer-productbricks-productslider .slide-product-description {
     line-height: 1.5em;
 }
 
+.slide-product-prices-retail {
+    font-weight: 500;
+    margin-right: 1rem;
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+.slide-product-prices-price {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot {
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot:hover:hover,
@@ -58,15 +75,15 @@
 /* mobile */
 
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-mobile-image {
-    position: absolute;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0;
-    height: 50%;
     bottom: 0;
-    top: auto;
+    display: flex;
+    height: 50%;
+    justify-content: center;
     margin-bottom: 1em;
+    padding: 0;
+    position: absolute;
+    top: auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -79,8 +96,8 @@
     }
 
     .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-mobile {
-        text-align: center;
         height: 85vh;
+        text-align: center;
     }
 
     .quiqqer-bricks-promoslider-slide-mobile-title {
