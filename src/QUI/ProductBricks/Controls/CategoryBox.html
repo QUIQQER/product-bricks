@@ -16,8 +16,17 @@
 
         <div class="quiqqer-bricks-categorybox-box">
             {if $imageAsBackground}
-            <div class="quiqqer-bricks-categorybox-box-image"
-                 style="background-image: url({$entry.image});"></div>
+                {* Is "Site image" an image or FontAwesome icon? *}
+                {if $entry.image|strstr:"image.php"}
+                    {* Image *}
+                    <div class="quiqqer-bricks-categorybox-box-image"
+                         style="background-image: url({$entry.image});"></div>
+                {else}
+                    {* FontAwesome icon  *}
+                    <div class="quiqqer-bricks-categorybox-box-image">
+                        {image src=$entry.image width=350}
+                    </div>
+                {/if}
             {else}
             <div class="quiqqer-bricks-categorybox-box-image">
                 {image src=$entry.image width=350}
