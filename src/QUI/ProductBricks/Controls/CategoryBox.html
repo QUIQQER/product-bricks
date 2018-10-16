@@ -20,16 +20,17 @@
                 {if $entry.image|strstr:"image.php"}
                     {* Image *}
                     <div class="quiqqer-bricks-categorybox-box-image"
-                         style="background-image: url({$entry.image});"></div>
+                         style="background-image: url({image src=$entry.image width=350 onlysrc=true})"
+                         title={$entry.title}></div>
                 {else}
-                    {* FontAwesome icon  *}
-                    <div class="quiqqer-bricks-categorybox-box-image">
+                    {* FontAwesome icon *}
+                    <div class="quiqqer-bricks-categorybox-box-image" title={$entry.title}>
                         {image src=$entry.image width=350}
                     </div>
                 {/if}
             {else}
             <div class="quiqqer-bricks-categorybox-box-image">
-                {image src=$entry.image width=350}
+                {image src=$entry.image width=350 title=$entry.title}
             </div>
             {/if}
             <div class="quiqqer-bricks-categorybox-box-content">

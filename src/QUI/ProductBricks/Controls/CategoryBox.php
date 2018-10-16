@@ -99,9 +99,9 @@ class CategoryBox extends QUI\Control
         }
 
         // set placeholder if no image available
-        if (!$image) {
+        /*if (!$image) {
             $image = $this->getProject()->getMedia()->getPlaceholderImage()->getSizeCacheUrl();
-        }
+        }*/
 
         return [
             'Site'  => $Site,
