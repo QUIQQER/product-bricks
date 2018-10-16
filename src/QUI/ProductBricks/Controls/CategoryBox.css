@@ -79,7 +79,7 @@
     .quiqqer-bricks-categorybox-box {
         width: calc(50% - 40px);
         min-width: 180px;
-        max-width: 320px;
+        max-width: 360px;
     }
 }
 
