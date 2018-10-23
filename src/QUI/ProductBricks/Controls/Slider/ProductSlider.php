@@ -116,21 +116,21 @@ class ProductSlider extends QUI\Control
      *
      * @param $Product QUI\ERP\Products\Product\Product
      * @return string HTML
+     *
+     * @throws QUI\Exception
      */
     private function getPriceHtml($Product)
     {
         $html            = '<p class="slide-product-prices">';
         $retailPriceHtml = '';
 
-        if ($Product->getFieldValue(QUI\ERP\Products\Handler\Fields::FIELD_PRICE_RETAIL)) {
-            // todo UVP mit Peat's hilfe. Frage an Hen: ist getDefaultCurrency() ok?
-            $RetailPrice = new QUI\ERP\Money\Price(
-                $Product->getFieldValue(QUI\ERP\Products\Handler\Fields::FIELD_PRICE_RETAIL),
-                QUI\ERP\Currency\Handler::getDefaultCurrency()
-            );
+        try {
+            $RetailPrice = $Product->getField('FIELD_PRICE_RETAIL');
 
             $retailPriceHtml = '<span class="slide-product-prices-retail">';
-            $retailPriceHtml .= $RetailPrice->getDisplayPrice() . '</span>';
+            $retailPriceHtml .= $RetailPrice->getValue() . '</span>';
+        }  catch(QUI\Exception $Exception) {
+            QUI\System\Log::writeDebugException($Exception);
         }
 
         $html .= $retailPriceHtml;
