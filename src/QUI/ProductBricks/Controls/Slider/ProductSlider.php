@@ -121,21 +121,31 @@ class ProductSlider extends QUI\Control
      */
     private function getPriceHtml($Product)
     {
-        $html            = '<p class="slide-product-prices">';
+        $html            = '<div class="slide-product-prices">';
         $retailPriceHtml = '';
+        $Price = $Product->getPrice();
 
         try {
-            $RetailPrice = $Product->getField('FIELD_PRICE_RETAIL');
+            if ($Price->getPrice() < $Product->getFieldValue('FIELD_PRICE_RETAIL')) {
 
-            $retailPriceHtml = '<span class="slide-product-prices-retail">';
-            $retailPriceHtml .= $RetailPrice->getValue() . '</span>';
+                $DisplayRetailPrice = new QUI\ERP\Products\Controls\Price([
+                    'Price'       => new QUI\ERP\Money\Price(
+                        $Product->getFieldValue('FIELD_PRICE_RETAIL'),
+                        QUI\ERP\Currency\Handler::getDefaultCurrency()
+                    ),
+                    'withVatText' => false
+                ]);
+
+                $retailPriceHtml = '<div class="slide-product-prices-retail">';
+                $retailPriceHtml .= $DisplayRetailPrice->create() . '</div>';
+            }
         }  catch(QUI\Exception $Exception) {
             QUI\System\Log::writeDebugException($Exception);
         }
 
         $html .= $retailPriceHtml;
-        $html .= '<span class="slide-product-prices-price">' . $Product->getPrice()->getDisplayPrice();
-        $html .= '</span></p>';
+        $html .= '<span class="slide-product-prices-price">' . $Price->getDisplayPrice();
+        $html .= '</span></div>';
 
         return $html;
     }
