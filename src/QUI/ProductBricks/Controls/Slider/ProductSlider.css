@@ -42,6 +42,10 @@
     position: relative;
 }
 
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-text {
+    width: 100%;
+}
+
 .quiqqer-productbricks-productslider .slide-product-description {
     line-height: 1.5em;
 }
