@@ -123,22 +123,35 @@ class ProductSlider extends QUI\Control
     {
         $html            = '<div class="slide-product-prices">';
         $retailPriceHtml = '';
-        $Price = $Product->getPrice();
+        $CrossedOutPrice = null;
+        $Price           = $Product->getPrice();
 
         try {
-            if ($Price->getPrice() < $Product->getFieldValue('FIELD_PRICE_RETAIL')) {
-
-                $DisplayRetailPrice = new QUI\ERP\Products\Controls\Price([
+            // Offer price has higher priority than retail price
+            if ($Product->hasOfferPrice()) {
+                $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
+                    'Price'       => new QUI\ERP\Money\Price(
+                        $Product->getOriginalPrice()->getValue(),
+                        QUI\ERP\Currency\Handler::getDefaultCurrency()
+                    ),
+                    'withVatText' => false
+                ]);
+            } else if ($Product->getFieldValue('FIELD_PRICE_RETAIL') &&
+                $Price->getPrice() < $Product->getFieldValue('FIELD_PRICE_RETAIL')) {
+                $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
                     'Price'       => new QUI\ERP\Money\Price(
                         $Product->getFieldValue('FIELD_PRICE_RETAIL'),
                         QUI\ERP\Currency\Handler::getDefaultCurrency()
                     ),
                     'withVatText' => false
                 ]);
-
-                $retailPriceHtml = '<div class="slide-product-prices-retail">';
-                $retailPriceHtml .= $DisplayRetailPrice->create() . '</div>';
             }
+
+            if ($CrossedOutPrice) {
+                $retailPriceHtml = '<div class="slide-product-prices-retail">';
+                $retailPriceHtml .= $CrossedOutPrice->create() . '</div>';
+            }
+
         }  catch(QUI\Exception $Exception) {
             QUI\System\Log::writeDebugException($Exception);
         }
