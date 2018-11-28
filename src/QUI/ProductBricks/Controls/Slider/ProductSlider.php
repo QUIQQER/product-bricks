@@ -9,7 +9,6 @@ namespace QUI\ProductBricks\Controls\Slider;
 use QUI;
 use QUI\ERP\Products\Handler\Products;
 
-
 /**
  * Class ProductSlider
  *
@@ -71,7 +70,6 @@ class ProductSlider extends QUI\Control
 
         /* @var $Product QUI\ERP\Products\Product\Product */
         foreach ($products as $Product) {
-
             $btnLabel = QUI::getLocale()->get(
                 'quiqqer/product-bricks',
                 'brick.control.productSlider.buyNow'
@@ -151,8 +149,7 @@ class ProductSlider extends QUI\Control
                 $retailPriceHtml = '<div class="slide-product-prices-retail">';
                 $retailPriceHtml .= $CrossedOutPrice->create() . '</div>';
             }
-
-        }  catch(QUI\Exception $Exception) {
+        } catch (QUI\Exception $Exception) {
             QUI\System\Log::writeDebugException($Exception);
         }
 
