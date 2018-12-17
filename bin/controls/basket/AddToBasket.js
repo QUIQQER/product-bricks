@@ -8,7 +8,8 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
 
     'qui/QUI',
     'qui/controls/Control',
-    'package/quiqqer/order/bin/frontend/Basket'
+    'package/quiqqer/order/bin/frontend/Basket',
+    'css!package/quiqqer/product-bricks/bin/controls/basket/AddToBasket.css'
 
 ], function (QUI, QUIControl, Basket) {
     "use strict";
@@ -42,7 +43,7 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
                 self      = this,
                 productId = Elm.getAttribute('data-product-id');
 
-            this.animatable = Elm.getAttribute('data-product-animatable');
+            this.animatable = Elm.getAttribute('data-product-animatable') === '1';
             this.buttonWidth = Elm.getSize().x;
 
             Elm.addEvent('click', function (event) {
