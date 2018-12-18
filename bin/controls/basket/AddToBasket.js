@@ -8,10 +8,11 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
 
     'qui/QUI',
     'qui/controls/Control',
+    'qui/controls/loader/Loader',
     'package/quiqqer/order/bin/frontend/Basket',
     'css!package/quiqqer/product-bricks/bin/controls/basket/AddToBasket.css'
 
-], function (QUI, QUIControl, Basket) {
+], function (QUI, QUIControl, QUILoader, Basket) {
     "use strict";
 
     return new Class({
@@ -29,6 +30,14 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
             this.animatable = false;
             this.buttonWidth = null;
             this.animationIsRunning = false;
+            this.additionInProgress = false;
+            this.Label = null;
+            this.Icon = null;
+            this.Loader = new QUILoader({
+                type    : 'fa-refresh',
+                cssclass: 'add-to-basket-custom-loader',
+                opacity : 0.99
+            });
 
             this.addEvents({
                 onImport: this.$onImport
@@ -46,13 +55,37 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
             this.animatable = Elm.getAttribute('data-product-animatable') === '1';
             this.buttonWidth = Elm.getSize().x;
 
+            if (this.animatable) {
+                this.Icon = new Element('span', {
+                    'class': 'fa fa-check icon-animatable',
+                    styles : {
+                        position: 'absolute',
+                        opacity : 0
+                    }
+                }).inject(Elm)
+            }
+
+            this.Label = Elm.getElement('label');
+            this.Loader.inject(Elm);
+
             Elm.addEvent('click', function (event) {
                 event.stop();
-                if (self.animationIsRunning) {
+
+                // one click = add one article
+                if (self.additionInProgress) {
                     return;
                 }
 
-                self.animationIsRunning = true;
+                self.additionInProgress = true;
+
+                if (self.animatable && self.animationIsRunning) {
+                    return;
+                }
+
+                if (self.animatable) {
+                    self.animationIsRunning = true;
+                }
+
                 self.$addArticleToBasket(productId, Elm)
             })
         },
@@ -61,15 +94,27 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
          * add article to the basket
          */
         $addArticleToBasket: function (productId, Button) {
+            var self = this;
+
             if (typeof event.stop !== 'undefined') {
                 event.stop();
             }
 
-            Basket.addProduct(productId);
+            this.Label.setStyle('visibility', 'hidden');
+            this.Loader.show();
 
-            if (this.animatable) {
-                this.$animateButton(Button);
-            }
+            Basket.addProduct(productId).then(function () {
+                self.Loader.hide();
+
+                if (self.animatable) {
+                    self.$animateButton(Button).then(function() {
+                        self.additionInProgress = false;
+                    });
+                } else {
+                    self.Label.setStyle('visibility', 'visible');
+                    self.additionInProgress = false;
+                }
+            });
         },
 
         /**
@@ -79,8 +124,8 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
          */
         $animateButton: function (Button) {
             var self  = this,
-                label = Button.getElement('label'),
-                icon  = Button.getElement('.fa');
+                label = this.Label,
+                icon  = this.Icon;
 
             // work around. not good.
             moofx(label).animate({
@@ -88,7 +133,6 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
             }, {
                 duration: 1
             });
-
 
             moofx(icon).animate({
                 transform: 'scale(1)',
@@ -123,18 +167,24 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
                 }
             });
         },
-
+        
         /**
          * Show the button label
          *
          * @param label
+         * @returns {Promise}
          */
         showLabel: function (label) {
-            moofx(label).animate({
-                left: '0px'
-            }, {
-                duration: 500
-            })
+            this.Label.setStyle('visibility', 'visible');
+
+            return new Promise(function(resolve) {
+                moofx(label).animate({
+                    left: '0px'
+                }, {
+                    duration: 500,
+                    callback: resolve
+                })
+            });
         }
     });
 });
