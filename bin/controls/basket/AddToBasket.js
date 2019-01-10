@@ -86,14 +86,14 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
                     self.animationIsRunning = true;
                 }
 
-                self.$addArticleToBasket(productId, Elm)
+                self.$addArticleToBasket(event, productId, Elm)
             })
         },
 
         /**
          * add article to the basket
          */
-        $addArticleToBasket: function (productId, Button) {
+        $addArticleToBasket: function (event, productId, Button) {
             var self = this;
 
             if (typeof event.stop !== 'undefined') {
@@ -107,7 +107,7 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
                 self.Loader.hide();
 
                 if (self.animatable) {
-                    self.$animateButton(Button).then(function() {
+                    self.$animateButton(Button).then(function () {
                         self.additionInProgress = false;
                     });
                 } else {
@@ -120,65 +120,70 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
         /**
          * Start the button animation
          *
-         * @param Button
+         * @returns {Promise}
          */
-        $animateButton: function (Button) {
-            var self  = this,
-                label = this.Label,
-                icon  = this.Icon;
+        $animateButton: function () {
+            var self = this;
 
-            // work around. not good.
-            moofx(label).animate({
-                left: -this.buttonWidth
-            }, {
-                duration: 1
-            });
+            this.Label.setStyle('left', -this.buttonWidth);
 
-            moofx(icon).animate({
-                transform: 'scale(1)',
-                opacity  : 1
-            }, {
-                duration: 250,
-                callback: function () {
-                    (function () {
-                        self.hideIcon(icon);
-                        self.showLabel(label);
-                        self.animationIsRunning = false;
-                    }).delay(500);
-                }
+            return new Promise(function (resolve) {
+                moofx(self.Icon).animate({
+                    transform: 'scale(1)',
+                    opacity  : 1
+                }, {
+                    duration: 250,
+                    callback: function () {
+                        (function () {
+                            Promise.all([
+                                self.hideIcon(),
+                                self.showLabel()
+                            ]).then(function () {
+                                self.animationIsRunning = false;
+                                resolve();
+                            })
+                        }).delay(750);
+                    }
+                })
             })
         },
 
         /**
          * Hide the button icon
          *
-         * @param icon
+         * @returns {Promise}
          */
-        hideIcon: function (icon) {
-            moofx(icon).animate({
-                left: '100%'
-            }, {
-                callback: function () {
-                    icon.setStyles({
-                        left     : '',
-                        transform: '',
-                        opacity  : '0'
-                    })
-                }
+        hideIcon: function () {
+            var self = this;
+
+            return new Promise(function (resolve) {
+                moofx(self.Icon).animate({
+                    left: '100%'
+                }, {
+                    duration: 500,
+                    callback: function () {
+                        self.Icon.setStyles({
+                            left     : '',
+                            transform: '',
+                            opacity  : '0'
+                        });
+                        resolve();
+                    }
+                });
             });
         },
-        
+
         /**
          * Show the button label
          *
-         * @param label
          * @returns {Promise}
          */
-        showLabel: function (label) {
+        showLabel: function () {
+            var self = this;
             this.Label.setStyle('visibility', 'visible');
 
-            return new Promise(function(resolve) {
-                moofx(label).animate({
+            return new Promise(function (resolve) {
+                moofx(self.Label).animate({
                     left: '0px'
                 }, {
                     duration: 500,
