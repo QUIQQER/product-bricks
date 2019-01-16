@@ -142,5 +142,52 @@
             </settings>
         </brick>
 
+        <!-- Promo Box -->
+        <brick control="\QUI\ProductBricks\Controls\PromoBox">
+            <title>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.promoBox.title"/>
+            </title>
+            <description>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.promoBox.description"/>
+            </description>
+
+            <settings>
+                <setting name="image" class="media-image" type="text">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBox.image" />
+                </setting>
+
+                <setting name="url" class="project-site" type="text">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBox.url"/>
+                </setting>
+
+                <setting name="contentPosition" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBox.contentPosition"/>
+
+                    <option value="flexStart">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBox.contentPosition.flexStart"/>
+                    </option>
+                    <option value="center">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBox.contentPosition.center"/>
+                    </option>
+                    <option value="flexEnd">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBox.contentPosition.flexEnd"/>
+                    </option>
+                </setting>
+
+                <setting name="minHeight" type="number">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBox.minHeight"/>
+                </setting>
+            </settings>
+        </brick>
+
     </bricks>
 </quiqqer>

@@ -1,0 +1,20 @@
+.quiqqer-productbricks-promobox-wrapper {
+    background-size: cover;
+    background-position: center;
+}
+
+.quiqqer-productbricks-promobox-wrapper-container {
+    display :flex;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    color: #fff;
+}
+
+.quiqqer-productbricks-promobox-wrapper-container-content {
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+
+}
