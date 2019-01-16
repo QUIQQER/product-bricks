@@ -9,7 +9,6 @@ namespace QUI\ProductBricks\Controls;
 use QUI;
 use QUI\ERP\Products\Handler\Categories;
 
-
 /**
  * Class CategoryBox
  *
