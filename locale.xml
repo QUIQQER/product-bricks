@@ -96,6 +96,45 @@
             <de><![CDATA[In den Warenkorb]]></de>
             <en><![CDATA[Add to cart]]></en>
         </locale>
+
+        <!-- Promo Box -->
+        <locale name="brick.control.promoBox.title">
+            <de><![CDATA[Produkte: Promotion Box]]></de>
+            <en><![CDATA[Products: Promotion box]]></en>
+        </locale>
+        <locale name="brick.control.promoBox.description">
+            <de><![CDATA[Eine Box zum presäntieren verschiedenen Inhalte ("Neue Kolektion", "Sonderrabatte", Mitteilungen an Kunden, etc.) in Sidebar oder auch vor / nach dem Inhalt. Idealerweise verwenden Sie auch ein Bild.]]></de>
+            <en><![CDATA[A box to present various contents ("New Collection", "Special Discounts", messages to customers, etc.) in sidebar or before / after the content. Ideally you should also use a promotion picture.]]></en>
+        </locale>
+        <locale name="brick.control.promoBox.image">
+            <de><![CDATA[Hintergrundbild]]></de>
+            <en><![CDATA[Background image]]></en>
+        </locale>
+        <locale name="brick.control.promoBox.url">
+            <de><![CDATA[Url zu der gewünschten Seite]]></de>
+            <en><![CDATA[Url to the desired page]]></en>
+        </locale>
+        <locale name="brick.control.promoBox.contentPosition">
+            <de><![CDATA[Inhaltposition - wo soll der Text positioniert werden]]></de>
+            <en><![CDATA[Content position - where the text should be positioned]]></en>
+        </locale>
+            <locale name="brick.control.promoBox.contentPosition.flexStart">
+                <de><![CDATA[Oben]]></de>
+                <en><![CDATA[Top]]></en>
+            </locale>
+            <locale name="brick.control.promoBox.contentPosition.center">
+                <de><![CDATA[Mittig]]></de>
+                <en><![CDATA[Center]]></en>
+            </locale>
+            <locale name="brick.control.promoBox.contentPosition.flexEnd">
+                <de><![CDATA[Unten]]></de>
+                <en><![CDATA[Bottom]]></en>
+            </locale>
+
+        <locale name="brick.control.promoBox.minHeight">
+            <de><![CDATA[Minimale Höhe. Die Promotion Box nimmt die Höhe als Basis. Wenn der Inhalt mehr platz benötigt, wird die Box höher. Standardwert ist 250px.]]></de>
+            <en><![CDATA[Minimum height. The Promotion Box takes the height as its base. If the content needs more space, the box gets higher. Default value is 250px.]]></en>
+        </locale>
     </groups>
 
 
