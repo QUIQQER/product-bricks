@@ -1,0 +1,79 @@
+.quiqqer-productbricks-promoboxImageNextToContent-container {
+    display: flex;
+}
+
+.quiqqer-productbricks-promoboxImageNextToContent-container.layout-imageLeft .quiqqer-productbricks-promoboxImageNextToContent-container-content {
+
+}
+
+.quiqqer-productbricks-promoboxImageNextToContent-container-content,
+.quiqqer-productbricks-promoboxImageNextToContent-container-image {
+    width: 50%;
+}
+
+.quiqqer-productbricks-promoboxImageNextToContent-container-content {
+    padding: 20px;
+    display: flex;
+    margin: 0 20px 0 0;
+}
+
+.quiqqer-productbricks-promoboxImageNextToContent-container-content-wrapper {
+    width: 100%;
+}
+
+.quiqqer-productbricks-promoboxImageNextToContent-container-image {
+    margin: 0 0 0 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.quiqqer-productbricks-promoboxImageNextToContent-container-image img {
+    display: none;
+}
+
+/* layout: image on the left side */
+.quiqqer-productbricks-promoboxImageNextToContent-container.layout-imageLeft .quiqqer-productbricks-promoboxImageNextToContent-container-content {
+    order: 2;
+    margin: 0 0 0 20px;
+}
+
+.quiqqer-productbricks-promoboxImageNextToContent-container.layout-imageLeft .quiqqer-productbricks-promoboxImageNextToContent-container-image {
+    order: 1;
+    margin: 0 20px 0 0;
+}
+/* end layout */
+
+@media screen and (max-width: 767px) {
+    .quiqqer-productbricks-promoboxImageNextToContent-container {
+        flex-direction: column;
+    }
+
+    .quiqqer-productbricks-promoboxImageNextToContent-container-content {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .quiqqer-productbricks-promoboxImageNextToContent-container-image {
+        background: none !important;
+        width: 100%;
+        margin: 0;
+    }
+
+    .quiqqer-productbricks-promoboxImageNextToContent-container-image img {
+        display: block;
+    }
+
+    /* layout: image on the left side */
+    .quiqqer-productbricks-promoboxImageNextToContent-container.layout-imageLeft .quiqqer-productbricks-promoboxImageNextToContent-container-content {
+        order: 2;
+        margin: 0;
+    }
+
+    .quiqqer-productbricks-promoboxImageNextToContent-container.layout-imageLeft .quiqqer-productbricks-promoboxImageNextToContent-container-image {
+        order: 1;
+        margin: 0 0 20px 0;
+    }
+    /* end layout */
+
+}
