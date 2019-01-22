@@ -111,9 +111,21 @@
             <en><![CDATA[Background image]]></en>
         </locale>
         <locale name="brick.control.promoBox.url">
-            <de><![CDATA[Url zu der gewünschten Seite]]></de>
-            <en><![CDATA[Url to the desired page]]></en>
+            <de><![CDATA[Url zu der gewünschten Seite. Wenn Sie die Url bestimmen, verwenden Sie keine Links im Inhalt.]]></de>
+            <en><![CDATA[Url to the desired page. If you specify the url, do not use links in the content.]]></en>
         </locale>
+        <locale name="brick.control.promoBox.target">
+            <de><![CDATA[Zielfensterbasis (Target) - wo soll der Link geöfftent werden?]]></de>
+            <en><![CDATA[Target - where should the link be opened?]]></en>
+        </locale>
+            <locale name="brick.control.promoBox.target.self">
+                <de><![CDATA[Im gleichen Fenster / Tab]]></de>
+                <en><![CDATA[In same window / tab.]]></en>
+            </locale>
+            <locale name="brick.control.promoBox.target.blank">
+                <de><![CDATA[Im neuen Fenster / Tab]]></de>
+                <en><![CDATA[In new window / tab]]></en>
+            </locale>
         <locale name="brick.control.promoBox.contentPosition">
             <de><![CDATA[Inhaltposition - wo soll der Text positioniert werden]]></de>
             <en><![CDATA[Content position - where the text should be positioned]]></en>
@@ -135,6 +147,23 @@
             <de><![CDATA[Minimale Höhe. Die Promotion Box nimmt die Höhe als Basis. Wenn der Inhalt mehr platz benötigt, wird die Box höher. Standardwert ist 250px.]]></de>
             <en><![CDATA[Minimum height. The Promotion Box takes the height as its base. If the content needs more space, the box gets higher. Default value is 250px.]]></en>
         </locale>
+
+        <locale name="brick.control.promoBox.colorScheme">
+            <de><![CDATA[Farbschema. Die Einstellung hat keine Auswirkung auf die im Inhalt enthaltene Links und Schaltflächen (Buttons).]]></de>
+            <en><![CDATA[Color scheme. This setting has no effect on the links and buttons in the content.]]></en>
+        </locale>
+            <locale name="brick.control.promoBox.colorScheme.none">
+                <de><![CDATA[Keine]]></de>
+                <en><![CDATA[None]]></en>
+            </locale>
+            <locale name="brick.control.promoBox.colorScheme.light">
+                <de><![CDATA[Hell]]></de>
+                <en><![CDATA[Light]]></en>
+            </locale>
+            <locale name="brick.control.promoBox.colorScheme.dark">
+                <de><![CDATA[Dunkel]]></de>
+                <en><![CDATA[Dark]]></en>
+            </locale>
     </groups>
 
 

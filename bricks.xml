@@ -164,11 +164,25 @@
                             var="brick.control.promoBox.url"/>
                 </setting>
 
+                <setting name="target" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBox.target"/>
+
+                    <option value="_self">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBox.target.self"/>
+                    </option>
+                    <option value="_blank">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBox.target.blank"/>
+                    </option>
+                </setting>
+
                 <setting name="contentPosition" type="select">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.promoBox.contentPosition"/>
 
-                    <option value="flexStart">
+                    <option value="flex-start">
                         <locale group="quiqqer/product-bricks"
                                 var="brick.control.promoBox.contentPosition.flexStart"/>
                     </option>
@@ -176,7 +190,7 @@
                         <locale group="quiqqer/product-bricks"
                                 var="brick.control.promoBox.contentPosition.center"/>
                     </option>
-                    <option value="flexEnd">
+                    <option value="flex-end">
                         <locale group="quiqqer/product-bricks"
                                 var="brick.control.promoBox.contentPosition.flexEnd"/>
                     </option>
@@ -185,6 +199,24 @@
                 <setting name="minHeight" type="number">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.promoBox.minHeight"/>
+                </setting>
+
+                <setting name="colorScheme" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBox.colorScheme"/>
+
+                    <option value="none">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBox.colorScheme.none"/>
+                    </option>
+                    <option value="light">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBox.colorScheme.light"/>
+                    </option>
+                    <option value="dark">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBox.colorScheme.dark"/>
+                    </option>
                 </setting>
             </settings>
         </brick>

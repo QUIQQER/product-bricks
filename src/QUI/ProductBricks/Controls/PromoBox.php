@@ -33,6 +33,7 @@ class PromoBox extends QUI\Control
             'contentPosition' => 'center',
             'image'           => false,
             'url'             => false,
+            'target'          => '_self',
             'template'        => dirname(__FILE__) . '/PromoBox.html'
         ]);
 
@@ -43,13 +44,35 @@ class PromoBox extends QUI\Control
     {
         $Engine = QUI::getTemplateManager()->getEngine();
 
+        // set qui java script control
+        if ($this->getAttribute('url')) {
+            $this->setJavaScriptControl('package/quiqqer/product-bricks/bin/controls/PromoBox');
+
+            $this->setJavaScriptControlOption('url', $this->getAttribute('url'));
+
+            if ($this->getAttribute('target')) {
+                $this->setJavaScriptControlOption('target', $this->getAttribute('target'));
+            }
+        }
+
+        switch ($this->getAttribute('colorScheme')) {
+            case 'light':
+                $colorScheme = 'colorScheme-light';
+                break;
+            case 'dark':
+                $colorScheme = 'colorScheme-dark';
+                break;
+            default:
+                $colorScheme = 'colorScheme-none';
+                break;
+        }
 
         $Engine->assign([
             'this'            => $this,
             'minHeight'       => $this->getAttribute('minHeight'),
             'image'           => $this->getAttribute('image'),
             'contentPosition' => $this->getAttribute('contentPosition'),
-            'url'             => $this->getAttribute('url')
+            'colorScheme'     => $colorScheme
         ]);
 
         return $Engine->fetch($this->getAttribute('template'));

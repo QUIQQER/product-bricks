@@ -6,15 +6,20 @@
 .quiqqer-productbricks-promobox-wrapper-container {
     display :flex;
     height: 100%;
-    background: rgba(0,0,0,0.5);
     width: 100%;
+    padding: 20px;
+}
+
+.quiqqer-productbricks-promobox-wrapper-container.colorScheme-light {
+    background: rgba(255,255,255,0.5);
+    color: #303642;
+}
+
+.quiqqer-productbricks-promobox-wrapper-container.colorScheme-dark {
+    background: rgba(0,0,0,0.5);
     color: #fff;
 }
 
 .quiqqer-productbricks-promobox-wrapper-container-content {
     width: 100%;
-}
-
-@media screen and (max-width: 767px) {
-
 }

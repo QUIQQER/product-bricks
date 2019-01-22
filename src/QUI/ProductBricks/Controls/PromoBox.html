@@ -1,15 +1,13 @@
 {if $this->getAttribute('showTitle') && $this->getAttribute('frontendTitle')}
-    <header class="control-header">
+<header class="control-header">
     <h1>{$this->getAttribute('frontendTitle')}</h1>
 </header>
 {/if}
 
 <div class="quiqqer-productbricks-promobox-wrapper"
-    style="
-    {if $url}cursor: pointer;{/if}
-    {if $image}background-image: url({image src=$image width=1200 onlysrc=true});{/if}"
+    style="{if $image}background-image: url({image src=$image width=1200 onlysrc=true});{/if}"
 >
-    <div class="quiqqer-productbricks-promobox-wrapper-container"
+    <div class="quiqqer-productbricks-promobox-wrapper-container {$colorScheme}"
     style="align-items: {$contentPosition}; {if $minHeight}min-height: {$minHeight}px;{/if}">
         <div class="quiqqer-productbricks-promobox-wrapper-container-content">
             {$this->getAttribute('content')}
