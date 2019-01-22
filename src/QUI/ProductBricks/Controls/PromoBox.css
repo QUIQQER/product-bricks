@@ -23,3 +23,9 @@
 .quiqqer-productbricks-promobox-wrapper-container-content {
     width: 100%;
 }
+
+@media screen and (max-width: 767px) {
+    .quiqqer-productbricks-promobox-wrapper-container {
+        min-height: auto !important;
+    }
+}
