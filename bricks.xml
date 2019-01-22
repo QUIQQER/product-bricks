@@ -221,5 +221,85 @@
             </settings>
         </brick>
 
+        <!-- Promo Box: image next to the content -->
+        <brick control="\QUI\ProductBricks\Controls\PromoBoxImageNextToContent">
+            <title>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.promoBoxImageNextToContent.title"/>
+            </title>
+            <description>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.promoBoxImageNextToContent.description"/>
+            </description>
+
+            <settings>
+                <setting name="image" class="media-image" type="text">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBoxImageNextToContent.image" />
+                </setting>
+
+                <setting name="backgroundColor" type="color">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBoxImageNextToContent.backgroundColor"/>
+                </setting>
+
+                <setting name="url" class="project-site" type="text">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBoxImageNextToContent.url"/>
+                </setting>
+
+                <setting name="target" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBoxImageNextToContent.target"/>
+
+                    <option value="_self">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBoxImageNextToContent.target.self"/>
+                    </option>
+                    <option value="_blank">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBoxImageNextToContent.target.blank"/>
+                    </option>
+                </setting>
+
+                <setting name="contentPosition" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBoxImageNextToContent.contentPosition"/>
+
+                    <option value="flex-start">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBoxImageNextToContent.contentPosition.flexStart"/>
+                    </option>
+                    <option value="center">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBoxImageNextToContent.contentPosition.center"/>
+                    </option>
+                    <option value="flex-end">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBoxImageNextToContent.contentPosition.flexEnd"/>
+                    </option>
+                </setting>
+
+                <setting name="minHeight" type="number">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBoxImageNextToContent.minHeight"/>
+                </setting>
+
+                <setting name="layout" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.promoBoxImageNextToContent.layout"/>
+
+                    <option value="imageRight">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBoxImageNextToContent.layout.imageRight"/>
+                    </option>
+                    <option value="imageLeft">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBoxImageNextToContent.layout.imageLeft"/>
+                    </option>
+                </setting>
+            </settings>
+        </brick>
+
     </bricks>
 </quiqqer>

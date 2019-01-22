@@ -103,7 +103,7 @@
             <en><![CDATA[Products: Promotion box]]></en>
         </locale>
         <locale name="brick.control.promoBox.description">
-            <de><![CDATA[Eine Box zum presäntieren verschiedenen Inhalte ("Neue Kolektion", "Sonderrabatte", Mitteilungen an Kunden, etc.) in Sidebar oder auch vor / nach dem Inhalt. Idealerweise verwenden Sie auch ein Bild.]]></de>
+            <de><![CDATA[Eine Box zum präsentieren verschiedenen Inhalte ("Neue Kolektion", "Sonderrabatte", Mitteilungen an Kunden, etc.) in Sidebar oder auch vor / nach dem Inhalt. Idealerweise verwenden Sie auch ein Bild.]]></de>
             <en><![CDATA[A box to present various contents ("New Collection", "Special Discounts", messages to customers, etc.) in sidebar or before / after the content. Ideally you should also use a promotion picture.]]></en>
         </locale>
         <locale name="brick.control.promoBox.image">
@@ -164,6 +164,75 @@
                 <de><![CDATA[Dunkel]]></de>
                 <en><![CDATA[Dark]]></en>
             </locale>
+
+        <!-- Promo Box: image next to the content -->
+        <locale name="brick.control.promoBoxImageNextToContent.title">
+            <de><![CDATA[Produkte: Promotion Box. Bild neben dem Inhalt.]]></de>
+            <en><![CDATA[Products: Promotion box. Image next to the content]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.description">
+            <de><![CDATA[Baustein zum präsentieren von verschiedenen Inhalten ("Neue Kolektion", "Sonderrabatte", Mitteilungen an Kunden, etc.). Meistens zu verwenden vor oder nach dem Inhalt, weil der Baustein mehr platz benötigt.]]></de>
+            <en><![CDATA[Brick to present various contents ("New Collection", "Special Discounts", messages to customers, etc.). Mostly used before or after the content, because the brick needs more space.]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.image">
+            <de><![CDATA[Bild]]></de>
+            <en><![CDATA[Image]]></en>
+        </locale>
+
+        <locale name="brick.control.promoBoxImageNextToContent.backgroundColor">
+            <de><![CDATA[Inhalt Hintergrundfarbe]]></de>
+            <en><![CDATA[Content background color]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.url">
+            <de><![CDATA[Url zu der gewünschten Seite, dass auf das Bild gelegt wird. Idealerweise sollte die Url auf die gleiche Seiten zeigen, wie der Link im Inhalt.]]></de>
+            <en><![CDATA[Url to the desired page that will be placed on the image. Ideally the url should point to the same pages as the link in the content.]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.target">
+            <de><![CDATA[Zielfensterbasis (Target) - wo soll der Link geöfftent werden?]]></de>
+            <en><![CDATA[Target - where should the link be opened?]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.target.self">
+            <de><![CDATA[Im gleichen Fenster / Tab]]></de>
+            <en><![CDATA[In same window / tab.]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.target.blank">
+            <de><![CDATA[Im neuen Fenster / Tab]]></de>
+            <en><![CDATA[In new window / tab]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.contentPosition">
+            <de><![CDATA[Inhaltposition - wo soll der Text positioniert werden]]></de>
+            <en><![CDATA[Content position - where the text should be positioned]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.contentPosition.flexStart">
+            <de><![CDATA[Oben]]></de>
+            <en><![CDATA[Top]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.contentPosition.center">
+            <de><![CDATA[Mittig]]></de>
+            <en><![CDATA[Center]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.contentPosition.flexEnd">
+            <de><![CDATA[Unten]]></de>
+            <en><![CDATA[Bottom]]></en>
+        </locale>
+
+        <locale name="brick.control.promoBoxImageNextToContent.minHeight">
+            <de><![CDATA[Minimale Höhe. Der Baustein nimmt die Höhe als Basis. Wenn der Inhalt mehr platz benötigt, wird die Box höher. Standardwert ist 400px.]]></de>
+            <en><![CDATA[Minimum height. The Brick takes the height as its base. If the content needs more space, the box gets higher. Default value is 400px.]]></en>
+        </locale>
+
+        <locale name="brick.control.promoBoxImageNextToContent.layout">
+            <de><![CDATA[Layout]]></de>
+            <en><![CDATA[Layout]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.layout.imageRight">
+            <de><![CDATA[Bild auf der rechten Seite]]></de>
+            <en><![CDATA[Image on the right side]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.layout.imageLeft">
+            <de><![CDATA[Bild auf der linken Seite]]></de>
+            <en><![CDATA[Image on the left side]]></en>
+        </locale>
     </groups>
 
 
