@@ -34,6 +34,7 @@ class PromoBox extends QUI\Control
             'image'           => false,
             'url'             => false,
             'target'          => '_self',
+            'colorScheme'     => 'none',
             'template'        => dirname(__FILE__) . '/PromoBox.html'
         ]);
 
