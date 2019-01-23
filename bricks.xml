@@ -301,5 +301,100 @@
             </settings>
         </brick>
 
+        <!-- Featured Products Simple List -->
+        <brick control="\QUI\ProductBricks\Controls\FeaturedProductsListSimple">
+            <title>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.featuredProductsListSimple.title"/>
+            </title>
+            <description>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.featuredProductsListSimple.description"/>
+            </description>
+
+            <settings>
+                <!-- Box 1 -->
+                <setting name="box1.title" type="text">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.featuredProductsListSimple.box1.title"/>
+                </setting>
+                <setting name="box1.categoryId" type="hidden"
+                         data-qui="package/quiqqer/products/bin/controls/categories/Select"
+                         data-qui-options-max="1"
+                >
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.featuredProductsListSimple.box1.categoryId"/>
+                </setting>
+
+                <!-- Box 2 -->
+                <setting name="box2.title" type="text">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.featuredProductsListSimple.box2.title"/>
+                </setting>
+                <setting name="box2.categoryId" type="hidden"
+                         data-qui="package/quiqqer/products/bin/controls/categories/Select"
+                         data-qui-options-max="1"
+                >
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.featuredProductsListSimple.box2.categoryId"/>
+                </setting>
+
+                <!-- Box 3 -->
+                <setting name="box3.title" type="text">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.featuredProductsListSimple.box3.title"/>
+                </setting>
+                <setting name="box3.categoryId" type="hidden"
+                         data-qui="package/quiqqer/products/bin/controls/categories/Select"
+                         data-qui-options-max="1"
+                >
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.featuredProductsListSimple.box3.categoryId"/>
+                </setting>
+
+                <setting name="limit" type="number">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.featuredProductsListSimple.limit"/>
+                </setting>
+
+                <setting name="defaultSorting" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="sort"/>
+
+                    <option value=""/>
+                    <option value="priority">
+                        <locale group="quiqqer/product-bricks"
+                                var="sort.sorting"/>
+                    </option>
+                    <option value="c_date ASC">
+                        <locale group="quiqqer/product-bricks"
+                                var="sort.cdate.ASC"/>
+                    </option>
+                    <option value="c_date DESC">
+                        <locale group="quiqqer/product-bricks"
+                                var="sort.cdate.DESC"/>
+                    </option>
+
+                    <option value="title ASC">
+                        <locale group="quiqqer/product-bricks"
+                                var="sort.title.ASC"/>
+                    </option>
+                    <option value="title DESC">
+                        <locale group="quiqqer/product-bricks"
+                                var="sort.title.DESC"/>
+                    </option>
+
+                    <option value="productNo ASC">
+                        <locale group="quiqqer/product-bricks"
+                                var="sort.productNo.ASC"/>
+                    </option>
+                    <option value="productNo DESC">
+                        <locale group="quiqqer/product-bricks"
+                                var="sort.productNo.DESC"/>
+                    </option>
+                </setting>
+            </settings>
+        </brick>
+
     </bricks>
 </quiqqer>
