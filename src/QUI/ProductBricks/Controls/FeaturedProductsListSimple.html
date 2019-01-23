@@ -1,0 +1,35 @@
+<div class="featuredProductsSimpleList-wrapper grid-children-container">
+    {foreach $productsEntries as $entry}
+    <div class="featuredProductsSimpleList-box">
+        {if $entry.title}
+        <header class="featuredProductsSimpleList-box-header text-muted">
+            {$entry.title}
+        </header>
+        {/if}
+
+        {if isset($entry.products)}
+        <ul class="featuredProductsSimpleList-box-entries">
+            {foreach $entry.products as $Product}
+            <li class="featuredProductsSimpleList-box-entries-entry">
+                <div class="featuredProductsSimpleList-box-entries-entry-image">
+                    <a href="{$Product->getUrl()}">
+                        <img src="{$Product->getImage()->createResizeCache(80, 150)}"
+                             title="{$Product->getTitle()}" alt="{$Product->getTitle()}"/>
+                    </a>
+                </div>
+                <div class="featuredProductsSimpleList-box-entries-entry-content">
+                    <a class="featuredProductsSimpleList-box-entries-entry-content-title"
+                        href="{$Product->getUrl()}">
+                        {$Product->getTitle()}
+                    </a>
+                    <span class="featuredProductsSimpleList-box-entries-entry-content-price">
+                        49,99€
+                    </span>
+                </div>
+            </li>
+            {/foreach}
+        </ul>
+        {/if}
+    </div>
+    {/foreach}
+</div>

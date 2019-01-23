@@ -277,27 +277,27 @@
             <de><![CDATA[Mit dem Baustein können Sie bis zu 3 Boxen mit Produkten aus ausgewählten Kategorien anzeigen. Ein Box eignet sich für Footer oder Sidebar, drei Boxen passen ideal z. B. auf eine Startseite.]]></de>
             <en><![CDATA[This allows you to display up to 3 boxes of products from selected categories. One box is suitable for Footer or Sidebar, three boxes fit ideally e.g. on a start page.]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.box1.title">
+        <locale name="brick.control.featuredProductsListSimple.featured1.title">
             <de><![CDATA[Titel für die erste Box]]></de>
             <en><![CDATA[Title for the first box]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.box1.categoryId">
+        <locale name="brick.control.featuredProductsListSimple.featured1.categoryId">
             <de><![CDATA[Kategorie für die erste Box]]></de>
             <en><![CDATA[Category for the first box]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.box2.title">
+        <locale name="brick.control.featuredProductsListSimple.featured2.title">
             <de><![CDATA[Titel für die zweite Box]]></de>
             <en><![CDATA[Title for the second box]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.box2.categoryId">
+        <locale name="brick.control.featuredProductsListSimple.featured2.categoryId">
             <de><![CDATA[Kategorie für die zweite Box]]></de>
             <en><![CDATA[Category for the second box]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.box3.title">
+        <locale name="brick.control.featuredProductsListSimple.featured3.title">
             <de><![CDATA[Titel für die dritte Box]]></de>
             <en><![CDATA[Title for the third box]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.box3.categoryId">
+        <locale name="brick.control.featuredProductsListSimple.featured3.categoryId">
             <de><![CDATA[Kategorie für die dritte Box]]></de>
             <en><![CDATA[Category for the third box]]></en>
         </locale>
