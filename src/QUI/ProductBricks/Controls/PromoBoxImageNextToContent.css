@@ -28,6 +28,11 @@
     background-size: auto;
 }
 
+.quiqqer-productbricks-promoboxImageNextToContent-container-image a {
+    display: block;
+    height: 100%;
+}
+
 .quiqqer-productbricks-promoboxImageNextToContent-container-image img {
     display: none;
 }
