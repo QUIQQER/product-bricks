@@ -47,9 +47,10 @@ class ProductSlider extends QUI\Control
             'shownavigation' => true,
             'showarrows'     => $this->getAttribute('showHoverScale'),
             'autostart'      => $this->getAttribute('autostart'),
-            'delay'          => $this->getAttribute('delay'),
-            'template'       => dirname(__FILE__) . '/ProductSlider.Template.html'
+            'delay'          => $this->getAttribute('delay')
         ]);
+
+        var_dump(file_exists(dirname(__FILE__) . '/ProductSlider.Template.html'));
 
         $this->setStyle('background-color', $this->getAttribute('bgColor'));
         $this->setStyle('background-image', 'url(' . $this->getAttribute('bgImage') . ')');

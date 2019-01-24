@@ -1,5 +1,5 @@
 <div class="featuredProductsSimpleList-wrapper grid-children-container">
-    {foreach $productsEntries as $entry}
+    {foreach $featuredData as $entry}
     <div class="featuredProductsSimpleList-box">
         {if $entry.title}
         <header class="featuredProductsSimpleList-box-header text-muted">
@@ -22,9 +22,11 @@
                         href="{$Product->getUrl()}">
                         {$Product->getTitle()}
                     </a>
-                    <span class="featuredProductsSimpleList-box-entries-entry-content-price">
-                        49,99€
-                    </span>
+                    <div class="featuredProductsSimpleList-box-entries-entry-content-price">
+                        {assign var=Price value=$Product->getPriceDisplay()}
+                        {assign var=_tmp value=$Price->setAttribute('withVatText', false)}
+                        {$Price->create()}
+                    </div>
                 </div>
             </li>
             {/foreach}

@@ -6,6 +6,7 @@
 
 namespace QUI\ProductBricks\Controls;
 
+use function DusanKasan\Knapsack\concat;
 use QUI;
 use QUI\ERP\Products\Handler\Products;
 
@@ -43,6 +44,13 @@ class FeaturedProductsListSimple extends QUI\Control
         $this->addCSSFile(dirname(__FILE__) . '/FeaturedProductsListSimple.css');
     }
 
+    /**
+     * (non-PHPdoc)
+     *
+     * @see \QUI\Control::create()
+     *
+     * @throws QUI\Exception
+     */
     public function getBody()
     {
         $Engine = QUI::getTemplateManager()->getEngine();
@@ -57,50 +65,45 @@ class FeaturedProductsListSimple extends QUI\Control
         $featuredTitle2 = false;
         $featuredTitle3 = false;
 
-        $productsEntries = [];
+        $featuredData = [];
 
         if ($this->getAttribute('featured1.categoryId')) {
-            $productsEntries[] = [
+            $featuredData[] = [
                 'title'    => $this->getAttribute('featured1.title'),
-                'products' => $this->getProducts([
+                'url' => '',
+                'products' => $this->getProductsViews($this->getProducts([
                     'categoryId' => $this->getAttribute('featured1.categoryId')
-                ])
+                ]))
             ];
         }
 
         if ($this->getAttribute('featured2.categoryId')) {
-            $productsEntries[] = [
+            $featuredData[] = [
                 'title'    => $this->getAttribute('featured2.title'),
-                'products' => $this->getProducts([
+                'products' => $this->getProductsViews($this->getProducts([
                     'categoryId' => $this->getAttribute('featured2.categoryId')
-                ])
+                ]))
             ];
         }
 
         if ($this->getAttribute('featured3.categoryId')) {
-            $productsEntries[] = [
+            $featuredData[] = [
                 'title'    => $this->getAttribute('featured3.title'),
-                'products' => $this->getProducts([
+                'products' => $this->getProductsViews($this->getProducts([
                     'categoryId' => $this->getAttribute('featured3.categoryId')
-                ])
+                ]))
             ];
         }
 
-        foreach ($productsEntries[0]['products'] as $Product) {
-            /** @var QUI\ERP\Products\Product\Product $Product */
-            $Product->getUrl();
-        }
-
-
         $Engine->assign([
-            'this'            => $this,
-            'featuredTitle1'  => $featuredTitle1,
-            'featuredTitle2'  => $featuredTitle2,
-            'featuredTitle3'  => $featuredTitle3,
-            'featured1'       => $featured1,
-            'featured2'       => $featured2,
-            'featured3'       => $featured3,
-            'productsEntries' => $productsEntries
+            'this'           => $this,
+            'featuredTitle1' => $featuredTitle1,
+            'featuredTitle2' => $featuredTitle2,
+            'featuredTitle3' => $featuredTitle3,
+            'featured1'      => $featured1,
+            'featured2'      => $featured2,
+            'featured3'      => $featured3,
+            'featuredData'   => $featuredData
         ]);
 
         return $Engine->fetch($this->getAttribute('template'));
@@ -156,5 +159,35 @@ class FeaturedProductsListSimple extends QUI\Control
         }
 
         return Products::getProducts($query);
+    }
+
+
+    /**
+     * Returns array of product views
+     *
+     * @param array $products - array with products
+     * @return array|bool
+     */
+    private function getProductsViews ($products = [])
+    {
+        if (!is_array($products) || empty($products)) {
+            return false;
+        }
+
+        $productsView = [];
+
+        foreach ($products as $Product) {
+            /** @var QUI\ERP\Products\Product\Product $Product */
+            try {
+                $ProductView = $Product->getView();
+            } catch (QUI\Exception $Exception) {
+                $ProductView = null;
+                QUI\System\Log::writeException($Exception);
+            }
+
+            $productsView[] = $ProductView;
+        }
+
+        return $productsView;
     }
 }
