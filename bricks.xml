@@ -302,59 +302,75 @@
         </brick>
 
         <!-- Featured Products Simple List -->
-        <brick control="\QUI\ProductBricks\Controls\FeaturedProductsListSimple">
+        <brick control="\QUI\ProductBricks\Controls\FeaturedProducts">
             <title>
                 <locale group="quiqqer/product-bricks"
-                        var="brick.control.featuredProductsListSimple.title"/>
+                        var="brick.control.featuredProducts.title"/>
             </title>
             <description>
                 <locale group="quiqqer/product-bricks"
-                        var="brick.control.featuredProductsListSimple.description"/>
+                        var="brick.control.featuredProducts.description"/>
             </description>
 
             <settings>
+
+                <!-- Layout -->
+                <setting name="layout" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.featuredProducts.layout"/>
+
+                    <option value="list">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.featuredProducts.layout.list"/>
+                    </option>
+                    <option value="gallery">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.featuredProducts.layout.gallery"/>
+                    </option>
+                </setting>
+
                 <!-- Featured products 1 (box 3) -->
                 <setting name="featured1.title" type="text">
                     <locale group="quiqqer/product-bricks"
-                            var="brick.control.featuredProductsListSimple.featured1.title"/>
+                            var="brick.control.featuredProducts.featured1.title"/>
                 </setting>
                 <setting name="featured1.categoryId" type="hidden"
                          data-qui="package/quiqqer/products/bin/controls/categories/Select"
                          data-qui-options-max="1"
                 >
                     <locale group="quiqqer/product-bricks"
-                            var="brick.control.featuredProductsListSimple.featured1.categoryId"/>
+                            var="brick.control.featuredProducts.featured1.categoryId"/>
                 </setting>
 
                 <!-- Featured products 2 (box 3) -->
                 <setting name="featured2.title" type="text">
                     <locale group="quiqqer/product-bricks"
-                            var="brick.control.featuredProductsListSimple.featured2.title"/>
+                            var="brick.control.featuredProducts.featured2.title"/>
                 </setting>
                 <setting name="featured2.categoryId" type="hidden"
                          data-qui="package/quiqqer/products/bin/controls/categories/Select"
                          data-qui-options-max="1"
                 >
                     <locale group="quiqqer/product-bricks"
-                            var="brick.control.featuredProductsListSimple.featured2.categoryId"/>
+                            var="brick.control.featuredProducts.featured2.categoryId"/>
                 </setting>
 
                 <!-- Featured products 3 (box 3) -->
                 <setting name="featured3.title" type="text">
                     <locale group="quiqqer/product-bricks"
-                            var="brick.control.featuredProductsListSimple.featured3.title"/>
+                            var="brick.control.featuredProducts.featured3.title"/>
                 </setting>
                 <setting name="featured3.categoryId" type="hidden"
                          data-qui="package/quiqqer/products/bin/controls/categories/Select"
                          data-qui-options-max="1"
                 >
                     <locale group="quiqqer/product-bricks"
-                            var="brick.control.featuredProductsListSimple.featured3.categoryId"/>
+                            var="brick.control.featuredProducts.featured3.categoryId"/>
                 </setting>
 
                 <setting name="limit" type="number">
                     <locale group="quiqqer/product-bricks"
-                            var="brick.control.featuredProductsListSimple.limit"/>
+                            var="brick.control.featuredProducts.limit"/>
                 </setting>
 
                 <setting name="order" type="select">

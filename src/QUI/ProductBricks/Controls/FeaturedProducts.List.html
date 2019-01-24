@@ -1,28 +1,40 @@
-<div class="featuredProductsSimpleList-wrapper grid-children-container">
+{if $this->getAttribute('showTitle') && $this->getAttribute('frontendTitle')}
+<header class="control-header">
+    <h1>{$this->getAttribute('frontendTitle')}</h1>
+</header>
+{/if}
+
+{if $this->getAttribute('content') != ""}
+<div class="control-content">
+    {$this->getAttribute('content')}
+</div>
+{/if}
+
+<div class="featuredProducts-wrapper grid-children-container">
     {foreach $featuredData as $entry}
-    <div class="featuredProductsSimpleList-box">
+    <div class="featuredProducts-box">
         {if $entry.title}
-        <header class="featuredProductsSimpleList-box-header text-muted">
+        <header class="featuredProducts-box-header text-muted">
             {$entry.title}
         </header>
         {/if}
 
         {if isset($entry.products)}
-        <ul class="featuredProductsSimpleList-box-entries">
+        <ul class="featuredProducts-box-entries">
             {foreach $entry.products as $Product}
-            <li class="featuredProductsSimpleList-box-entries-entry">
-                <div class="featuredProductsSimpleList-box-entries-entry-image">
+            <li class="featuredProducts-box-entries-entry">
+                <div class="featuredProducts-box-entries-entry-image">
                     <a href="{$Product->getUrl()}">
                         <img src="{$Product->getImage()->createResizeCache(80, 150)}"
                              title="{$Product->getTitle()}" alt="{$Product->getTitle()}"/>
                     </a>
                 </div>
-                <div class="featuredProductsSimpleList-box-entries-entry-content">
-                    <a class="featuredProductsSimpleList-box-entries-entry-content-title"
+                <div class="featuredProducts-box-entries-entry-content">
+                    <a class="featuredProducts-box-entries-entry-content-title"
                         href="{$Product->getUrl()}">
                         {$Product->getTitle()}
                     </a>
-                    <div class="featuredProductsSimpleList-box-entries-entry-content-price">
+                    <div class="featuredProducts-box-entries-entry-content-price">
                         {assign var=Price value=$Product->getPriceDisplay()}
                         {assign var=_tmp value=$Price->setAttribute('withVatText', false)}
                         {$Price->create()}

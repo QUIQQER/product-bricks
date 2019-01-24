@@ -269,39 +269,51 @@
         </locale>
 
         <!-- Featured Products Simple List -->
-        <locale name="brick.control.featuredProductsListSimple.title">
-            <de><![CDATA[Produkte: Featured Products - einfache Liste]]></de>
-            <en><![CDATA[Products: Featured Products - simple list]]></en>
+        <locale name="brick.control.featuredProducts.title">
+            <de><![CDATA[Produkte: Featured Products]]></de>
+            <en><![CDATA[Products: Featured Products]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.description">
+        <locale name="brick.control.featuredProducts.description">
             <de><![CDATA[Mit dem Baustein können Sie bis zu 3 Boxen mit Produkten aus ausgewählten Kategorien anzeigen. Ein Box eignet sich für Footer oder Sidebar, drei Boxen passen ideal z. B. auf eine Startseite.]]></de>
             <en><![CDATA[This allows you to display up to 3 boxes of products from selected categories. One box is suitable for Footer or Sidebar, three boxes fit ideally e.g. on a start page.]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.featured1.title">
+        <locale name="brick.control.featuredProducts.layout">
+            <de><![CDATA[Layout]]></de>
+            <en><![CDATA[Layout]]></en>
+        </locale>
+            <locale name="brick.control.featuredProducts.layout.list">
+                <de><![CDATA[Liste]]></de>
+                <en><![CDATA[List]]></en>
+            </locale>
+            <locale name="brick.control.featuredProducts.layout.gallery">
+                <de><![CDATA[Galerie]]></de>
+                <en><![CDATA[Gallery]]></en>
+            </locale>
+        <locale name="brick.control.featuredProducts.featured1.title">
             <de><![CDATA[Titel für die erste Box]]></de>
             <en><![CDATA[Title for the first box]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.featured1.categoryId">
+        <locale name="brick.control.featuredProducts.featured1.categoryId">
             <de><![CDATA[Kategorie für die erste Box]]></de>
             <en><![CDATA[Category for the first box]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.featured2.title">
+        <locale name="brick.control.featuredProducts.featured2.title">
             <de><![CDATA[Titel für die zweite Box]]></de>
             <en><![CDATA[Title for the second box]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.featured2.categoryId">
+        <locale name="brick.control.featuredProducts.featured2.categoryId">
             <de><![CDATA[Kategorie für die zweite Box]]></de>
             <en><![CDATA[Category for the second box]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.featured3.title">
+        <locale name="brick.control.featuredProducts.featured3.title">
             <de><![CDATA[Titel für die dritte Box]]></de>
             <en><![CDATA[Title for the third box]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.featured3.categoryId">
+        <locale name="brick.control.featuredProducts.featured3.categoryId">
             <de><![CDATA[Kategorie für die dritte Box]]></de>
             <en><![CDATA[Category for the third box]]></en>
         </locale>
-        <locale name="brick.control.featuredProductsListSimple.limit">
+        <locale name="brick.control.featuredProducts.limit">
             <de><![CDATA[Maximale Anzahl angezeigter Produkte]]></de>
             <en><![CDATA[Maximum number of products]]></en>
         </locale>

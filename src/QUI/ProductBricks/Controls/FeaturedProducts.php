@@ -1,12 +1,11 @@
 <?php
 
 /**
- * This file contains QUI\ProductBricks\Controls\FeaturedProductsListSimple
+ * This file contains QUI\ProductBricks\Controls\FeaturedProducts
  */
 
 namespace QUI\ProductBricks\Controls;
 
-use function DusanKasan\Knapsack\concat;
 use QUI;
 use QUI\ERP\Products\Handler\Products;
 
@@ -15,7 +14,7 @@ use QUI\ERP\Products\Handler\Products;
  *
  * @package QUI\Bricks\Controls
  */
-class FeaturedProductsListSimple extends QUI\Control
+class FeaturedProducts extends QUI\Control
 {
     /**
      * constructor
@@ -28,20 +27,20 @@ class FeaturedProductsListSimple extends QUI\Control
 
         // default options
         $this->setAttributes([
-            'class'                => 'quiqqer-productbricks-featuredProductsSimpleList',
+            'class'                => 'quiqqer-productbricks-featuredProducts',
             'nodeName'             => 'section',
             'limit'                => 5,
             'order'                => 'c_date DESC',
+            'layout'               => 'list',
             'featured1.title'      => false,
             'featured1.categoryId' => false, // Featured products category ID's
             'featured2.title'      => false,
             'featured2.categoryId' => false, // Featured products category ID's
             'featured3.title'      => false,
             'featured3.categoryId' => false, // Featured products category ID's
-            'template'             => dirname(__FILE__) . '/FeaturedProductsListSimple.html'
+            'customTemplate'       => false, // Custom template (path to html file). Overwrites "layout".
+            'customCss'            => false  // Custom  template css (path to css file). Overwrites "layout".
         ]);
-
-        $this->addCSSFile(dirname(__FILE__) . '/FeaturedProductsListSimple.css');
     }
 
     /**
@@ -95,6 +94,27 @@ class FeaturedProductsListSimple extends QUI\Control
             ];
         }
 
+        switch ($this->getAttribute('layout')) {
+            case 'gallery':
+                $templateFile = dirname(__FILE__) . '/FeaturedProducts.Gallery.html';
+                $cssFile      = dirname(__FILE__) . '/FeaturedProducts.Gallery.css';
+                break;
+            case 'list':
+            default:
+                $templateFile = dirname(__FILE__) . '/FeaturedProducts.List.html';
+                $cssFile      = dirname(__FILE__) . '/FeaturedProducts.List.css';
+        }
+
+        // custom template
+        if ($this->getAttribute('customTemplate')) {
+            $templateFile = $this->getAttribute('customTemplate');
+        }
+
+        // custom css
+        if ($this->getAttribute('customCss')) {
+            $templateFile = $this->getAttribute('customCss');
+        }
+
         $Engine->assign([
             'this'           => $this,
             'featuredTitle1' => $featuredTitle1,
@@ -106,7 +126,9 @@ class FeaturedProductsListSimple extends QUI\Control
             'featuredData'   => $featuredData
         ]);
 
-        return $Engine->fetch($this->getAttribute('template'));
+        $this->addCSSFile($cssFile);
+
+        return $Engine->fetch($templateFile);
     }
 
     /**
