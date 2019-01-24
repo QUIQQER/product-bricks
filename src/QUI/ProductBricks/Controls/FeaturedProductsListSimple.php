@@ -70,7 +70,7 @@ class FeaturedProductsListSimple extends QUI\Control
         if ($this->getAttribute('featured1.categoryId')) {
             $featuredData[] = [
                 'title'    => $this->getAttribute('featured1.title'),
-                'url' => '',
+                'url'      => '',
                 'products' => $this->getProductsViews($this->getProducts([
                     'categoryId' => $this->getAttribute('featured1.categoryId')
                 ]))
@@ -168,7 +168,7 @@ class FeaturedProductsListSimple extends QUI\Control
      * @param array $products - array with products
      * @return array|bool
      */
-    private function getProductsViews ($products = [])
+    private function getProductsViews($products = [])
     {
         if (!is_array($products) || empty($products)) {
             return false;
