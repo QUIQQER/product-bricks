@@ -10,31 +10,31 @@
 </div>
 {/if}
 
-<div class="featuredProducts-wrapper grid-children-container">
+<div class="featuredProducts-list-wrapper grid-children-container">
     {foreach $featuredData as $entry}
-    <div class="featuredProducts-box">
+    <div class="featuredProducts-list-box">
         {if $entry.title}
-        <header class="featuredProducts-box-header text-muted">
+        <header class="featuredProducts-list-box-header text-muted">
             {$entry.title}
         </header>
         {/if}
 
         {if isset($entry.products)}
-        <ul class="featuredProducts-box-entries">
+        <ul class="featuredProducts-list-box-entries">
             {foreach $entry.products as $Product}
-            <li class="featuredProducts-box-entries-entry">
-                <div class="featuredProducts-box-entries-entry-image">
+            <li class="featuredProducts-list-box-entries-entry">
+                <div class="featuredProducts-list-box-entries-entry-image">
                     <a href="{$Product->getUrl()}">
                         <img src="{$Product->getImage()->createResizeCache(80, 150)}"
                              title="{$Product->getTitle()}" alt="{$Product->getTitle()}"/>
                     </a>
                 </div>
-                <div class="featuredProducts-box-entries-entry-content">
-                    <a class="featuredProducts-box-entries-entry-content-title"
+                <div class="featuredProducts-list-box-entries-entry-content">
+                    <a class="featuredProducts-list-box-entries-entry-content-title"
                         href="{$Product->getUrl()}">
                         {$Product->getTitle()}
                     </a>
-                    <div class="featuredProducts-box-entries-entry-content-price">
+                    <div class="featuredProducts-list-box-entries-entry-content-price">
                         {assign var=Price value=$Product->getPriceDisplay()}
                         {assign var=_tmp value=$Price->setAttribute('withVatText', false)}
                         {$Price->create()}

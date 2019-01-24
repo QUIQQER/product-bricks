@@ -57,12 +57,6 @@ class FeaturedProducts extends QUI\Control
         if (!$this->getAttribute('limit') || $this->getAttribute('limit') == '') {
             $this->setAttribute('limit', 5);
         }
-        $featured1      = false;
-        $featured2      = false;
-        $featured3      = false;
-        $featuredTitle1 = false;
-        $featuredTitle2 = false;
-        $featuredTitle3 = false;
 
         $featuredData = [];
 
@@ -116,14 +110,8 @@ class FeaturedProducts extends QUI\Control
         }
 
         $Engine->assign([
-            'this'           => $this,
-            'featuredTitle1' => $featuredTitle1,
-            'featuredTitle2' => $featuredTitle2,
-            'featuredTitle3' => $featuredTitle3,
-            'featured1'      => $featured1,
-            'featured2'      => $featured2,
-            'featured3'      => $featured3,
-            'featuredData'   => $featuredData
+            'this'         => $this,
+            'featuredData' => $featuredData
         ]);
 
         $this->addCSSFile($cssFile);
