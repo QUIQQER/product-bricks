@@ -268,7 +268,7 @@
             <en><![CDATA[Image on the left side]]></en>
         </locale>
 
-        <!-- Featured Products Simple List -->
+        <!-- Featured Products -->
         <locale name="brick.control.featuredProducts.title">
             <de><![CDATA[Produkte: Featured Products]]></de>
             <en><![CDATA[Products: Featured Products]]></en>
@@ -316,6 +316,11 @@
         <locale name="brick.control.featuredProducts.limit">
             <de><![CDATA[Maximale Anzahl angezeigter Produkte]]></de>
             <en><![CDATA[Maximum number of products]]></en>
+        </locale>
+        <!-- featured product show product button -->
+        <locale name="brick.control.featuredProducts.button.showProduct">
+            <de><![CDATA[Produkt ansehen]]></de>
+            <en><![CDATA[Show product]]></en>
         </locale>
     </groups>
 

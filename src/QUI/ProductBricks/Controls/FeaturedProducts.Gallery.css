@@ -26,7 +26,6 @@
     flex-direction: column;
     padding: 10px;
     border: 1px solid #ddd;
-    /* min-width: 300px; */
     max-width: 600px;
     flex-grow: 1;
     flex-shrink: 1;
@@ -36,11 +35,18 @@
 
 .featuredProducts-gallery-box-entries-entry-image {
     flex-shrink: 0;
-    height: 50%;
-    min-width: 260px;
+    min-width: 240px;
+    height: 150px;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .featuredProducts-gallery-box-entries-entry-image a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 
 .featuredProducts-gallery-box-entries-entry-image img {
@@ -51,6 +57,7 @@
 .featuredProducts-gallery-box-entries-entry-title {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    color: inherit;
 }
 
 .featuredProducts-gallery-box-entries-entry-price {
@@ -60,4 +67,5 @@
 
 .featuredProducts-gallery-box-entries-entry-link {
     margin-top: auto;
+    align-self: center;
 }

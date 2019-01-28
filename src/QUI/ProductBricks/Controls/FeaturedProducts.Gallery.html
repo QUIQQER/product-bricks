@@ -29,10 +29,12 @@
                              title="{$Product->getTitle()}" alt="{$Product->getTitle()}"/>
                     </a>
                 </div>
-                <a class="featuredProducts-gallery-box-entries-entry-title"
-                   href="{$Product->getUrl()}">
-                    {$Product->getTitle()}
-                </a>
+                <h3>
+                    <a class="featuredProducts-gallery-box-entries-entry-title"
+                       href="{$Product->getUrl()}">
+                        {$Product->getTitle()}
+                    </a>
+                </h3>
                 <div class="featuredProducts-gallery-box-entries-entry-price">
                     {assign var=Price value=$Product->getPriceDisplay()}
                     {assign var=_tmp value=$Price->setAttribute('withVatText', false)}
@@ -41,7 +43,7 @@
 
                 <a class="btn btn-primary featuredProducts-gallery-box-entries-entry-link"
                    href="{$Product->getUrl()}">
-                    Produkt ansehen
+                    {locale group="quiqqer/product-bricks" var="brick.control.featuredProducts.button.showProduct"}
                 </a>
             </div>
             {/foreach}
