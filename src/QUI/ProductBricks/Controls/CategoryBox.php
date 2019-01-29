@@ -139,7 +139,6 @@ class CategoryBox extends QUI\Control
             $this->getCategoryFromSite($Site);
 
             return true;
-
         } catch (QUI\Exception $Exception) {
             QUI\System\Log::writeException($Exception);
         }
