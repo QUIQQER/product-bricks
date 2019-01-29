@@ -9,7 +9,6 @@ namespace QUI\ProductBricks\Controls;
 use QUI;
 use QUI\ERP\Products\Handler\Categories;
 
-
 /**
  * Class CategoryBox
  *
@@ -144,7 +143,6 @@ class CategoryBox extends QUI\Control
         } catch (QUI\Exception $Exception) {
             QUI\System\Log::writeException($Exception);
         }
-
         return false;
     }
 
