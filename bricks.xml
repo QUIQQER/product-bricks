@@ -38,6 +38,20 @@
                             var="brick.control.productSlider.bgImage" />
                 </setting>
 
+                <setting name="dotsAppearance" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.dotsAppearance"/>
+
+                    <option value="dark">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productSlider.dotsAppearance.dark"/>
+                    </option>
+                    <option value="light">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productSlider.dotsAppearance.light"/>
+                    </option>
+                </setting>
+
                 <setting name="productIds" type="hidden"
                          data-qui="package/quiqqer/products/bin/controls/products/Select"
                 >

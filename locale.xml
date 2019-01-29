@@ -77,6 +77,18 @@
             <de><![CDATA[Hintergrundbild]]></de>
             <en><![CDATA[Background image]]></en>
         </locale>
+        <locale name="brick.control.productSlider.dotsAppearance">
+            <de><![CDATA[Navigationspunke Darstellung]]></de>
+            <en><![CDATA[Navigations dots appearance]]></en>
+        </locale>
+            <locale name="brick.control.productSlider.dotsAppearance.dark">
+                <de><![CDATA[Dunkel]]></de>
+                <en><![CDATA[Dark]]></en>
+            </locale>
+            <locale name="brick.control.productSlider.dotsAppearance.light">
+                <de><![CDATA[Hell]]></de>
+                <en><![CDATA[Light]]></en>
+            </locale>
         <locale name="brick.control.productSlider.buyNow">
             <de><![CDATA[Jetzt kaufen]]></de>
             <en><![CDATA[Buy now]]></en>

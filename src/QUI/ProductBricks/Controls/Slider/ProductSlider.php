@@ -27,14 +27,15 @@ class ProductSlider extends QUI\Control
 
         // default options
         $this->setAttributes([
-            'title'     => '',
-            'text'      => '',
-            'class'     => 'quiqqer-productbricks-productslider',
-            'showPrice' => false,
-            'nodeName'  => 'section',
-            'autostart' => false,
-            'delay'     => 5000,
-            'template'  => dirname(__FILE__) . '/ProductSlider.html'
+            'title'          => '',
+            'text'           => '',
+            'class'          => 'quiqqer-productbricks-productslider',
+            'showPrice'      => false,
+            'nodeName'       => 'section',
+            'autostart'      => false,
+            'delay'          => 5000,
+            'dotsAppearance' => 'dark', // slider navigation dots
+            'template'       => dirname(__FILE__) . '/ProductSlider.html'
         ]);
 
         $this->addCSSFile(dirname(__FILE__) . '/ProductSlider.css');
@@ -49,9 +50,10 @@ class ProductSlider extends QUI\Control
             'autostart'      => $this->getAttribute('autostart'),
             'delay'          => $this->getAttribute('delay')
         ]);
-        
+
         $this->setStyle('background-color', $this->getAttribute('bgColor'));
         $this->setStyle('background-image', 'url(' . $this->getAttribute('bgImage') . ')');
+        $this->setAttribute('data-dots-appearance', $this->getAttribute('dotsAppearance'));
 
         $productIds = $this->getAttribute('productIds');
         $productIds = explode(',', $productIds);
@@ -133,15 +135,17 @@ class ProductSlider extends QUI\Control
                     ),
                     'withVatText' => false
                 ]);
-            } else if ($Product->getFieldValue('FIELD_PRICE_RETAIL') &&
-                $Price->getPrice() < $Product->getFieldValue('FIELD_PRICE_RETAIL')) {
-                $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
-                    'Price'       => new QUI\ERP\Money\Price(
-                        $Product->getFieldValue('FIELD_PRICE_RETAIL'),
-                        QUI\ERP\Currency\Handler::getDefaultCurrency()
-                    ),
-                    'withVatText' => false
-                ]);
+            } else {
+                if ($Product->getFieldValue('FIELD_PRICE_RETAIL') &&
+                    $Price->getPrice() < $Product->getFieldValue('FIELD_PRICE_RETAIL')) {
+                    $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
+                        'Price'       => new QUI\ERP\Money\Price(
+                            $Product->getFieldValue('FIELD_PRICE_RETAIL'),
+                            QUI\ERP\Currency\Handler::getDefaultCurrency()
+                        ),
+                        'withVatText' => false
+                    ]);
+                }
             }
 
             if ($CrossedOutPrice) {

@@ -67,18 +67,34 @@
     font-weight: 500;
 }
 
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot {
+/* slide dots appearance - dark */
+.quiqqer-productbricks-productslider[data-dots-appearance="dark"] .quiqqer-bricks-promoslider-dot {
     background: rgba(0, 0, 0, 0.2);
 }
 
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot:hover:hover,
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot:hover:focus,
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot:hover:active,
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot-active,
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot-active:hover,
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot-active:focus,
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-dot-active:active {
+.quiqqer-productbricks-productslider[data-dots-appearance="dark"] .quiqqer-bricks-promoslider-dot:hover:hover,
+.quiqqer-productbricks-productslider[data-dots-appearance="dark"] .quiqqer-bricks-promoslider-dot:hover:focus,
+.quiqqer-productbricks-productslider[data-dots-appearance="dark"] .quiqqer-bricks-promoslider-dot:hover:active,
+.quiqqer-productbricks-productslider[data-dots-appearance="dark"] .quiqqer-bricks-promoslider-dot-active,
+.quiqqer-productbricks-productslider[data-dots-appearance="dark"] .quiqqer-bricks-promoslider-dot-active:hover,
+.quiqqer-productbricks-productslider[data-dots-appearance="dark"] .quiqqer-bricks-promoslider-dot-active:focus,
+.quiqqer-productbricks-productslider[data-dots-appearance="dark"] .quiqqer-bricks-promoslider-dot-active:active {
     background-color: #444;
+}
+
+/* slide dots appearance - light */
+.quiqqer-productbricks-productslider[data-dots-appearance="light"] .quiqqer-bricks-promoslider-dot {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.quiqqer-productbricks-productslider[data-dots-appearance="light"] .quiqqer-bricks-promoslider-dot:hover:hover,
+.quiqqer-productbricks-productslider[data-dots-appearance="light"] .quiqqer-bricks-promoslider-dot:hover:focus,
+.quiqqer-productbricks-productslider[data-dots-appearance="light"] .quiqqer-bricks-promoslider-dot:hover:active,
+.quiqqer-productbricks-productslider[data-dots-appearance="light"] .quiqqer-bricks-promoslider-dot-active,
+.quiqqer-productbricks-productslider[data-dots-appearance="light"] .quiqqer-bricks-promoslider-dot-active:hover,
+.quiqqer-productbricks-productslider[data-dots-appearance="light"] .quiqqer-bricks-promoslider-dot-active:focus,
+.quiqqer-productbricks-productslider[data-dots-appearance="light"] .quiqqer-bricks-promoslider-dot-active:active {
+    background-color: #eee;
 }
 
 /* mobile */

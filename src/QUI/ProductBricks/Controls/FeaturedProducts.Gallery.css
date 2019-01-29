@@ -10,10 +10,8 @@
 }
 
 .featuredProducts-gallery-box-header {
-    border-bottom: 1px solid #ddd;
     font-size: 1.5rem;
     margin: 2rem 0;
-    padding-bottom: 1rem;
 }
 
 .featuredProducts-gallery-box-entries {
@@ -24,7 +22,7 @@
 .featuredProducts-gallery-box-entries-entry {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid #ddd;
     max-width: 600px;
     flex-grow: 1;
