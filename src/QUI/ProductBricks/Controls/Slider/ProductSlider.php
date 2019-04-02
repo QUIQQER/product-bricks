@@ -2,6 +2,8 @@
 
 /**
  * This file contains QUI\ProductBricks\Controls\Slider\ProductSlider
+ *
+ * This slider can be used in page header.
  */
 
 namespace QUI\ProductBricks\Controls\Slider;
@@ -124,6 +126,10 @@ class ProductSlider extends QUI\Control
         $retailPriceHtml = '';
         $CrossedOutPrice = null;
         $Price           = $Product->getPrice();
+        $PriceDisplay    = new QUI\ERP\Products\Controls\Price([
+            'Price'       => $Product->getPrice(),
+            'withVatText' => false
+        ]);
 
         try {
             // Offer price has higher priority than retail price
@@ -157,8 +163,8 @@ class ProductSlider extends QUI\Control
         }
 
         $html .= $retailPriceHtml;
-        $html .= '<span class="slide-product-prices-price">' . $Price->getDisplayPrice();
-        $html .= '</span></div>';
+        $html .= '<div class="slide-product-prices-price">' . $PriceDisplay->create();
+        $html .= '</div></div>';
 
         return $html;
     }

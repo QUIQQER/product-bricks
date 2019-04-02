@@ -44,35 +44,7 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
 
     public function getBody()
     {
-        /*$Engine = QUI::getTemplateManager()->getEngine();
-        $Slider = new ChildrenSlider([
-            'height' => $this->getAttribute('height')
-        ]);
-
-
-        $productIds = $this->getAttribute('productIds');
-        $productIds = explode(',', $productIds);
-
-        $products = [];
-
-        foreach ($productIds as $productId) {
-            try {
-                $Product    = Products::getProduct($productId);
-                $products[] = $Product->getView();
-            } catch (QUI\Exception $Exception) {
-                QUI\System\Log::writeException($Exception);
-            }
-        }
-
-        $Slider->addProducts($products);
-
-        $Engine->assign([
-            'this'   => $this,
-            'Slider' => $Slider
-        ]);*/
-
         $Engine = QUI::getTemplateManager()->getEngine();
-//        $products = array();
 
         $productIds = $this->getAttribute('productIds');
         $productIds = explode(',', $productIds);
@@ -85,18 +57,17 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
                     'Product' => $Product,
                     'Price'   => new QUI\ERP\Products\Controls\Price([
                         'Price' => $Product->getPrice()
-                    ])
+                    ]),
+                    'RetailPrice' => $this->getRetailPrice($Product)
                 ];
             } catch (QUI\Exception $Exception) {
                 QUI\System\Log::writeException($Exception);
             }
         }
 
-
         if (!$this->getAttribute('height')) {
             $this->setAttribute('height', 350);
         }
-
 
         $Engine->assign([
             'this'     => $this,
@@ -106,5 +77,47 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
         $this->addCSSFile($this->getAttribute('templateCSS'));
 
         return $Engine->fetch($this->getAttribute('templateHTML'));
+    }
+
+    /**
+     * Get retail price object
+     *
+     * @param $Product QUI\ERP\Products\Product\Product
+     * @return QUI\ERP\Products\Controls\Price
+     *
+     * @throws QUI\Exception
+     */
+    public function getRetailPrice($Product)
+    {
+        $CrossedOutPrice = null;
+        $Price           = $Product->getPrice();
+
+        try {
+            // Offer price has higher priority than retail price
+            if ($Product->hasOfferPrice()) {
+                $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
+                    'Price'       => new QUI\ERP\Money\Price(
+                        $Product->getOriginalPrice()->getValue(),
+                        QUI\ERP\Currency\Handler::getDefaultCurrency()
+                    ),
+                    'withVatText' => false
+                ]);
+            } else {
+                if ($Product->getFieldValue('FIELD_PRICE_RETAIL') &&
+                    $Price->getPrice() < $Product->getFieldValue('FIELD_PRICE_RETAIL')) {
+                    $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
+                        'Price'       => new QUI\ERP\Money\Price(
+                            $Product->getFieldValue('FIELD_PRICE_RETAIL'),
+                            QUI\ERP\Currency\Handler::getDefaultCurrency()
+                        ),
+                        'withVatText' => false
+                    ]);
+                }
+            }
+
+            return $CrossedOutPrice;
+        } catch (QUI\Exception $Exception) {
+            QUI\System\Log::writeDebugException($Exception);
+        }
     }
 }

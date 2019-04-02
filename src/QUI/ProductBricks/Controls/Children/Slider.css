@@ -52,6 +52,10 @@ ul.quiqqer-bricks-children-slider-container-slide {
     font-weight: bold;
 }
 
+.quiqqer-products-control-product-childrenslider-entry .product-retailPrice {
+    text-decoration: line-through;
+}
+
 .quiqqer-products-control-product-childrenslider-entry .product-buttons {
     margin: auto 0 2em;
     padding: 0 10px;
