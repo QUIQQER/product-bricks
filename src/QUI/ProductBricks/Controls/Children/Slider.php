@@ -10,10 +10,7 @@
 namespace QUI\ProductBricks\Controls\Children;
 
 use QUI;
-//use QUI\ERP\Products\Controls\Products\ChildrenSlider;
-
 use QUI\ERP\Products\Handler\Products;
-
 
 /**
  * Class Slider
@@ -39,7 +36,6 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
             'templateHTML' => dirname(__FILE__) . '/Slider.html',
             'templateCSS'  => dirname(__FILE__) . '/Slider.css'
         ]);
-
     }
 
     public function getBody()
@@ -54,8 +50,8 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
             try {
                 $Product    = Products::getProduct($productId);
                 $products[] = [
-                    'Product' => $Product,
-                    'Price'   => new QUI\ERP\Products\Controls\Price([
+                    'Product'     => $Product,
+                    'Price'       => new QUI\ERP\Products\Controls\Price([
                         'Price' => $Product->getPrice()
                     ]),
                     'RetailPrice' => $this->getRetailPrice($Product)
