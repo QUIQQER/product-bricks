@@ -52,3 +52,16 @@
     font-weight: bold;
     line-height: 100%;
 }
+
+.featuredProducts-list-box-entries-entry-content-price .qui-products-price-display {
+    text-align: left;
+}
+
+.featuredProducts-list-box-entries-entry-content-price .qui-products-price-display-value {
+    color: inherit;
+    display: inline-block;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-align: inherit;
+}
