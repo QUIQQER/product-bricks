@@ -48,7 +48,8 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
 
         foreach ($productIds as $productId) {
             try {
-                $Product    = Products::getProduct($productId);
+                $Product    = Products::getProduct($productId)->getView();
+
                 $products[] = [
                     'Product'     => $Product,
                     'Price'       => new QUI\ERP\Products\Controls\Price([
@@ -60,6 +61,7 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
                 QUI\System\Log::writeException($Exception);
             }
         }
+
 
         if (!$this->getAttribute('height')) {
             $this->setAttribute('height', 350);
