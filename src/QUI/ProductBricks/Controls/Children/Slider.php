@@ -78,7 +78,7 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
     /**
      * Get retail price object
      *
-     * @param $Product QUI\ERP\Products\Product\Product
+     * @param $Product QUI\ERP\Products\Product\ViewFrontend
      * @return QUI\ERP\Products\Controls\Price
      *
      * @throws QUI\Exception
