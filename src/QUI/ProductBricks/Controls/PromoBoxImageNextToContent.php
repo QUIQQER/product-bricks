@@ -22,8 +22,6 @@ class PromoBoxImageNextToContent extends QUI\Control
      */
     public function __construct($attributes = [])
     {
-        parent::__construct($attributes);
-
         // default options
         $this->setAttributes([
             'class'           => 'quiqqer-productbricks-promoboxImageNextToContent',
@@ -38,6 +36,8 @@ class PromoBoxImageNextToContent extends QUI\Control
         ]);
 
         $this->addCSSFile(dirname(__FILE__) . '/PromoBoxImageNextToContent.css');
+
+        parent::__construct($attributes);
     }
 
     public function getBody()
