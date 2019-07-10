@@ -19,7 +19,7 @@
         </header>
         {/if}
 
-        {if isset($entry.products)}
+        {if isset($entry.products) && $entry.products}
         <div class="featuredProducts-gallery-box-entries">
             {foreach $entry.products as $Product}
             <div class="featuredProducts-gallery-box-entries-entry">

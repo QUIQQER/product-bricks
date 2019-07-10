@@ -63,7 +63,6 @@ class FeaturedProducts extends QUI\Control
         if ($this->getAttribute('featured1.categoryId')) {
             $featuredData[] = [
                 'title'    => $this->getAttribute('featured1.title'),
-                'url'      => '',
                 'products' => $this->getProductsViews($this->getProducts([
                     'categoryId' => $this->getAttribute('featured1.categoryId')
                 ]))
