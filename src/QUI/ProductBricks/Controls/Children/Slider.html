@@ -20,6 +20,7 @@
                 {foreach $products as $Entry}
                 {assign var=Product value=$Entry.Product}
                 {assign var=Price value=$Entry.Price}
+                {assign var=RetailPrice value=$Entry.RetailPrice}
                 {assign var=hasImage value=0}
 
                 {if $Product->getImage()}
@@ -41,11 +42,14 @@
                             {/if}
                             </a>
                         </div>
-
-
+                        
                         <header>
                             <span class="product-title">{$Product->getTitle()}</span>
-                            <span class="product-price">{$Price->create()}</span>
+                            {if $RetailPrice}
+                                <div class="product-retailPrice">{$RetailPrice->create()}</div>
+                            {/if}
+                            <div class="product-price">{$Price->create()}</div>
+                            {*<div class="product-price">{$Entry.price}</div>*}
                         </header>
 
                         <div class="product-buttons">

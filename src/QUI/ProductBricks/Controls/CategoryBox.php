@@ -23,8 +23,6 @@ class CategoryBox extends QUI\Control
      */
     public function __construct($attributes = [])
     {
-        parent::__construct($attributes);
-
         // default options
         $this->setAttributes([
             'class'             => 'quiqqer-productbricks-categorybox',
@@ -36,6 +34,8 @@ class CategoryBox extends QUI\Control
         ]);
 
         $this->addCSSFile(dirname(__FILE__) . '/CategoryBox.css');
+
+        parent::__construct($attributes);
     }
 
     public function getBody()

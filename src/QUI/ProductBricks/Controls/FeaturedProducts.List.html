@@ -19,7 +19,8 @@
         </header>
         {/if}
 
-        {if isset($entry.products)}
+        {if isset($entry.products) && $entry.products}
+
         <ul class="featuredProducts-list-box-entries">
             {foreach $entry.products as $Product}
             <li class="featuredProducts-list-box-entries-entry">

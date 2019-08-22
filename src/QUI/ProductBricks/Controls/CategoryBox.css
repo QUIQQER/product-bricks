@@ -17,7 +17,7 @@
     width: calc(33.333333% - 40px);
     min-width: 250px;
     max-width: 300px;
-    margin: 20px;
+    margin: 30px 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     background: #fff;
     transition: 0.2s all;
@@ -80,6 +80,7 @@
         width: calc(50% - 40px);
         min-width: 180px;
         max-width: 360px;
+        margin: 20px;
     }
 }
 

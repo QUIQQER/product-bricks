@@ -23,8 +23,6 @@ class FeaturedProducts extends QUI\Control
      */
     public function __construct($attributes = [])
     {
-        parent::__construct($attributes);
-
         // default options
         $this->setAttributes([
             'class'                => 'quiqqer-productbricks-featuredProducts',
@@ -41,6 +39,8 @@ class FeaturedProducts extends QUI\Control
             'customTemplate'       => false, // Custom template (path to html file). Overwrites "layout".
             'customCss'            => false  // Custom  template css (path to css file). Overwrites "layout".
         ]);
+
+        parent::__construct($attributes);
     }
 
     /**
@@ -63,7 +63,6 @@ class FeaturedProducts extends QUI\Control
         if ($this->getAttribute('featured1.categoryId')) {
             $featuredData[] = [
                 'title'    => $this->getAttribute('featured1.title'),
-                'url'      => '',
                 'products' => $this->getProductsViews($this->getProducts([
                     'categoryId' => $this->getAttribute('featured1.categoryId')
                 ]))
