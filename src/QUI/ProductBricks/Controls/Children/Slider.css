@@ -6,35 +6,35 @@
     height: auto !important;
 }
 
-ul.quiqqer-bricks-children-slider-container-slide {
+.quiqqer-productbricks-slider .quiqqer-bricks-children-slider-container-slide {
     display: flex;
 }
 
-.quiqqer-products-control-product-childrenslider-entry {
+.quiqqer-productbricks-slider .quiqqer-products-control-product-childrenslider-entry {
     background: #fff;
     display: flex;
     flex-direction: column;
     width: 300px;
 }
 
-.quiqqer-products-control-product-childrenslider-entry a {
+.quiqqer-productbricks-slider .quiqqer-products-control-product-childrenslider-entry a {
     display: inline;
     float: none;
     height: auto;
     width: auto;
 }
 
-.quiqqer-products-control-product-childrenslider-entry-image {
+.quiqqer-productbricks-slider .quiqqer-products-control-product-childrenslider-entry-image {
     float: none;
     height: 50%;
 }
 
-.quiqqer-products-control-product-childrenslider-entry-image img {
+.quiqqer-productbricks-slider .quiqqer-products-control-product-childrenslider-entry-image img {
     max-height: 100%;
     max-width: 100%;
 }
 
-.quiqqer-products-control-product-childrenslider-entry header {
+.quiqqer-productbricks-slider header {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -42,7 +42,7 @@ ul.quiqqer-bricks-children-slider-container-slide {
     margin-bottom: 1em;
 }
 
-.quiqqer-products-control-product-childrenslider-entry .product-title {
+.quiqqer-productbricks-slider .product-title {
     display: block;
     font-size: 1.2rem;
     margin: 1em 0;
@@ -51,30 +51,30 @@ ul.quiqqer-bricks-children-slider-container-slide {
     white-space: nowrap;
 }
 
-.quiqqer-products-control-product-childrenslider-entry .product-price {
+.quiqqer-productbricks-slider .product-price {
     font-weight: bold;
     margin-top: auto;
 }
 
-.quiqqer-products-control-product-childrenslider-entry .product-retailPrice {
+.quiqqer-productbricks-slider .product-retailPrice {
     margin-top: auto;
     text-decoration: line-through;
 }
 
-.quiqqer-products-control-product-childrenslider-entry .product-buttons {
+.quiqqer-productbricks-slider .product-buttons {
     margin: auto 0 2em;
     padding: 0 10px;
 }
 
-.quiqqer-products-control-product-childrenslider-entry .product-buttons a {
+.quiqqer-productbricks-slider .product-buttons a {
     display: inline-block;
     float: none;
     margin: 0 5px;
 }
 
 /* nav arrows */
-.quiqqer-bricks-children-slider-container-wrapper .quiqqer-bricks-children-slider-prev,
-.quiqqer-bricks-children-slider-container-wrapper .quiqqer-bricks-children-slider-next {
+.quiqqer-productbricks-slider .quiqqer-bricks-children-slider-prev,
+.quiqqer-productbricks-slider .quiqqer-bricks-children-slider-next {
     align-items: center;
     border-color: rgba(51, 51, 51, 0.2);
     border-radius: 0;
@@ -84,7 +84,7 @@ ul.quiqqer-bricks-children-slider-container-slide {
     justify-content: center;
 }
 
-.quiqqer-bricks-children-slider-mobile .quiqqer-bricks-children-slider-container-wrapper .quiqqer-bricks-children-slider-prev:hover,
-.quiqqer-bricks-children-slider-mobile .quiqqer-bricks-children-slider-container-wrapper .quiqqer-bricks-children-slider-next:hover {
+.quiqqer-productbricks-slider .quiqqer-bricks-children-slider-mobile .quiqqer-bricks-children-slider-prev:hover,
+.quiqqer-productbricks-slider .quiqqer-bricks-children-slider-mobile .quiqqer-bricks-children-slider-next:hover {
     background: rgba(188, 188, 188, 0.5);
 }
