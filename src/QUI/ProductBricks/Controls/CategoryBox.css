@@ -40,6 +40,12 @@
     background-size: cover;
 }
 
+.quiqqer-bricks-categorybox-box-image a {
+    display: block;
+    height: 100%;
+    color: inherit;
+}
+
 .quiqqer-bricks-categorybox-box-image img {
     max-height: 100%;
 }
