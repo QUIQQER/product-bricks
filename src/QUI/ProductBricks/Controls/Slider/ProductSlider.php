@@ -19,6 +19,11 @@ use QUI\ERP\Products\Handler\Products;
 class ProductSlider extends QUI\Control
 {
     /**
+     * @var QUI\ERP\Products\Utils\Calc
+     */
+    private $Calc;
+
+    /**
      * constructor
      *
      * @param array $attributes
@@ -35,7 +40,7 @@ class ProductSlider extends QUI\Control
             'showPrice'      => false,
             'nodeName'       => 'section',
             'autostart'      => false,
-            'delay'          => 5000,
+            'delay'          => 7000,
             'dotsAppearance' => 'dark', // slider navigation dots
             'template'       => dirname(__FILE__) . '/ProductSlider.html'
         ]);
@@ -45,6 +50,8 @@ class ProductSlider extends QUI\Control
 
     public function getBody()
     {
+        $this->Calc = QUI\ERP\Products\Utils\Calc::getInstance(QUI::getUserBySession());
+
         $Engine = QUI::getTemplateManager()->getEngine();
         $Slider = new QUI\Bricks\Controls\Slider\Promoslider([
             'shownavigation' => true,
@@ -80,7 +87,6 @@ class ProductSlider extends QUI\Control
             );
 
             $priceHtml = '';
-
             if ($this->getAttribute('showPrice')) {
                 $priceHtml = $this->getPriceHtml($Product);
             }
@@ -129,7 +135,8 @@ class ProductSlider extends QUI\Control
         $Price           = $Product->getPrice();
         $PriceDisplay    = new QUI\ERP\Products\Controls\Price([
             'Price'       => $Product->getPrice(),
-            'withVatText' => false
+            'withVatText' => true,
+            'Calc'        => $this->Calc
         ]);
 
         try {

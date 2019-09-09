@@ -19,7 +19,6 @@
                 {strip}
                 {foreach $products as $Entry}
                 {assign var=Product value=$Entry.Product}
-                {assign var=Price value=$Entry.Price}
                 {assign var=RetailPrice value=$Entry.RetailPrice}
                 {assign var=hasImage value=0}
 
@@ -27,8 +26,9 @@
                 {assign var=hasImage value=1}
                 {/if}
                 <li class="quiqqer-bricks-children-slider-child">
-                    <article class="quiqqer-bricks-children-slider-child-display quiqqer-products-control-product-childrenslider-entry"
-                             data-pid="{$Product->getId()}"
+                    <article
+                            class="quiqqer-bricks-children-slider-child-display quiqqer-products-control-product-childrenslider-entry"
+                            data-pid="{$Product->getId()}"
                     >
                         <div class="quiqqer-products-control-product-childrenslider-entry-image">
                             <a href="{$Product->getUrl()}"
@@ -42,15 +42,24 @@
                             {/if}
                             </a>
                         </div>
-                        
+
                         <header>
-                            <span class="product-title">{$Product->getTitle()}</span>
-                            {if $RetailPrice}
-                                <div class="product-retailPrice">{$RetailPrice->create()}</div>
-                            {/if}
-                            <div class="product-price">{$Price->create()}</div>
-                            {*<div class="product-price">{$Entry.price}</div>*}
+                            <a href="{$Product->getUrl()}"
+                               title="{$Product->getTitle()|escape:'html'}"
+                               data-pid="{$Product->getId()}"
+                               class="product-title"
+                            >
+                                {$Product->getTitle()}
+                            </a>
                         </header>
+
+                        <div class="product-price-wrapper">
+                            {if $RetailPrice}
+                            <div class="product-retailPrice">{$RetailPrice->create()}</div>
+                            {/if}
+                            <div class="product-price">{*$Price->create()*}</div>
+                            <div class="product-price">{$Product->getPriceDisplay()->create()}</div>
+                        </div>
 
                         <div class="product-buttons">
                             {template_event name="quiqqer::product-event::slider::buttonAddToCart" Product=$Product}

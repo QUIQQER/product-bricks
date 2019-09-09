@@ -147,6 +147,11 @@
 
             <settings>
 
+                <setting name="hideRetailPrice" type="checkbox">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.hideRetailPrice"/>
+                </setting>
+
                 <setting name="productIds" type="hidden"
                          data-qui="package/quiqqer/products/bin/controls/products/Select"
                 >

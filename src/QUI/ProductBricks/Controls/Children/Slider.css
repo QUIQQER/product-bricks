@@ -39,13 +39,12 @@
     flex-direction: column;
     flex-grow: 1;
     float: none;
-    margin-bottom: 1em;
+    margin: 1em 0;
 }
 
 .quiqqer-productbricks-slider .product-title {
     display: block;
     font-size: 1.2rem;
-    margin: 1em 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -54,6 +53,16 @@
 .quiqqer-productbricks-slider .product-price {
     font-weight: bold;
     margin-top: auto;
+}
+
+.quiqqer-productbricks-slider .product-price-wrapper {
+    margin-bottom: 1rem;
+}
+
+.quiqqer-productbricks-slider .qui-products-price-display-vat {
+    display: block;
+    font-weight: normal;
+    line-height: 1rem;
 }
 
 .quiqqer-productbricks-slider .product-retailPrice {
