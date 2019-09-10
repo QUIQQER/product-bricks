@@ -57,6 +57,10 @@
             <en><![CDATA[A slider for your products, which you can place on the start page, for example.]]></en>
         </locale>
 
+        <locale name="brick.control.productSlider.settings.hideRetailPrice">
+            <de><![CDATA[UVP oder Angebotspreis nicht anzeigen]]></de>
+            <en><![CDATA[Hide recommended retails price (crossed out)]]></en>
+        </locale>
         <locale name="brick.control.productSlider.settings.showPrice">
             <de><![CDATA[Preise anzeigen (unverbindliche Preisempfehlung wenn verfügbar)]]></de>
             <en><![CDATA[Show prices (recommended retail price if available)]]></en>

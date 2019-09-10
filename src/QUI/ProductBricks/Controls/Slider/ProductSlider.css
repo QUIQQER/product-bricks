@@ -55,20 +55,24 @@
 }
 
 .slide-product-prices {
-    margin-bottom: 1.3rem;
-    display: flex;
+    margin-bottom: 1.5rem;
 }
 
 .slide-product-prices-retail {
     font-weight: 500;
-    margin-right: 1rem;
-    opacity: 0.6;
+    margin-bottom: 6px;
     text-decoration: line-through;
 }
 
 .slide-product-prices-price {
     font-size: 2rem;
     font-weight: 500;
+}
+
+.slide-product-prices-price .qui-products-price-display-vat {
+    display: block;
+    font-weight: normal;
+    line-height: 1.5rem;
 }
 
 /* slide dots appearance - dark */

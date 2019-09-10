@@ -10,6 +10,7 @@
 namespace QUI\ProductBricks\Controls\Children;
 
 use QUI;
+use QUI\ERP\Products\Handler\Fields;
 use QUI\ERP\Products\Handler\Products;
 
 /**
@@ -31,10 +32,12 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
 
         // default options
         $this->setAttributes([
-            'class'        => 'quiqqer-productbricks-slider',
-            'nodeName'     => 'section',
-            'templateHTML' => dirname(__FILE__) . '/Slider.html',
-            'templateCSS'  => dirname(__FILE__) . '/Slider.css'
+            'class'           => 'quiqqer-productbricks-slider',
+            'nodeName'        => 'section',
+            'height'          => 400,
+            'hideRetailPrice' => false, // hide crossed out price
+            'templateHTML'    => dirname(__FILE__) . '/Slider.html',
+            'templateCSS'     => dirname(__FILE__) . '/Slider.css'
         ]);
     }
 
@@ -48,7 +51,8 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
 
         foreach ($productIds as $productId) {
             try {
-                $Product    = Products::getProduct($productId)->getView();
+                $Product = Products::getProduct($productId)->getViewFrontend();
+
                 $products[] = [
                     'Product'     => $Product,
                     'Price'       => new QUI\ERP\Products\Controls\Price([
@@ -62,7 +66,7 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
         }
 
         if (!$this->getAttribute('height')) {
-            $this->setAttribute('height', 350);
+            $this->setAttribute('height', 400);
         }
 
         $Engine->assign([
@@ -79,35 +83,38 @@ class Slider extends QUI\ERP\Products\Controls\Products\ChildrenSlider
      * Get retail price object
      *
      * @param $Product QUI\ERP\Products\Product\ViewFrontend
-     * @return QUI\ERP\Products\Controls\Price
+     * @return QUI\ERP\Products\Controls\Price | null
      *
      * @throws QUI\Exception
      */
     public function getRetailPrice($Product)
     {
+        if ($this->getAttribute('hideRetailPrice')) {
+            return null;
+        }
+
         $CrossedOutPrice = null;
         $Price           = $Product->getPrice();
 
         try {
-            // Offer price has higher priority than retail price
+            // Offer price (Angebotspreis) - it has higher priority than retail price
             if ($Product->hasOfferPrice()) {
                 $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
-                    'Price'       => new QUI\ERP\Money\Price(
+                    'Price' => new QUI\ERP\Money\Price(
                         $Product->getOriginalPrice()->getValue(),
                         QUI\ERP\Currency\Handler::getDefaultCurrency()
-                    ),
-                    'withVatText' => false
+                    )
                 ]);
             } else {
-                if ($Product->getFieldValue('FIELD_PRICE_RETAIL') &&
-                    $Price->getPrice() < $Product->getFieldValue('FIELD_PRICE_RETAIL')) {
-                    $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
-                        'Price'       => new QUI\ERP\Money\Price(
-                            $Product->getFieldValue('FIELD_PRICE_RETAIL'),
-                            QUI\ERP\Currency\Handler::getDefaultCurrency()
-                        ),
-                        'withVatText' => false
-                    ]);
+                // retail price (UVP)
+                if ($Product->getFieldValue('FIELD_PRICE_RETAIL')) {
+                    $PriceRetail = $Product->getCalculatedPrice(Fields::FIELD_PRICE_RETAIL)->getPrice();
+
+                    if ($Price->getPrice() < $PriceRetail->getPrice()) {
+                        $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
+                            'Price' => $PriceRetail
+                        ]);
+                    }
                 }
             }
 
