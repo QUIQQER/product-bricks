@@ -42,20 +42,21 @@
     margin: 1em 0;
 }
 
-.quiqqer-productbricks-slider .product-title {
+.quiqqer-productbricks-slider .quiqqer-products-control-product-childrenslider-entry-header-title {
     display: block;
     font-size: 1.2rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: inherit;
 }
 
-.quiqqer-productbricks-slider .product-price {
+.quiqqer-productbricks-slider .quiqqer-products-control-product-childrenslider-entry-price-regularPrice {
     font-weight: bold;
     margin-top: auto;
 }
 
-.quiqqer-productbricks-slider .product-price-wrapper {
+.quiqqer-productbricks-slider .quiqqer-products-control-product-childrenslider-entry-price-wrapper {
     margin-bottom: 1rem;
 }
 
@@ -65,17 +66,17 @@
     line-height: 1rem;
 }
 
-.quiqqer-productbricks-slider .product-retailPrice {
+.quiqqer-productbricks-slider .quiqqer-products-control-product-childrenslider-entry-price-retailPrice {
     margin-top: auto;
     text-decoration: line-through;
 }
 
-.quiqqer-productbricks-slider .product-buttons {
+.quiqqer-productbricks-slider .quiqqer-products-control-product-childrenslider-entry-productButtons {
     margin: auto 0 2em;
     padding: 0 10px;
 }
 
-.quiqqer-productbricks-slider .product-buttons a {
+.quiqqer-productbricks-slider .quiqqer-products-control-product-childrenslider-entry-productButtons a {
     display: inline-block;
     float: none;
     margin: 0 5px;

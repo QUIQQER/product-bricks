@@ -32,36 +32,35 @@
                     >
                         <div class="quiqqer-products-control-product-childrenslider-entry-image">
                             <a href="{$Product->getUrl()}"
-                               title="{$Product->getTitle()|escape:" html"}"
-                            data-pid="{$Product->getId()}"
+                               title="{$Product->getTitle()|escape:'html'}"
+                               data-pid="{$Product->getId()}"
                             >
-                            {if $hasImage}
-                            {image image=$Product->getImage() height=$this->getAttribute('height')
-                            title=$Product->getTitle()|escape:" html"
-                            alt=$Product->getTitle()|escape:" html"}
-                            {/if}
+                                {if $hasImage}
+                                {image image=$Product->getImage() height=$this->getAttribute('height')
+                                title=$Product->getTitle()|escape:"html"
+                                alt=$Product->getTitle()|escape:"html"}
+                                {/if}
                             </a>
                         </div>
 
-                        <header>
+                        <header class="quiqqer-products-control-product-childrenslider-entry-header">
                             <a href="{$Product->getUrl()}"
                                title="{$Product->getTitle()|escape:'html'}"
                                data-pid="{$Product->getId()}"
-                               class="product-title"
+                               class="quiqqer-products-control-product-childrenslider-entry-header-title"
                             >
                                 {$Product->getTitle()}
                             </a>
                         </header>
 
-                        <div class="product-price-wrapper">
+                        <div class="quiqqer-products-control-product-childrenslider-entry-price-wrapper">
                             {if $RetailPrice}
-                            <div class="product-retailPrice">{$RetailPrice->create()}</div>
+                            <div class="quiqqer-products-control-product-childrenslider-entry-price-retailPrice">{$RetailPrice->create()}</div>
                             {/if}
-                            <div class="product-price">{*$Price->create()*}</div>
-                            <div class="product-price">{$Product->getPriceDisplay()->create()}</div>
+                            <div class="quiqqer-products-control-product-childrenslider-entry-price-regularPrice">{$Product->getPriceDisplay()->create()}</div>
                         </div>
 
-                        <div class="product-buttons">
+                        <div class="quiqqer-products-control-product-childrenslider-entry-productButtons">
                             {template_event name="quiqqer::product-event::slider::buttonAddToCart" Product=$Product}
                             <!--<a href="" class="btn btn-link add-to-card">Add to wish list</a>-->
                             <a href="{$Product->getUrl()}"
