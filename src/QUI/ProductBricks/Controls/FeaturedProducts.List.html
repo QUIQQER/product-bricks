@@ -36,9 +36,7 @@
                         {$Product->getTitle()}
                     </a>
                     <div class="featuredProducts-list-box-entries-entry-content-price">
-                        {assign var=Price value=$Product->getPriceDisplay()}
-                        {assign var=_tmp value=$Price->setAttribute('withVatText', false)}
-                        {$Price->create()}
+                        {$Product->getPriceDisplay()->create()}
                     </div>
                 </div>
             </li>
