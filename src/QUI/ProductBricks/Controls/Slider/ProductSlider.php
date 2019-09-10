@@ -9,6 +9,7 @@
 namespace QUI\ProductBricks\Controls\Slider;
 
 use QUI;
+use QUI\ERP\Products\Handler\Fields;
 use QUI\ERP\Products\Handler\Products;
 
 /**
@@ -140,7 +141,7 @@ class ProductSlider extends QUI\Control
         ]);
 
         try {
-            // Offer price has higher priority than retail price
+            // Offer price (Angebotspreis) - it has higher priority than retail price
             if ($Product->hasOfferPrice()) {
                 $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
                     'Price'       => new QUI\ERP\Money\Price(
@@ -150,20 +151,21 @@ class ProductSlider extends QUI\Control
                     'withVatText' => false
                 ]);
             } else {
-                if ($Product->getFieldValue('FIELD_PRICE_RETAIL') &&
-                    $Price->getPrice() < $Product->getFieldValue('FIELD_PRICE_RETAIL')) {
-                    $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
-                        'Price'       => new QUI\ERP\Money\Price(
-                            $Product->getFieldValue('FIELD_PRICE_RETAIL'),
-                            QUI\ERP\Currency\Handler::getDefaultCurrency()
-                        ),
-                        'withVatText' => false
-                    ]);
+                // retail price (UVP)
+                if ($Product->getFieldValue('FIELD_PRICE_RETAIL')) {
+                    $PriceRetail = $Product->getCalculatedPrice(Fields::FIELD_PRICE_RETAIL)->getPrice();
+
+                    if ($Price->getPrice() < $PriceRetail->getPrice()) {
+                        $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
+                            'Price'       => $PriceRetail,
+                            'withVatText' => false
+                        ]);
+                    }
                 }
             }
 
             if ($CrossedOutPrice) {
-                $retailPriceHtml = '<div class="slide-product-prices-retail">';
+                $retailPriceHtml = '<div class="slide-product-prices-retail text-muted">';
                 $retailPriceHtml .= $CrossedOutPrice->create() . '</div>';
             }
         } catch (QUI\Exception $Exception) {
