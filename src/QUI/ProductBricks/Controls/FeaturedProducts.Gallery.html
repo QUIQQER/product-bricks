@@ -36,9 +36,7 @@
                     </a>
                 </h3>
                 <div class="featuredProducts-gallery-box-entries-entry-price">
-                    {assign var=Price value=$Product->getPriceDisplay()}
-                    {assign var=_tmp value=$Price->setAttribute('withVatText', false)}
-                    {$Price->create()}
+                    {$Product->getPriceDisplay()->create()}
                 </div>
 
                 <a class="btn btn-primary btn-outline featuredProducts-gallery-box-entries-entry-link"
