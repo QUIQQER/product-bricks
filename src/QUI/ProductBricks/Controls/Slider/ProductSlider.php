@@ -80,7 +80,7 @@ class ProductSlider extends QUI\Control
             }
         }
 
-        /* @var $Product QUI\ERP\Products\Product\Product */
+        /* @var $Product QUI\ERP\Products\Product\ViewFrontend */
         foreach ($products as $Product) {
             $btnLabel = QUI::getLocale()->get(
                 'quiqqer/product-bricks',
@@ -123,7 +123,7 @@ class ProductSlider extends QUI\Control
     /**
      * Get parsed html with price and retail price.
      *
-     * @param $Product QUI\ERP\Products\Product\Product
+     * @param $Product QUI\ERP\Products\Product\ViewFrontend
      * @return string HTML
      *
      * @throws QUI\Exception
@@ -134,12 +134,8 @@ class ProductSlider extends QUI\Control
         $retailPriceHtml = '';
         $CrossedOutPrice = null;
         $Price           = $Product->getPrice();
-        $PriceDisplay    = new QUI\ERP\Products\Controls\Price([
-            'Price'       => $Product->getPrice(),
-            'withVatText' => true,
-            'Calc'        => $this->Calc
-        ]);
-
+        $PriceDisplay    = $Product->getPriceDisplay();
+        
         try {
             // Offer price (Angebotspreis) - it has higher priority than retail price
             if ($Product->hasOfferPrice()) {
