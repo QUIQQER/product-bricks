@@ -62,7 +62,7 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
                         position: 'absolute',
                         opacity : 0
                     }
-                }).inject(Elm)
+                }).inject(Elm);
             }
 
             this.Label = Elm.getElement('label');
@@ -86,8 +86,8 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
                     self.animationIsRunning = true;
                 }
 
-                self.$addArticleToBasket(event, productId, Elm)
-            })
+                self.$addArticleToBasket(event, productId, Elm);
+            });
         },
 
         /**
@@ -141,11 +141,11 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
                             ]).then(function () {
                                 self.animationIsRunning = false;
                                 resolve();
-                            })
+                            });
                         }).delay(750);
                     }
-                })
-            })
+                });
+            });
         },
 
         /**
@@ -188,7 +188,7 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
                 }, {
                     duration: 500,
                     callback: resolve
-                })
+                });
             });
         }
     });
