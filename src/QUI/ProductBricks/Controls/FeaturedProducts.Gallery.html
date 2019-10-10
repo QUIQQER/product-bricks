@@ -29,12 +29,11 @@
                              title="{$Product->getTitle()}" alt="{$Product->getTitle()}"/>
                     </a>
                 </div>
-                <h3>
-                    <a class="featuredProducts-gallery-box-entries-entry-title"
-                       href="{$Product->getUrl()}">
+                <header class="featuredProducts-gallery-box-entries-entry-title">
+                    <a href="{$Product->getUrl()}">
                         {$Product->getTitle()}
                     </a>
-                </h3>
+                </header>
                 <div class="featuredProducts-gallery-box-entries-entry-price">
                     {$Product->getPriceDisplay()->create()}
                 </div>
