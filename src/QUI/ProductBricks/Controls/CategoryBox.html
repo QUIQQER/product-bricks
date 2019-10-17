@@ -39,7 +39,11 @@
             </div>
             {/if}
             <div class="quiqqer-bricks-categorybox-box-content">
-                <h3>{$entry.title}</h3>
+                <h3 class="quiqqer-bricks-categorybox-box-content-header">
+                    <a href="{$entry.url}" class="quiqqer-bricks-categorybox-box-content-header-url">
+                        {$entry.title}
+                    </a>
+                </h3>
                 <p>{$entry.desc}</p>
                 <a href="{$entry.url}" class="btn btn-primary">
                     {locale group="quiqqer/product-bricks" var="brick.control.categoryBox.viewProduct"}

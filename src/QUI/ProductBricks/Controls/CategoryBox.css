@@ -1,49 +1,49 @@
 
 .quiqqer-productbricks-categorybox h2 {
-    text-align: center;
-    margin-top: 0;
     margin-bottom: 3rem;
+    margin-top: 0;
+    text-align: center;
 }
 
 .quiqqer-bricks-categorybox-wrapper {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .quiqqer-bricks-categorybox-box {
-    border: 1px solid #ddd;
-    text-align: center;
-    width: calc(33.333333% - 40px);
-    min-width: 250px;
-    max-width: 300px;
-    margin: 30px 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     background: #fff;
-    transition: 0.2s all;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    margin: 30px 20px;
+    max-width: 300px;
+    min-width: 250px;
+    text-align: center;
+    transition: 0.2s all;
+    width: calc(33.333333% - 40px);
 }
 
 .quiqqer-bricks-categorybox-box:hover {
-    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 }
 
 .quiqqer-bricks-categorybox-box-image {
-    height: 200px;
-    padding: 1em;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: center;
     align-items: center;
     background-position: center center;
     background-size: cover;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    padding: 1em;
 }
 
 .quiqqer-bricks-categorybox-box-image a {
+    color: inherit;
     display: block;
     height: 100%;
-    color: inherit;
 }
 
 .quiqqer-bricks-categorybox-box-image img {
@@ -55,15 +55,19 @@
 }
 
 .quiqqer-bricks-categorybox-box-content {
-    padding: 2em;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     flex-grow: 1;
+    padding: 2em;
 }
 
 .quiqqer-bricks-categorybox-box-content h3 {
     margin-top: 0;
+}
+
+.quiqqer-bricks-categorybox-box-content-header-url {
+    color: inherit;
 }
 
 .quiqqer-bricks-categorybox-box-content p {
@@ -77,16 +81,16 @@
 
 
 .quiqqer-bricks-categorybox-buttonwrapper {
-    text-align: center;
     margin-top: 2em;
+    text-align: center;
 }
 
 @media screen and (max-width: 768px) {
     .quiqqer-bricks-categorybox-box {
-        width: calc(50% - 40px);
-        min-width: 180px;
-        max-width: 360px;
         margin: 20px;
+        max-width: 360px;
+        min-width: 180px;
+        width: calc(50% - 40px);
     }
 }
 
