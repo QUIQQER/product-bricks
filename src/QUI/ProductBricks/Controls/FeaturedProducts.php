@@ -46,9 +46,9 @@ class FeaturedProducts extends QUI\Control
     /**
      * (non-PHPdoc)
      *
+     * @throws QUI\Exception
      * @see \QUI\Control::create()
      *
-     * @throws QUI\Exception
      */
     public function getBody()
     {
@@ -61,11 +61,13 @@ class FeaturedProducts extends QUI\Control
         $featuredData = [];
 
         if ($this->getAttribute('featured1.categoryId')) {
+            $products = $this->getProducts([
+                'categoryId' => $this->getAttribute('featured1.categoryId')
+            ]);
+
             $featuredData[] = [
                 'title'    => $this->getAttribute('featured1.title'),
-                'products' => $this->getProductsViews($this->getProducts([
-                    'categoryId' => $this->getAttribute('featured1.categoryId')
-                ]))
+                'products' => $this->getProductsViews($products)
             ];
         }
 
@@ -146,7 +148,8 @@ class FeaturedProducts extends QUI\Control
             'categories' => [
                 'type'  => '%LIKE%',
                 'value' => ',' . $value . ','
-            ]
+            ],
+            'active'     => 1
         ];
 
         if (isset($params['where'])) {
@@ -179,8 +182,8 @@ class FeaturedProducts extends QUI\Control
      */
     private function getProductsViews($products = [])
     {
-        if (!is_array($products) || empty($products)) {
-            return false;
+        if (!\is_array($products) || empty($products)) {
+            return [];
         }
 
         $productsView = [];
@@ -190,8 +193,8 @@ class FeaturedProducts extends QUI\Control
             try {
                 $ProductView = $Product->getView();
             } catch (QUI\Exception $Exception) {
-                $ProductView = null;
-                QUI\System\Log::writeException($Exception);
+                QUI\System\Log::writeDebugException($Exception);
+                continue;
             }
 
             $productsView[] = $ProductView;
