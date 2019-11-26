@@ -132,6 +132,10 @@
             <de><![CDATA[Alle Kategorien]]></de>
             <en><![CDATA[All categories]]></en>
         </locale>
+        <locale name="brick.control.categoryBox.limit">
+            <de><![CDATA[Maximale Anzahl der Kategorien]]></de>
+            <en><![CDATA[Maximum number of categories]]></en>
+        </locale>
 
         <!-- Product Children Slider (horizontal) -->
         <locale name="brick.control.productChildrenSlider.title">
