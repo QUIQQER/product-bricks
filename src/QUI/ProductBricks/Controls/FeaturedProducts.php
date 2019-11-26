@@ -193,7 +193,7 @@ class FeaturedProducts extends QUI\Control
             try {
                 $ProductView = $Product->getView();
             } catch (QUI\Exception $Exception) {
-                QUI\System\Log::writeDebugException($Exception);
+                QUI\System\Log::addDebug($Exception->getMessage());
                 continue;
             }
 

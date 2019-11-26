@@ -87,6 +87,9 @@
                 <setting name="order" type="select">
                     <locale group="quiqqer/bricks" var="brick.control.setting.order"/>
 
+                    <option value="manuell">
+                        <locale group="quiqqer/system" var="manually"/>
+                    </option>
                     <option value="name ASC">
                         <locale group="quiqqer/system" var="name_asc"/>
                     </option>
@@ -125,12 +128,15 @@
                             var="brick.control.categoryBox.categorySites"/>
                 </setting>
 
+                <setting name="limit" type="number">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.categoryBox.limit"/>
+                </setting>
+
                 <setting name="allCategoriesUrl" class="project-site">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.categoryBox.allCategoriesUrl"/>
                 </setting>
-
-
             </settings>
         </brick>
 

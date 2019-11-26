@@ -29,7 +29,9 @@ class CategoryBox extends QUI\Control
             'nodeName'          => 'section',
             'bgColor'           => '#fff',
             'imageAsBackground' => false,
-            'order'             => 'name ASC',
+            'order'             => 'manuell',
+            'limit'             => false,
+            'allCategoriesUrl'  => false,
             'template'          => dirname(__FILE__) . '/CategoryBox.html'
         ]);
 
@@ -46,12 +48,19 @@ class CategoryBox extends QUI\Control
 
         $imageAsBackground = $this->getAttribute('imageAsBackground');
 
+        $limit = false;
+
+        if ($this->getAttribute('limit')) {
+            $limit = intval($this->getAttribute('limit'));
+            $limit = $limit >= 0 ? $limit : false;
+        }
+
         $sites = QUI\Projects\Site\Utils::getSitesByInputList(
             $this->getProject(),
             $this->getAttribute('site'),
             [
                 'order' => $this->getAttribute('order'),
-                'limit' => 20
+                'limit' => $limit
             ]
         );
 
@@ -142,6 +151,7 @@ class CategoryBox extends QUI\Control
         } catch (QUI\Exception $Exception) {
             QUI\System\Log::writeException($Exception);
         }
+
         return false;
     }
 
