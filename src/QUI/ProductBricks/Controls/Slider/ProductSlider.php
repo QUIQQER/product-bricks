@@ -85,7 +85,6 @@ class ProductSlider extends QUI\Control
 
         /* @var $Product QUI\ERP\Products\Product\ViewFrontend */
         foreach ($products as $Product) {
-
             $EngineSlide = QUI::getTemplateManager()->getEngine();
 
             $priceHtml = '';
