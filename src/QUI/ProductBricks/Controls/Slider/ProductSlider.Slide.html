@@ -1,0 +1,23 @@
+<div class="grid-container grid-parent quiqqer-productbricks-productslider-slide">
+    <div class="quiqqer-productbricks-productslider-slide-left">
+        <header class="quiqqer-productbricks-productslider-slide-left-title">
+            {$Product->getTitle()}
+        </header>
+        <p class="quiqqer-productbricks-productslider-slide-left-description">
+            {$Product->getDescription()}
+        </p>
+
+
+        {$priceHtml}
+
+        <p>
+            <button class="btn btn-primary btn-large">
+                {locale group="quiqqer/product-bricks" var="brick.control.productSlider.buyNow"}
+            </button>
+        </p>
+    </div>
+
+    <div class="quiqqer-productbricks-productslider-slide-right">
+        {image image=$Product->getImage() width=500}
+    </div>
+</div>

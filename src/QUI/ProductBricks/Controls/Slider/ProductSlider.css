@@ -2,6 +2,7 @@
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 100% auto;
+    position: relative;
 }
 
 .quiqqer-bricks-promoslider-slide-mobile-slide > a,
@@ -9,13 +10,9 @@
     color: inherit;
 }
 
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-wrapper {
-    padding-bottom: 20px;
-    padding-top: 20px;
-}
-
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider {
     float: none;
+    position: initial;
 }
 
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-image {
@@ -26,11 +23,6 @@
     padding: 0;
 }
 
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-image img {
-    max-height: 400px;
-    max-width: 45%;
-}
-
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-wrapper {
     align-items: center;
     display: flex;
@@ -38,41 +30,61 @@
 }
 
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-display {
-    padding: 0 20px 0 0;
+    padding: 0;
     position: relative;
-}
-
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-title {
-    line-height: 1em;
-}
-
-.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-text {
     width: 100%;
 }
 
-.quiqqer-productbricks-productslider .slide-product-description {
+.quiqqer-bricks-promoslider-slide-display .quiqqer-bricks-promoslider-slide-text {
+    margin-top: 0;
+}
+
+/* slides */
+.quiqqer-productbricks-productslider-slide {
+    display: flex;
+}
+
+/* left */
+.quiqqer-productbricks-productslider-slide-left {
+    padding-right: 20px;
+    width: 50%;
+}
+
+.quiqqer-productbricks-productslider-slide-left-title {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.quiqqer-productbricks-productslider-slide-left-description {
     line-height: 1.5em;
 }
 
-.slide-product-prices {
+.quiqqer-productbricks-productslider-slide-left-description-prices {
     margin-bottom: 1.5rem;
 }
 
-.slide-product-prices-retail {
+.quiqqer-productbricks-productslider-slide-left-description-prices-retail {
     font-weight: 500;
     margin-bottom: 6px;
     text-decoration: line-through;
 }
 
-.slide-product-prices-price {
+.quiqqer-productbricks-productslider-slide-left-description-prices-price {
     font-size: 2rem;
     font-weight: 500;
 }
 
-.slide-product-prices-price .qui-products-price-display-vat {
+.quiqqer-productbricks-productslider-slide-left-description-prices .qui-products-price-display-vat {
     display: block;
     font-weight: normal;
     line-height: 1.5rem;
+}
+
+/* image */
+.quiqqer-productbricks-productslider-slide-right {
+    padding-left: 20px;
+    text-align: right;
+    width: 50%;
 }
 
 /* slide dots appearance - dark */
@@ -136,4 +148,29 @@
     .quiqqer-bricks-promoslider-slide-mobile-title {
         line-height: 100%;
     }
+
+    .quiqqer-productbricks-productslider-slide {
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem 0;
+    }
+
+    .quiqqer-productbricks-productslider-slide-left,
+    .quiqqer-productbricks-productslider-slide-right {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .quiqqer-productbricks-productslider-slide-right {
+        text-align: center;
+        margin-top: 2rem
+    }
+}
+
+
+/* arrows */
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-wallpaper-prev,
+.quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-wallpaper-next {
+    color: rgba(0,0,0,0.5);
+    text-shadow: none;
 }

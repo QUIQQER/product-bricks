@@ -14,7 +14,7 @@ use QUI\ERP\Products\Handler\Fields;
 use QUI\ERP\Products\Handler\Products;
 
 /**
- * Class Slider
+ * Class Slider (carousel)
  *
  * @package QUI\Bricks\Controls
  * @author www.pcsg.de (Michael Danielczok)
