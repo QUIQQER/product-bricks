@@ -43,6 +43,7 @@ class ProductSlider extends QUI\Control
             'nodeName'       => 'section',
             'autostart'      => false,
             'delay'          => 7000,
+            'showarrows'     => false,
             'dotsAppearance' => 'dark', // slider navigation dots
             'template'       => dirname(__FILE__) . '/ProductSlider.html'
         ]);
@@ -54,10 +55,12 @@ class ProductSlider extends QUI\Control
     {
         $this->Calc = QUI\ERP\Products\Utils\Calc::getInstance(QUI::getUserBySession());
 
+        $showArrows = $this->getAttribute('showarrows');
+
         $Engine = QUI::getTemplateManager()->getEngine();
         $Slider = new QUI\Bricks\Controls\Slider\Promoslider([
             'shownavigation' => true,
-            'showarrows'     => 'showHoverScale',
+            'showarrows'     => $this->getAttribute('showarrows'),
             'autostart'      => $this->getAttribute('autostart'),
             'delay'          => $this->getAttribute('delay'),
             'imageSize'      => 400
@@ -110,7 +113,6 @@ class ProductSlider extends QUI\Control
                 false,
                 false,
                 $EngineSlide->fetch($slideTemplate),
-                'left',
                 $Product->getUrl()
             );
         }
