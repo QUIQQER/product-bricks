@@ -46,7 +46,6 @@ class Slider extends QUI\Control
         $this->addCSSFile(\dirname(__FILE__) . '/Slider.css');
 
         $this->Slider = new ChildrenSlider();
-
     }
 
     public function getBody()
