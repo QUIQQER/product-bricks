@@ -20,9 +20,11 @@
     align-items: center;
     display: flex;
     height: 100%;
+    padding: 20px 0;
 }
 
 .quiqqer-productbricks-productslider .quiqqer-bricks-promoslider-slide-display {
+    height: 100%;
     padding: 0;
     position: relative;
     width: 100%;
@@ -33,12 +35,15 @@
 }
 
 .quiqqer-bricks-promoslider-slide-display .quiqqer-bricks-promoslider-slide-text {
+    height: 100%;
     margin-top: 0;
 }
 
 /* slides */
 .quiqqer-productbricks-productslider-slide {
+    align-items: center;
     display: flex;
+    height: 100%;
 }
 
 /* left */
@@ -80,10 +85,17 @@
 
 /* right / image */
 .quiqqer-productbricks-productslider-slide-right.quiqqer-bricks-promoslider-slide-image {
-    height: auto;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
     padding: 0 0 0 20px;
     text-align: right;
     z-index: 1;
+}
+
+.quiqqer-productbricks-productslider-slide-right.quiqqer-bricks-promoslider-slide-image img {
+    max-height: 350px;
 }
 
 /* slide dots appearance - dark */
@@ -135,8 +147,8 @@
     }
 
     .quiqqer-productbricks-productslider-slide-left-title.quiqqer-bricks-promoslider-slide-title {
-        text-align: center;
         font-size: 28px;
+        text-align: center;
     }
 
     .quiqqer-productbricks-productslider-slide-left-text.quiqqer-bricks-promoslider-slide-text {
