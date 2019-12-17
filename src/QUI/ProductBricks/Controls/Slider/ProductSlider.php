@@ -13,7 +13,8 @@ use QUI\ERP\Products\Handler\Fields;
 use QUI\ERP\Products\Handler\Products;
 
 /**
- * Class ProductSlider
+ * Class ProductSlider (promo slider)
+ *
  *
  * @package QUI\Bricks\Controls
  */
@@ -42,6 +43,7 @@ class ProductSlider extends QUI\Control
             'nodeName'       => 'section',
             'autostart'      => false,
             'delay'          => 7000,
+            'showarrows'     => false,
             'dotsAppearance' => 'dark', // slider navigation dots
             'template'       => dirname(__FILE__) . '/ProductSlider.html'
         ]);
@@ -53,10 +55,12 @@ class ProductSlider extends QUI\Control
     {
         $this->Calc = QUI\ERP\Products\Utils\Calc::getInstance(QUI::getUserBySession());
 
+        $showArrows = $this->getAttribute('showarrows');
+
         $Engine = QUI::getTemplateManager()->getEngine();
         $Slider = new QUI\Bricks\Controls\Slider\Promoslider([
             'shownavigation' => true,
-            'showarrows'     => $this->getAttribute('showHoverScale'),
+            'showarrows'     => $this->getAttribute('showarrows'),
             'autostart'      => $this->getAttribute('autostart'),
             'delay'          => $this->getAttribute('delay'),
             'imageSize'      => 400
@@ -80,35 +84,35 @@ class ProductSlider extends QUI\Control
             }
         }
 
+        $slideTemplate = dirname(__FILE__) . '/ProductSlider.Slide.html';
+
         /* @var $Product QUI\ERP\Products\Product\ViewFrontend */
         foreach ($products as $Product) {
-            $btnLabel = QUI::getLocale()->get(
-                'quiqqer/product-bricks',
-                'brick.control.productSlider.buyNow'
-            );
+            $EngineSlide = QUI::getTemplateManager()->getEngine();
 
             $priceHtml = '';
+
             if ($this->getAttribute('showPrice')) {
                 $priceHtml = $this->getPriceHtml($Product);
             }
 
-            $text = '<p class="slide-product-description">' . $Product->getDescription() . '</p>';
-            $text .= $priceHtml;
-            $text .= '<p><button class="btn btn-primary btn-large">' . $btnLabel . '</button>';
+            $EngineSlide->assign([
+                'Product'   => $Product,
+                'priceHtml' => $priceHtml
+            ]);
 
             $Slider->addSlide(
-                $Product->getImage()->getUrl(),
-                $Product->getTitle(),
-                $text,
+                false,
+                false,
+                $EngineSlide->fetch($slideTemplate),
                 'left',
                 $Product->getUrl()
             );
 
             $Slider->addMobileSlide(
-                $Product->getImage()->getUrl(),
-                $Product->getTitle(),
-                $text,
-                'left',
+                false,
+                false,
+                $EngineSlide->fetch($slideTemplate),
                 $Product->getUrl()
             );
         }
@@ -130,12 +134,12 @@ class ProductSlider extends QUI\Control
      */
     private function getPriceHtml($Product)
     {
-        $html            = '<div class="slide-product-prices">';
+        $html            = '<div class="quiqqer-productbricks-productslider-slide-left-description-prices">';
         $retailPriceHtml = '';
         $CrossedOutPrice = null;
         $Price           = $Product->getPrice();
         $PriceDisplay    = $Product->getPriceDisplay();
-        
+
         try {
             // Offer price (Angebotspreis) - it has higher priority than retail price
             if ($Product->hasOfferPrice()) {
@@ -161,7 +165,7 @@ class ProductSlider extends QUI\Control
             }
 
             if ($CrossedOutPrice) {
-                $retailPriceHtml = '<div class="slide-product-prices-retail text-muted">';
+                $retailPriceHtml = '<div class="quiqqer-productbricks-productslider-slide-left-description-prices-retail text-muted">';
                 $retailPriceHtml .= $CrossedOutPrice->create() . '</div>';
             }
         } catch (QUI\Exception $Exception) {
@@ -169,7 +173,7 @@ class ProductSlider extends QUI\Control
         }
 
         $html .= $retailPriceHtml;
-        $html .= '<div class="slide-product-prices-price">' . $PriceDisplay->create();
+        $html .= '<div class="quiqqer-productbricks-productslider-slide-left-description-prices-price">' . $PriceDisplay->create();
         $html .= '</div></div>';
 
         return $html;

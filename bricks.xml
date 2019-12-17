@@ -38,6 +38,35 @@
                             var="brick.control.productSlider.bgImage" />
                 </setting>
 
+                <setting type="select" name="showarrows">
+                    <locale group="quiqqer/bricks" var="brick.control.promoslider.settings.showarrows"/>
+
+                    <option value="hide">
+                        <locale group="quiqqer/bricks"
+                                var="brick.control.promoslider.settings.showarrows.hide"/>
+                    </option>
+                    <option value="showHoverScale">
+                        <locale group="quiqqer/bricks"
+                                var="brick.control.promoslider.settings.showarrows.showHoverScale"/>
+                    </option>
+                    <option value="showHoverSlide">
+                        <locale group="quiqqer/bricks"
+                                var="brick.control.promoslider.settings.showarrows.showHoverSlide"/>
+                    </option>
+                    <option value="showHoverBackgroundLight">
+                        <locale group="quiqqer/bricks"
+                                var="brick.control.promoslider.settings.showarrows.showHoverBackgroundLight"/>
+                    </option>
+                    <option value="showHoverBackgroundDark">
+                        <locale group="quiqqer/bricks"
+                                var="brick.control.promoslider.settings.showarrows.showHoverBackgroundDark"/>
+                    </option>
+                    <option value="showHoverOpacity">
+                        <locale group="quiqqer/bricks"
+                                var="brick.control.promoslider.settings.showarrows.showHoverOpacity"/>
+                    </option>
+                </setting>
+
                 <setting name="dotsAppearance" type="select">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.productSlider.dotsAppearance"/>
