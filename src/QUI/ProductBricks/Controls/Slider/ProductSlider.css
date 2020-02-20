@@ -190,6 +190,13 @@
         top: auto;
     }
 
+    .quiqqer-productbricks-productslider-slide-right.quiqqer-bricks-promoslider-slide-mobile-image picture {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+    }
+
     .quiqqer-bricks-promoslider-slide-mobile-dots {
         z-index: 3;
     }
