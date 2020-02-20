@@ -98,6 +98,12 @@
     max-height: 350px;
 }
 
+/* slider dots */
+.quiqqer-bricks-promoslider-slide-mobile-dots,
+.quiqqer-bricks-promoslider-slide-desktop-dots {
+    z-index: 100;
+}
+
 /* slide dots appearance - dark */
 .quiqqer-productbricks-productslider[data-dots-appearance="dark"] .quiqqer-bricks-promoslider-dot {
     background: rgba(0, 0, 0, 0.2);
@@ -127,6 +133,8 @@
 .quiqqer-productbricks-productslider[data-dots-appearance="light"] .quiqqer-bricks-promoslider-dot-active:active {
     background-color: #eee;
 }
+
+
 
 @media screen and (max-width: 768px) {
     .quiqqer-productbricks-productslider {
