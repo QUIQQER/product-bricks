@@ -37,11 +37,11 @@
             <de><![CDATA[Nach Sortierung]]></de>
             <en><![CDATA[By sorting]]></en>
         </locale>
-        <locale name="sort.cdate.DESC">
+        <locale name="sort.cdate.ASC">
             <de><![CDATA[Älteste Produkte zuerst]]></de>
             <en><![CDATA[Oldest products first]]></en>
         </locale>
-        <locale name="sort.cdate.ASC">
+        <locale name="sort.cdate.DESC">
             <de><![CDATA[Neueste Produkte zuerst]]></de>
             <en><![CDATA[Newest products first]]></en>
         </locale>
