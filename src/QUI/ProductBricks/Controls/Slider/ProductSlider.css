@@ -101,7 +101,7 @@
 /* slider dots */
 .quiqqer-bricks-promoslider-slide-mobile-dots,
 .quiqqer-bricks-promoslider-slide-desktop-dots {
-    z-index: 100;
+    z-index: 10;
 }
 
 /* slide dots appearance - dark */
