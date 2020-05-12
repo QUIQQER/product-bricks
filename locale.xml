@@ -61,6 +61,10 @@
             <de><![CDATA[UVP oder Angebotspreis nicht anzeigen]]></de>
             <en><![CDATA[Hide recommended retails price (crossed out)]]></en>
         </locale>
+        <locale name="brick.control.productSlider.settings.showPrices">
+            <de><![CDATA[Preise anzeigen]]></de>
+            <en><![CDATA[Show prices]]></en>
+        </locale>
         <locale name="brick.control.productSlider.settings.categoryIds">
             <de><![CDATA[Kategorien]]></de>
             <en><![CDATA[Categories]]></en>

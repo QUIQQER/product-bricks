@@ -41,11 +41,10 @@ class Slider extends QUI\Control
             'nodeName'        => 'section',
             'entryHeight'     => 400,
             'hideRetailPrice' => false, // hide crossed out price
+            'showPrices'      => true // do not show prices
         ]);
 
         $this->addCSSFile(\dirname(__FILE__) . '/Slider.css');
-
-        $this->Slider = new ChildrenSlider();
     }
 
     public function getBody()
@@ -53,6 +52,10 @@ class Slider extends QUI\Control
         $Engine     = QUI::getTemplateManager()->getEngine();
         $productIds = $this->getAttribute('productIds');
         $products   = [];
+
+        $this->Slider = new ChildrenSlider([
+            'showPrices' => $this->getAttribute('showPrices')
+        ]);
 
         if ($productIds) {
             $productIds = \explode(',', $productIds);
