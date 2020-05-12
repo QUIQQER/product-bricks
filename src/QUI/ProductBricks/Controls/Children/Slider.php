@@ -37,29 +37,79 @@ class Slider extends QUI\Control
 
         // default options
         $this->setAttributes([
-            'class'             => 'quiqqer-productbricks-slider',
-            'nodeName'          => 'section',
-            'entryHeight'       => 400,
-            'hideRetailPrice'   => false, // hide crossed out price
+            'class'           => 'quiqqer-productbricks-slider',
+            'nodeName'        => 'section',
+            'entryHeight'     => 400,
+            'hideRetailPrice' => false, // hide crossed out price
+            'showPrices'      => true // do not show prices
         ]);
 
         $this->addCSSFile(\dirname(__FILE__) . '/Slider.css');
-
-        $this->Slider = new ChildrenSlider();
     }
 
     public function getBody()
     {
         $Engine     = QUI::getTemplateManager()->getEngine();
         $productIds = $this->getAttribute('productIds');
-        $productIds = explode(',', $productIds);
+        $products   = [];
 
-        foreach ($productIds as $productId) {
-            try {
-                $this->Slider->addProduct(Products::getProduct($productId)->getViewFrontend());
-            } catch (QUI\Exception $Exception) {
-                QUI\System\Log::writeException($Exception);
+        $this->Slider = new ChildrenSlider([
+            'showPrices' => $this->getAttribute('showPrices')
+        ]);
+
+        if ($productIds) {
+            $productIds = \explode(',', $productIds);
+            $products   = QUI\ERP\Products\Handler\Products::getProducts([
+                'where' => [
+                    'id' => [
+                        'type'  => 'IN',
+                        'value' => $productIds
+                    ],
+                ],
+                'order' => 'sort ASC, c_date ASC',
+                'limit' => 10
+            ]);
+        }
+
+        $catIds          = $this->getAttribute('categoryIds');
+        $productsFromCat = [];
+
+        if ($catIds) {
+            $catIds = \explode(',', $catIds);
+            foreach ($catIds as $catId) {
+                $products = QUI\ERP\Products\Handler\Products::getProducts([
+                    'where' => [
+                        'categories' => [
+                            'type'  => '%LIKE%',
+                            'value' => $catId
+                        ]
+                    ],
+                    'order' => 'sort ASC, c_date ASC',
+                    'limit' => 10
+                ]);
+
+                $productsFromCat = \array_merge($products, $productsFromCat);
             }
+        }
+
+        $products = \array_merge($products, $productsFromCat);
+
+
+        if (\count($products) < 1) {
+            return '';
+        }
+
+        // sort by c_date desc
+        // todo implement as setting
+        \usort($products, function ($a, $b) {
+            return \strtotime($b->getAttribute('c_date')) - \strtotime($a->getAttribute('c_date'));
+        });
+
+        // todo implement as setting
+        $products = \array_slice($products, 0, 10);
+
+        foreach ($products as $Product) {
+            $this->Slider->addProduct($Product->getViewFrontend());
         }
 
         $this->Slider->setAttribute('height', $this->getAttribute('entryHeight'));
