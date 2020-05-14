@@ -7,12 +7,12 @@
 define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
 
     'qui/QUI',
+    'Packages',
     'qui/controls/Control',
     'qui/controls/loader/Loader',
-    'package/quiqqer/order/bin/frontend/Basket',
     'css!package/quiqqer/product-bricks/bin/controls/basket/AddToBasket.css'
 
-], function (QUI, QUIControl, QUILoader, Basket) {
+], function (QUI, QUIPackageManager, QUIControl, QUILoader) {
     "use strict";
 
     return new Class({
@@ -27,13 +27,13 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
         initialize: function (options) {
             this.parent(options);
 
-            this.animatable = false;
-            this.buttonWidth = null;
+            this.animatable         = false;
+            this.buttonWidth        = null;
             this.animationIsRunning = false;
             this.additionInProgress = false;
-            this.Label = null;
-            this.Icon = null;
-            this.Loader = new QUILoader({
+            this.Label              = null;
+            this.Icon               = null;
+            this.Loader             = new QUILoader({
                 type    : 'fa-refresh',
                 cssclass: 'add-to-basket-custom-loader',
                 opacity : 0.99
@@ -52,7 +52,7 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
                 self      = this,
                 productId = Elm.getAttribute('data-product-id');
 
-            this.animatable = Elm.getAttribute('data-product-animatable') === '1';
+            this.animatable  = Elm.getAttribute('data-product-animatable') === '1';
             this.buttonWidth = Elm.getSize().x;
 
             if (this.animatable) {
@@ -68,25 +68,34 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
             this.Label = Elm.getElement('label');
             this.Loader.inject(Elm);
 
-            Elm.addEvent('click', function (event) {
-                event.stop();
+            this.Loader.show();
 
-                // one click = add one article
-                if (self.additionInProgress) {
+            QUIPackageManager.isInstalled('quiqqer/order').then(function (isInstalled) {
+                if (!isInstalled) {
+                    Elm.destroy();
                     return;
                 }
 
-                self.additionInProgress = true;
+                Elm.addEvent('click', function (event) {
+                    event.stop();
 
-                if (self.animatable && self.animationIsRunning) {
-                    return;
-                }
+                    // one click = add one article
+                    if (self.additionInProgress) {
+                        return;
+                    }
 
-                if (self.animatable) {
-                    self.animationIsRunning = true;
-                }
+                    self.additionInProgress = true;
 
-                self.$addArticleToBasket(event, productId, Elm);
+                    if (self.animatable && self.animationIsRunning) {
+                        return;
+                    }
+
+                    if (self.animatable) {
+                        self.animationIsRunning = true;
+                    }
+
+                    self.$addArticleToBasket(event, productId, Elm);
+                });
             });
         },
 
@@ -103,17 +112,19 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
             this.Label.setStyle('visibility', 'hidden');
             this.Loader.show();
 
-            Basket.addProduct(productId).then(function () {
-                self.Loader.hide();
+            require(['package/quiqqer/order/bin/frontend/Basket'], function (Basket) {
+                Basket.addProduct(productId).then(function () {
+                    self.Loader.hide();
 
-                if (self.animatable) {
-                    self.$animateButton(Button).then(function () {
+                    if (self.animatable) {
+                        self.$animateButton(Button).then(function () {
+                            self.additionInProgress = false;
+                        });
+                    } else {
+                        self.Label.setStyle('visibility', 'visible');
                         self.additionInProgress = false;
-                    });
-                } else {
-                    self.Label.setStyle('visibility', 'visible');
-                    self.additionInProgress = false;
-                }
+                    }
+                });
             });
         },
 
