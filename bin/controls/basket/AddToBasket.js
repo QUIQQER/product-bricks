@@ -70,12 +70,7 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
 
             this.Loader.show();
 
-            QUIPackageManager.isInstalled('quiqqer/order').then(function (isInstalled) {
-                if (!isInstalled) {
-                    Elm.destroy();
-                    return;
-                }
-
+            require(['package/quiqqer/order/bin/frontend/Basket'], function (Basket) {
                 Elm.addEvent('click', function (event) {
                     event.stop();
 
@@ -96,6 +91,10 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
 
                     self.$addArticleToBasket(event, productId, Elm);
                 });
+
+                self.Loader.hide();
+            }, function() {
+                Elm.destroy();
             });
         },
 
