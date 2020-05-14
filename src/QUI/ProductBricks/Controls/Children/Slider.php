@@ -37,14 +37,15 @@ class Slider extends QUI\Control
 
         // default options
         $this->setAttributes([
-            'class'           => 'quiqqer-productbricks-slider',
-            'nodeName'        => 'section',
-            'entryHeight'     => 400,
-            'hideRetailPrice' => false, // hide crossed out price
-            'showPrices'      => true // do not show prices
+            'class'               => 'quiqqer-productbricks-slider',
+            'nodeName'            => 'section',
+            'entryHeight'         => 400,
+            'hideRetailPrice'     => false, // hide crossed out price
+            'showPrices'          => true,  // do not show prices
+            'showVariantChildren' => false  // also show VariantChildren products
         ]);
 
-        $this->addCSSFile(\dirname(__FILE__) . '/Slider.css');
+        $this->addCSSFile(\dirname(__FILE__).'/Slider.css');
     }
 
     public function getBody()
@@ -57,14 +58,28 @@ class Slider extends QUI\Control
             'showPrices' => $this->getAttribute('showPrices')
         ]);
 
+        $allowedProductClasses = [
+            QUI\ERP\Products\Product\Types\Product::class,
+            QUI\ERP\Products\Product\Types\VariantParent::class
+        ];
+
+        if ($this->getAttribute('showVariantChildren')) {
+            $allowedProductClasses[] = QUI\ERP\Products\Product\Types\VariantChild::class;
+        }
+
         if ($productIds) {
             $productIds = \explode(',', $productIds);
             $products   = QUI\ERP\Products\Handler\Products::getProducts([
                 'where' => [
-                    'id' => [
+                    'active' => 1,
+                    'id'     => [
                         'type'  => 'IN',
                         'value' => $productIds
                     ],
+                    'type'   => [
+                        'type'  => 'IN',
+                        'value' => $allowedProductClasses
+                    ]
                 ],
                 'order' => 'sort ASC, c_date ASC',
                 'limit' => 10
@@ -76,12 +91,18 @@ class Slider extends QUI\Control
 
         if ($catIds) {
             $catIds = \explode(',', $catIds);
+
             foreach ($catIds as $catId) {
                 $products = QUI\ERP\Products\Handler\Products::getProducts([
                     'where' => [
+                        'active'     => 1,
                         'categories' => [
                             'type'  => '%LIKE%',
                             'value' => $catId
+                        ],
+                        'type'       => [
+                            'type'  => 'IN',
+                            'value' => $allowedProductClasses
                         ]
                     ],
                     'order' => 'sort ASC, c_date ASC',
@@ -94,6 +115,20 @@ class Slider extends QUI\Control
 
         $products = \array_merge($products, $productsFromCat);
 
+        // Remove duplicates
+        $checked = [];
+
+        /** @var QUI\ERP\Products\Product\Product $Product */
+        foreach ($products as $k => $Product) {
+            if (isset($checked[$Product->getId()])) {
+                unset($products[$k]);
+                continue;
+            }
+
+            $checked[$Product->getId()] = true;
+        }
+
+        $products = \array_values($products);
 
         if (\count($products) < 1) {
             return '';
@@ -119,6 +154,6 @@ class Slider extends QUI\Control
             "Slider" => $this->Slider
         ]);
 
-        return $Engine->fetch(\dirname(__FILE__) . '/Slider.html');
+        return $Engine->fetch(\dirname(__FILE__).'/Slider.html');
     }
 }
