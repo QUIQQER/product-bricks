@@ -7,9 +7,21 @@
             <en><![CDATA[Product bricks]]></en>
         </locale>
         <locale name="package.description">
-            <de>
-                <![CDATA[Dieses Modul stellt Bausteine zur Verfügung, um Ihre Produkte auf einfache Art und Weise zu präsentieren.]]></de>
+            <de><![CDATA[Dieses Modul stellt Bausteine zur Verfügung, um Ihre Produkte auf einfache Art und Weise zu präsentieren.]]></de>
             <en><![CDATA[This module provides several bricks to show your products in an easy way.]]></en>
+        </locale>
+
+        <!--<locale name="brick.control.product.addToCart">
+            <de><![CDATA[In den Warenkorb]]></de>
+            <en><![CDATA[Add to cart]]></en>
+        </locale>-->
+        <locale name="button.product.addToCart">
+            <de><![CDATA[In den Warenkorb]]></de>
+            <en><![CDATA[Add to cart]]></en>
+        </locale>
+        <locale name="button.product.viewProduct">
+            <de><![CDATA[Zum Produkt]]></de>
+            <en><![CDATA[View product]]></en>
         </locale>
 
         <!-- order / sort -->
@@ -101,11 +113,6 @@
                 <de><![CDATA[Hell]]></de>
                 <en><![CDATA[Light]]></en>
             </locale>
-        <locale name="brick.control.productSlider.buyNow">
-            <de><![CDATA[Jetzt kaufen]]></de>
-            <en><![CDATA[Buy now]]></en>
-        </locale>
-
 
         <!-- Category Box -->
         <locale name="brick.control.categoryBox.title">
@@ -154,9 +161,21 @@
             <de><![CDATA[Ein horizontaler Slider für Produkte. Wenn der Platz nicht ausreicht, können die Produkte horizontal gescrollt werden.]]></de>
             <en><![CDATA[Slider for products, witch can be horizontally scrolled, if there are more items as possible to show]]></en>
         </locale>
-        <locale name="brick.control.product.addToCart">
-            <de><![CDATA[In den Warenkorb]]></de>
-            <en><![CDATA[Add to cart]]></en>
+        <locale name="brick.control.productChildrenSlider.buttonAction">
+            <de><![CDATA[Aktion der Schaltfläche]]></de>
+            <en><![CDATA[Button action]]></en>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.buttonAction.addToBasket">
+            <de><![CDATA[Produkt in den Warenkorb hinzufügen]]></de>
+            <en><![CDATA[Add product to the shopping cart]]></en>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.buttonAction.showProduct">
+            <de><![CDATA[Produkt anzeigen]]></de>
+            <en><![CDATA[Show product]]></en>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.buttonAction.desc">
+            <de><![CDATA[Um das Produkt in den Warenkorb hinzuzufügen, muss das Paket "quiqqer/order" installiert sein.]]></de>
+            <en><![CDATA[To add the product to the shopping cart, the package "quiqqer/order" must be installed.]]></en>
         </locale>
 
         <!-- Promo Box -->

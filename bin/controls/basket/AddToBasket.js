@@ -1,24 +1,24 @@
 /**
  * Add to basket button
  *
+ *
  * @module package/quiqqer/product-bricks/bin/controls/basket/AddToBasket
  * @author www.pcsg.de (Michael Danielczok)
  */
 define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
 
     'qui/QUI',
-    'Packages',
     'qui/controls/Control',
     'qui/controls/loader/Loader',
     'css!package/quiqqer/product-bricks/bin/controls/basket/AddToBasket.css'
 
-], function (QUI, QUIPackageManager, QUIControl, QUILoader) {
+], function (QUI, QUIControl, QUILoader) {
     "use strict";
 
     return new Class({
 
         Extends: QUIControl,
-        Type   : 'package/quiqqer/order/bin/frontend/controls/frontendusers/Article',
+        Type   : 'package/quiqqer/product-bricks/bin/controls/basket/AddToBasket',
 
         Binds: [
             '$addArticleToBasket'
