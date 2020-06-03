@@ -86,7 +86,6 @@
                 >
                     <locale group="quiqqer/products" var="quiqqer.products.settings.productIds"/>
                 </setting>
-
             </settings>
         </brick>
 
@@ -189,6 +188,24 @@
                 <setting name="showPrices" type="checkbox">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.productSlider.settings.showPrices"/>
+                </setting>
+
+                <setting name="buttonAction" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productChildrenSlider.buttonAction"/>
+                    <description>
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productChildrenSlider.buttonAction.desc"/>
+                    </description>
+
+                    <option value="addToBasket">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productChildrenSlider.buttonAction.addToBasket"/>
+                    </option>
+                    <option value="showProduct">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productChildrenSlider.buttonAction.showProduct"/>
+                    </option>
                 </setting>
 
                 <setting name="productIds" type="hidden"

@@ -42,10 +42,12 @@ class Slider extends QUI\Control
             'entryHeight'         => 400,
             'hideRetailPrice'     => false, // hide crossed out price
             'showPrices'          => true,  // do not show prices
-            'showVariantChildren' => false  // also show VariantChildren products
+            'showVariantChildren' => false,  // also show VariantChildren products
+            'buttonAction'        => 'addToBasket'
+
         ]);
 
-        $this->addCSSFile(\dirname(__FILE__).'/Slider.css');
+        $this->addCSSFile(\dirname(__FILE__) . '/Slider.css');
     }
 
     public function getBody()
@@ -55,7 +57,8 @@ class Slider extends QUI\Control
         $products   = [];
 
         $this->Slider = new ChildrenSlider([
-            'showPrices' => $this->getAttribute('showPrices')
+            'showPrices'   => $this->getAttribute('showPrices'),
+            'buttonAction' => $this->getAttribute('buttonAction')
         ]);
 
         $allowedProductClasses = [
@@ -154,6 +157,6 @@ class Slider extends QUI\Control
             "Slider" => $this->Slider
         ]);
 
-        return $Engine->fetch(\dirname(__FILE__).'/Slider.html');
+        return $Engine->fetch(\dirname(__FILE__) . '/Slider.html');
     }
 }
