@@ -62,6 +62,7 @@ class Slider extends QUI\Control
         ]);
 
         $allowedProductClasses = [
+            '', // fix for old products
             QUI\ERP\Products\Product\Types\Product::class,
             QUI\ERP\Products\Product\Types\VariantParent::class
         ];
@@ -96,12 +97,12 @@ class Slider extends QUI\Control
             $catIds = \explode(',', $catIds);
 
             foreach ($catIds as $catId) {
-                $products = QUI\ERP\Products\Handler\Products::getProducts([
+                $catProducts = QUI\ERP\Products\Handler\Products::getProducts([
                     'where' => [
                         'active'     => 1,
                         'categories' => [
                             'type'  => '%LIKE%',
-                            'value' => $catId
+                            'value' => ',' . $catId . ','
                         ],
                         'type'       => [
                             'type'  => 'IN',
@@ -112,7 +113,7 @@ class Slider extends QUI\Control
                     'limit' => 10
                 ]);
 
-                $productsFromCat = \array_merge($products, $productsFromCat);
+                $productsFromCat = \array_merge($catProducts, $productsFromCat);
             }
         }
 
