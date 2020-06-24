@@ -85,7 +85,7 @@ class Slider extends QUI\Control
                         'value' => $allowedProductClasses
                     ]
                 ],
-                'order' => 'sort ASC, c_date ASC',
+                'order' => 'c_date DESC',
                 'limit' => 10
             ]);
         }
@@ -109,7 +109,7 @@ class Slider extends QUI\Control
                             'value' => $allowedProductClasses
                         ]
                     ],
-                    'order' => 'sort ASC, c_date ASC',
+                    'order' => 'c_date DESC',
                     'limit' => 10
                 ]);
 
