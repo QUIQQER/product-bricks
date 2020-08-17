@@ -495,5 +495,21 @@
             </settings>
         </brick>
 
+        <!-- Manufacture slider  -->
+        <brick control="\QUI\ProductBricks\Controls\ManufactureSlider">
+            <title>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.manufactureSlider.title"/>
+            </title>
+            <description>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.manufactureSlider.description"/>
+            </description>
+
+            <settings>
+
+            </settings>
+        </brick>
+
     </bricks>
 </quiqqer>
