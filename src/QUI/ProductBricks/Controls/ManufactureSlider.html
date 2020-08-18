@@ -1,0 +1,79 @@
+
+
+<style>
+    .quiqqer-bricks-children-slider-container-wrapper,
+    .quiqqer-bricks-children-slider-container-slide {
+        height: {$height}px;
+    }
+
+    @media screen and (max-width: 767px) {
+        .quiqqer-bricks-children-slider-container-wrapper,
+        .quiqqer-bricks-children-slider-container-slide {
+            height: {$height * 0.75}px;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .quiqqer-bricks-children-slider-container-wrapper,
+        .quiqqer-bricks-children-slider-container-slide {
+        height: {$height * 0.6}px;
+        }
+    }
+</style>
+
+{if $this->getAttribute('showTitle') && $this->getAttribute('frontendTitle')}
+<header class="control-header">
+    <h1>{$this->getAttribute('frontendTitle')}</h1>
+</header>
+{/if}
+
+{if $this->getAttribute('content') != ""}
+<div class="control-content">
+    {$this->getAttribute('content')}
+</div>
+{/if}
+
+<div class="quiqqer-bricks-children-slider-container-wrapper control-template">
+    <div class="quiqqer-bricks-children-slider-container quiqqer-product-bricks-control-manufactureSlider">
+        <div class="quiqqer-bricks-children-slider-container-inner">
+            <ul class="quiqqer-bricks-children-slider-container-slide">
+                {strip}
+
+                {foreach $manufacturerUsers as $userId}
+                <li class="quiqqer-bricks-children-slider-child">
+                    <article class="quiqqer-bricks-children-slider-child-display quiqqer-product-bricks-control-manufactureSlider-entry "
+                             data-mid="{$userId}"
+                    >
+
+                        {assign var=title value=\QUI\ERP\Products\Handler\Manufacturers::getManufacturerTitle($userId)}
+
+                        <div class="quiqqer-product-bricks-control-manufactureSlider-entry-image">
+                            <a href="{\QUI\ERP\Products\Handler\Manufacturers::getManufacturerUrl($userId)}"
+                               title="{$title|escape:'html'}"
+                            >
+                                {image image=\QUI\ERP\Products\Handler\Manufacturers::getManufacturerImage($userId) title=$title width=400}
+                            </a>
+                        </div>
+                    </article>
+                </li>
+                {/foreach}
+                {/strip}
+
+                {if $MoreLink}
+                <li class="quiqqer-bricks-children-slider-child">
+                    <article class="quiqqer-bricks-children-slider-child-display
+                                    quiqqer-product-bricks-control-manufactureSlider-entry
+                                    quiqqer-product-bricks-control-manufactureSlider-entry__more">
+                        <a href="{url site=$MoreLink}" title="{$MoreLink->getAttribute('title')|escape:'html'}">
+                            <span class="fa fa-angle-right quiqqer-moreLink-icon"></span>
+                            <span class="quiqqer-moreLink-text">
+                                {locale group='quiqqer/product-bricks' var='brick.control.manufactureSlider.moreLink.label'}
+                            </span>
+                        </a>
+                    </article>
+                </li>
+                {/if}
+            </ul>
+        </div>
+    </div>
+</div>

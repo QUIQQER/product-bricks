@@ -369,6 +369,43 @@
             <de><![CDATA[Produkt ansehen]]></de>
             <en><![CDATA[Show product]]></en>
         </locale>
+
+        <!-- manufascture slider -->
+        <locale name="brick.control.manufactureSlider.title">
+            <de><![CDATA[Produkte: Hersteller-Slider]]></de>
+            <en><![CDATA[Products: Manufacture Slider]]></en>
+        </locale>
+        <locale name="brick.control.manufactureSlider.description">
+            <de><![CDATA[Hersteller-Logo als horizontaler Slider (Carousel) darstellen.]]></de>
+            <en><![CDATA[Show manufacture logos as horizontal slider (carousel).]]></en>
+        </locale>
+
+        <locale name="brick.control.manufactureSlider.limit">
+            <de><![CDATA[Limit]]></de>
+            <en><![CDATA[Limit]]></en>
+        </locale>
+
+        <locale name="brick.control.manufactureSlider.moreLink">
+            <de><![CDATA[Alle Hersteller]]></de>
+            <en><![CDATA[All manufactures]]></en>
+        </locale>
+        <locale name="brick.control.manufactureSlider.moreLink.label">
+            <de><![CDATA[Weitere Hersteller entdecken]]></de>
+            <en><![CDATA[Find more manufacturers]]></en>
+        </locale>
+
+        <locale name="brick.control.manufactureSlider.sort">
+            <de><![CDATA[Sortierung]]></de>
+            <en><![CDATA[Order]]></en>
+        </locale>
+        <locale name="brick.control.manufactureSlider.sort.username.ASC">
+            <de><![CDATA[Namen aufsteigend]]></de>
+            <en><![CDATA[Name ascending]]></en>
+        </locale>
+        <locale name="brick.control.manufactureSlider.sort.username.DESC">
+            <de><![CDATA[Namen absteigend]]></de>
+            <en><![CDATA[Name descending]]></en>
+        </locale>
     </groups>
 
 
