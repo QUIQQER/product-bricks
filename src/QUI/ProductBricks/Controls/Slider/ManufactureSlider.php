@@ -1,10 +1,10 @@
 <?php
 
 /**
- * This file contains QUI\ProductBricks\Controls\ManufactureSlider
+ * This file contains QUI\ProductBricks\Controls\Slider\ManufactureSlider
  */
 
-namespace QUI\ProductBricks\Controls;
+namespace QUI\ProductBricks\Controls\Slider;
 
 use QUI;
 use QUI\ERP\Products\Handler\Manufacturers as ManufacturersHandler;

@@ -496,7 +496,7 @@
         </brick>
 
         <!-- Manufacture slider  -->
-        <brick control="\QUI\ProductBricks\Controls\ManufactureSlider">
+        <brick control="\QUI\ProductBricks\Controls\Slider\ManufactureSlider">
             <title>
                 <locale group="quiqqer/product-bricks"
                         var="brick.control.manufactureSlider.title"/>
