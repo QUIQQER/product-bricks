@@ -1,21 +1,21 @@
 
 
 <style>
-    .quiqqer-bricks-children-slider-container-wrapper,
-    .quiqqer-bricks-children-slider-container-slide {
+    .quiqqer-product-bricks-control-manufactureSlider-wrapper,
+    .quiqqer-product-bricks-control-manufactureSlider-slide {
         height: {$height}px;
     }
 
     @media screen and (max-width: 767px) {
-        .quiqqer-bricks-children-slider-container-wrapper,
-        .quiqqer-bricks-children-slider-container-slide {
+        .quiqqer-product-bricks-control-manufactureSlider-wrapper,
+        .quiqqer-product-bricks-control-manufactureSlider-slide {
             height: {$height * 0.75}px;
         }
     }
 
     @media screen and (max-width: 500px) {
-        .quiqqer-bricks-children-slider-container-wrapper,
-        .quiqqer-bricks-children-slider-container-slide {
+        .quiqqer-product-bricks-control-manufactureSlider-wrapper,
+        .quiqqer-product-bricks-control-manufactureSlider-slide {
         height: {$height * 0.6}px;
         }
     }
@@ -33,10 +33,10 @@
 </div>
 {/if}
 
-<div class="quiqqer-bricks-children-slider-container-wrapper control-template">
+<div class="quiqqer-bricks-children-slider-container-wrapper quiqqer-product-bricks-control-manufactureSlider-wrapper control-template">
     <div class="quiqqer-bricks-children-slider-container quiqqer-product-bricks-control-manufactureSlider">
         <div class="quiqqer-bricks-children-slider-container-inner">
-            <ul class="quiqqer-bricks-children-slider-container-slide">
+            <ul class="quiqqer-bricks-children-slider-container-slide quiqqer-product-bricks-control-manufactureSlider-slide">
                 {strip}
 
                 {foreach $manufacturerUsers as $userId}
