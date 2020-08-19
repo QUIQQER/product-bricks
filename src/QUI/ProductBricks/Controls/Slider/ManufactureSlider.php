@@ -51,17 +51,23 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
         }
 
         $height = $this->getAttribute('height');
+        $limit  = $this->getAttribute('limit');
+
         $this->setAttribute('height', false);
 
         if (!$height) {
             $height = 200;
         }
 
+        if (!$limit) {
+            $limit = 20;
+        }
+
         $manufacturerUserIds = [];
         $start               = 0;
-        $limit               = $this->getAttribute('limit');
-        $Users               = QUI::getUsers();
-        $MoreLink            = null;
+
+        $Users    = QUI::getUsers();
+        $MoreLink = null;
 
         try {
             $userIds = ManufacturersHandler::getManufacturerUserIds();
@@ -94,18 +100,6 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
             } catch (QUI\Exception $Exception) {
             }
         }
-
-        // sort alphabetically
-//        \usort($manufacturerUserIds, function ($userIdA, $userIdB) {
-//            /**
-//             * @var int $userIdA
-//             * @var int $userIdB
-//             */
-//            return \strnatcmp(
-//                ManufacturersHandler::getManufacturerTitle($userIdA),
-//                ManufacturersHandler::getManufacturerTitle($userIdB)
-//            );
-//        });
 
         $Engine->assign([
             'this'              => $this,
