@@ -153,6 +153,10 @@ class Slider extends QUI\Control
 
         $this->Slider->setAttribute('height', $this->getAttribute('entryHeight'));
 
+        foreach ($this->Slider->getCSSFiles() as $file) {
+            $this->addCSSFile($file);
+        }
+
         $Engine->assign([
             'this'   => $this,
             "Slider" => $this->Slider

@@ -45,10 +45,10 @@ class ProductSlider extends QUI\Control
             'delay'          => 7000,
             'showarrows'     => false,
             'dotsAppearance' => 'dark', // slider navigation dots
-            'template'       => dirname(__FILE__) . '/ProductSlider.html'
+            'template'       => dirname(__FILE__).'/ProductSlider.html'
         ]);
 
-        $this->addCSSFile(dirname(__FILE__) . '/ProductSlider.css');
+        $this->addCSSFile(dirname(__FILE__).'/ProductSlider.css');
     }
 
     public function getBody()
@@ -66,8 +66,12 @@ class ProductSlider extends QUI\Control
             'imageSize'      => 400
         ]);
 
+        foreach ($Slider->getCSSFiles() as $file) {
+            $this->addCSSFile($file);
+        }
+
         $this->setStyle('background-color', $this->getAttribute('bgColor'));
-        $this->setStyle('background-image', 'url(' . $this->getAttribute('bgImage') . ')');
+        $this->setStyle('background-image', 'url('.$this->getAttribute('bgImage').')');
         $this->setAttribute('data-dots-appearance', $this->getAttribute('dotsAppearance'));
 
         $productIds = $this->getAttribute('productIds');
@@ -84,7 +88,7 @@ class ProductSlider extends QUI\Control
             }
         }
 
-        $slideTemplate = dirname(__FILE__) . '/ProductSlider.Slide.html';
+        $slideTemplate = dirname(__FILE__).'/ProductSlider.Slide.html';
 
         /* @var $Product QUI\ERP\Products\Product\ViewFrontend */
         foreach ($products as $Product) {
@@ -166,14 +170,14 @@ class ProductSlider extends QUI\Control
 
             if ($CrossedOutPrice) {
                 $retailPriceHtml = '<div class="quiqqer-productbricks-productslider-slide-left-description-prices-retail text-muted">';
-                $retailPriceHtml .= $CrossedOutPrice->create() . '</div>';
+                $retailPriceHtml .= $CrossedOutPrice->create().'</div>';
             }
         } catch (QUI\Exception $Exception) {
             QUI\System\Log::writeDebugException($Exception);
         }
 
         $html .= $retailPriceHtml;
-        $html .= '<div class="quiqqer-productbricks-productslider-slide-left-description-prices-price">' . $PriceDisplay->create();
+        $html .= '<div class="quiqqer-productbricks-productslider-slide-left-description-prices-price">'.$PriceDisplay->create();
         $html .= '</div></div>';
 
         return $html;
