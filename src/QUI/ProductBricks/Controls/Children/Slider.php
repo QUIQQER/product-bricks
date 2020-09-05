@@ -43,8 +43,9 @@ class Slider extends QUI\Control
             'hideRetailPrice'     => false, // hide crossed out price
             'showPrices'          => true,  // do not show prices
             'showVariantChildren' => false,  // also show VariantChildren products
-            'buttonAction'        => 'addToBasket'
-
+            'buttonAction'        => 'addToBasket',
+            'order'               => 'orderCount DESC', // Best selling products
+            'limit'               => 10
         ]);
 
         $this->addCSSFile(\dirname(__FILE__) . '/Slider.css');
@@ -55,6 +56,16 @@ class Slider extends QUI\Control
         $Engine     = QUI::getTemplateManager()->getEngine();
         $productIds = $this->getAttribute('productIds');
         $products   = [];
+        $order      = $this->getAttribute('order');
+        $limit = $this->getAttribute('limit');
+
+        if (!$order) {
+            $order = 'orderCount DESC';
+        }
+
+        if (!$limit) {
+            $order = 10;
+        }
 
         $this->Slider = new ChildrenSlider([
             'showPrices'   => $this->getAttribute('showPrices'),
@@ -86,7 +97,7 @@ class Slider extends QUI\Control
                     ]
                 ],
                 'order' => 'c_date DESC',
-                'limit' => 10
+                'limit' => $limit
             ]);
         }
 
@@ -97,25 +108,20 @@ class Slider extends QUI\Control
             $catIds = \explode(',', $catIds);
 
             foreach ($catIds as $catId) {
-                $catProducts = QUI\ERP\Products\Handler\Products::getProducts([
+                $Category = QUI\ERP\Products\Handler\Categories::getCategory($catId);
+
+                $catProducts = $Category->getProducts([
                     'where' => [
-                        'active'     => 1,
-                        'categories' => [
-                            'type'  => '%LIKE%',
-                            'value' => ',' . $catId . ','
-                        ],
-                        'type'       => [
-                            'type'  => 'IN',
-                            'value' => $allowedProductClasses
-                        ]
+                        'active' => 1,
                     ],
-                    'order' => 'c_date DESC',
-                    'limit' => 10
+                    'limit' => $limit,
+                    'order' => $order
                 ]);
 
                 $productsFromCat = \array_merge($catProducts, $productsFromCat);
             }
         }
+
 
         $products = \array_merge($products, $productsFromCat);
 
@@ -138,14 +144,8 @@ class Slider extends QUI\Control
             return '';
         }
 
-        // sort by c_date desc
-        // todo implement as setting
-        \usort($products, function ($a, $b) {
-            return \strtotime($b->getAttribute('c_date')) - \strtotime($a->getAttribute('c_date'));
-        });
-
-        // todo implement as setting
-        $products = \array_slice($products, 0, 10);
+        // limit / max
+        $products = \array_slice($products, 0, $limit);
 
         foreach ($products as $Product) {
             $this->Slider->addProduct($Product->getViewFrontend());

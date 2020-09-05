@@ -169,6 +169,10 @@
             <de><![CDATA[Produkt in den Warenkorb hinzufügen]]></de>
             <en><![CDATA[Add product to the shopping cart]]></en>
         </locale>
+        <locale name="brick.control.productSlider.settings.limit">
+            <de><![CDATA[Maximale Anzahl an Produkten]]></de>
+            <en><![CDATA[Maximum amount of products]]></en>
+        </locale>
         <locale name="brick.control.productChildrenSlider.buttonAction.showProduct">
             <de><![CDATA[Produkt anzeigen]]></de>
             <en><![CDATA[Show product]]></en>
@@ -176,6 +180,19 @@
         <locale name="brick.control.productChildrenSlider.buttonAction.desc">
             <de><![CDATA[Um das Produkt in den Warenkorb hinzuzufügen, muss das Paket "quiqqer/order" installiert sein.]]></de>
             <en><![CDATA[To add the product to the shopping cart, the package "quiqqer/order" must be installed.]]></en>
+        </locale>
+
+        <locale name="brick.control.productChildrenSlider.order">
+            <de><![CDATA[Sortierung]]></de>
+            <en><![CDATA[Order]]></en>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.order.desc">
+            <de><![CDATA[Die Einstellung hat nur Auswirkung auf die Produkte, die aus der Kategorien geholt werden.]]></de>
+            <en><![CDATA[The setting only affects the products that are fetched from the categories.]]></en>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.order.orderCount">
+            <de><![CDATA[Meist verkaufte Produkte (Voreinstellung)]]></de>
+            <en><![CDATA[Best selling products (default)]]></en>
         </locale>
 
         <!-- Promo Box -->

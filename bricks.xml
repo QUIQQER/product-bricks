@@ -116,37 +116,37 @@
                     <locale group="quiqqer/bricks" var="brick.control.setting.order"/>
 
                     <option value="manuell">
-                        <locale group="quiqqer/system" var="manually"/>
+                        <locale group="quiqqer/quiqqer" var="manually"/>
                     </option>
                     <option value="name ASC">
-                        <locale group="quiqqer/system" var="name_asc"/>
+                        <locale group="quiqqer/quiqqer" var="name_asc"/>
                     </option>
                     <option value="name DESC">
-                        <locale group="quiqqer/system" var="name_desc"/>
+                        <locale group="quiqqer/quiqqer" var="name_desc"/>
                     </option>
                     <option value="title ASC">
-                        <locale group="quiqqer/system" var="title_asc"/>
+                        <locale group="quiqqer/quiqqer" var="title_asc"/>
                     </option>
                     <option value="title DESC">
-                        <locale group="quiqqer/system" var="title_desc"/>
+                        <locale group="quiqqer/quiqqer" var="title_desc"/>
                     </option>
                     <option value="c_date ASC">
-                        <locale group="quiqqer/system" var="c_date_asc"/>
+                        <locale group="quiqqer/quiqqer" var="c_date_asc"/>
                     </option>
                     <option value="c_date DESC">
-                        <locale group="quiqqer/system" var="c_date_desc"/>
+                        <locale group="quiqqer/quiqqer" var="c_date_desc"/>
                     </option>
                     <option value="e_date ASC">
-                        <locale group="quiqqer/system" var="e_date_asc"/>
+                        <locale group="quiqqer/quiqqer" var="e_date_asc"/>
                     </option>
                     <option value="e_date DESC">
-                        <locale group="quiqqer/system" var="e_date_desc"/>
+                        <locale group="quiqqer/quiqqer" var="e_date_desc"/>
                     </option>
                     <option value="release_from ASC">
-                        <locale group="quiqqer/system" var="release_from_asc"/>
+                        <locale group="quiqqer/quiqqer" var="release_from_asc"/>
                     </option>
                     <option value="release_from DESC">
-                        <locale group="quiqqer/system" var="release_from_desc"/>
+                        <locale group="quiqqer/quiqqer" var="release_from_desc"/>
                     </option>
                 </setting>
 
@@ -207,11 +207,63 @@
                                 var="brick.control.productChildrenSlider.buttonAction.showProduct"/>
                     </option>
                 </setting>
+                <setting name="limit" type="number">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.limit"/>
+                </setting>
 
                 <setting name="productIds" type="hidden"
                          data-qui="package/quiqqer/products/bin/controls/products/Select"
                 >
                     <locale group="quiqqer/products" var="quiqqer.products.settings.productIds"/>
+                </setting>
+
+                <setting name="order" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productChildrenSlider.order"/>
+
+                    <description>
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productChildrenSlider.order.desc"/>
+                    </description>
+
+                    <option value="orderCount DESC">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productChildrenSlider.order.orderCount"/>
+                    </option>
+                    <option value="manuell">
+                        <locale group="quiqqer/quiqqer" var="manually"/>
+                    </option>
+                    <option value="name ASC">
+                        <locale group="quiqqer/quiqqer" var="name_asc"/>
+                    </option>
+                    <option value="name DESC">
+                        <locale group="quiqqer/quiqqer" var="name_desc"/>
+                    </option>
+                    <option value="title ASC">
+                        <locale group="quiqqer/quiqqer" var="title_asc"/>
+                    </option>
+                    <option value="title DESC">
+                        <locale group="quiqqer/quiqqer" var="title_desc"/>
+                    </option>
+                    <option value="c_date ASC">
+                        <locale group="quiqqer/quiqqer" var="c_date_asc"/>
+                    </option>
+                    <option value="c_date DESC">
+                        <locale group="quiqqer/quiqqer" var="c_date_desc"/>
+                    </option>
+                    <option value="e_date ASC">
+                        <locale group="quiqqer/quiqqer" var="e_date_asc"/>
+                    </option>
+                    <option value="e_date DESC">
+                        <locale group="quiqqer/quiqqer" var="e_date_desc"/>
+                    </option>
+                    <option value="release_from ASC">
+                        <locale group="quiqqer/quiqqer" var="release_from_asc"/>
+                    </option>
+                    <option value="release_from DESC">
+                        <locale group="quiqqer/quiqqer" var="release_from_desc"/>
+                    </option>
                 </setting>
 
                 <setting name="categoryIds" type="hidden"
@@ -533,20 +585,20 @@
                     </option>
 
                     <option value="c_date ASC">
-                        <locale group="quiqqer/system"
+                        <locale group="quiqqer/quiqqer"
                                 var="c_date_asc"/>
                     </option>
                     <option value="c_date DESC">
-                        <locale group="quiqqer/system"
+                        <locale group="quiqqer/quiqqer"
                                 var="c_date_desc"/>
                     </option>
 
                     <option value="e_date ASC">
-                        <locale group="quiqqer/system"
+                        <locale group="quiqqer/quiqqer"
                                 var="e_date_asc"/>
                     </option>
                     <option value="e_date DESC">
-                        <locale group="quiqqer/system"
+                        <locale group="quiqqer/quiqqer"
                                 var="e_date_desc"/>
                     </option>
 
