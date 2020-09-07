@@ -25,8 +25,8 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
         // default options
         $this->setAttributes([
             'moreLink' => false,
-            'height'   => 200,
-            'limit'    => 20,
+            'height'   => 120,
+            'limit'    => 10,
             'order'    => 'username ASC'
         ]);
 
@@ -56,11 +56,11 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
         $this->setAttribute('height', false);
 
         if (!$height) {
-            $height = 200;
+            $height = 120;
         }
 
         if (!$limit) {
-            $limit = 20;
+            $limit = 10;
         }
 
         $manufacturerUserIds = [];
@@ -70,7 +70,7 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
         $MoreLink = null;
 
         try {
-            $userIds = ManufacturersHandler::getManufacturerUserIds();
+            $userIds = ManufacturersHandler::getManufacturerUserIds(true);
 
             if (!empty($userIds)) {
                 $result = QUI::getDataBase()->fetch([
