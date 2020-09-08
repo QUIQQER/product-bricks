@@ -73,6 +73,7 @@ class ProductSlider extends QUI\Control
         $this->setStyle('background-color', $this->getAttribute('bgColor'));
         $this->setStyle('background-image', 'url('.$this->getAttribute('bgImage').')');
         $this->setAttribute('data-dots-appearance', $this->getAttribute('dotsAppearance'));
+        $this->addCSSFiles($Slider->getCSSFiles());
 
         $productIds = $this->getAttribute('productIds');
         $productIds = explode(',', $productIds);

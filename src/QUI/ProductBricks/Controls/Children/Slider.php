@@ -48,7 +48,7 @@ class Slider extends QUI\Control
             'limit'               => 10
         ]);
 
-        $this->addCSSFile(\dirname(__FILE__) . '/Slider.css');
+        $this->addCSSFile(\dirname(__FILE__).'/Slider.css');
     }
 
     public function getBody()
@@ -71,6 +71,8 @@ class Slider extends QUI\Control
             'showPrices'   => $this->getAttribute('showPrices'),
             'buttonAction' => $this->getAttribute('buttonAction')
         ]);
+
+        $this->addCSSFiles($this->Slider->getCSSFiles());
 
         $allowedProductClasses = [
             '', // fix for old products
@@ -162,6 +164,6 @@ class Slider extends QUI\Control
             "Slider" => $this->Slider
         ]);
 
-        return $Engine->fetch(\dirname(__FILE__) . '/Slider.html');
+        return $Engine->fetch(\dirname(__FILE__).'/Slider.html');
     }
 }
