@@ -186,10 +186,6 @@
             <de><![CDATA[Sortierung]]></de>
             <en><![CDATA[Order]]></en>
         </locale>
-        <locale name="brick.control.productChildrenSlider.order.desc">
-            <de><![CDATA[Die Einstellung hat nur Auswirkung auf die Produkte, die aus der Kategorien geholt werden.]]></de>
-            <en><![CDATA[The setting only affects the products that are fetched from the categories.]]></en>
-        </locale>
         <locale name="brick.control.productChildrenSlider.order.orderCount">
             <de><![CDATA[Meist verkaufte Produkte (Voreinstellung)]]></de>
             <en><![CDATA[Best selling products (default)]]></en>

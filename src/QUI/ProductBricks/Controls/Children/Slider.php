@@ -57,7 +57,7 @@ class Slider extends QUI\Control
         $productIds = $this->getAttribute('productIds');
         $products   = [];
         $order      = $this->getAttribute('order');
-        $limit = $this->getAttribute('limit');
+        $limit      = $this->getAttribute('limit');
 
         if (!$order) {
             $order = 'orderCount DESC';
@@ -96,7 +96,8 @@ class Slider extends QUI\Control
                         'value' => $allowedProductClasses
                     ]
                 ],
-                'order' => 'c_date DESC',
+
+                'order' => $order,
                 'limit' => $limit
             ]);
         }
@@ -104,7 +105,7 @@ class Slider extends QUI\Control
         $catIds          = $this->getAttribute('categoryIds');
         $productsFromCat = [];
 
-        if ($catIds) {
+        if (is_string($catIds) && strlen($catIds) > 0) {
             $catIds = \explode(',', $catIds);
 
             foreach ($catIds as $catId) {
@@ -121,7 +122,6 @@ class Slider extends QUI\Control
                 $productsFromCat = \array_merge($catProducts, $productsFromCat);
             }
         }
-
 
         $products = \array_merge($products, $productsFromCat);
 

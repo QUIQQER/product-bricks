@@ -212,20 +212,9 @@
                             var="brick.control.productSlider.settings.limit"/>
                 </setting>
 
-                <setting name="productIds" type="hidden"
-                         data-qui="package/quiqqer/products/bin/controls/products/Select"
-                >
-                    <locale group="quiqqer/products" var="quiqqer.products.settings.productIds"/>
-                </setting>
-
                 <setting name="order" type="select">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.productChildrenSlider.order"/>
-
-                    <description>
-                        <locale group="quiqqer/product-bricks"
-                                var="brick.control.productChildrenSlider.order.desc"/>
-                    </description>
 
                     <option value="orderCount DESC">
                         <locale group="quiqqer/product-bricks"
@@ -264,6 +253,12 @@
                     <option value="release_from DESC">
                         <locale group="quiqqer/quiqqer" var="release_from_desc"/>
                     </option>
+                </setting>
+
+                <setting name="productIds" type="hidden"
+                         data-qui="package/quiqqer/products/bin/controls/products/Select"
+                >
+                    <locale group="quiqqer/products" var="quiqqer.products.settings.productIds"/>
                 </setting>
 
                 <setting name="categoryIds" type="hidden"
