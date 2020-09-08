@@ -1,0 +1,117 @@
+
+.quiqqer-product-bricks-control-manufactureSlider .quiqqer-bricks-children-slider-container-slide {
+    display: flex;
+    text-align: center;
+}
+
+.quiqqer-product-bricks-control-manufactureSlider-entry {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 170px;
+}
+
+.quiqqer-product-bricks-control-manufactureSlider-entry-image {
+    flex-shrink: 0;
+    height: 100%;
+    padding: 10px;
+    width: 100%;
+}
+
+.quiqqer-product-bricks-control-manufactureSlider-entry-image a {
+    height: 100%;
+    width: 100%;
+}
+
+.quiqqer-product-bricks-control-manufactureSlider-entry-image a picture {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.quiqqer-product-bricks-control-manufactureSlider-entry-image a img {
+    height: initial;
+    max-height: 100%;
+    max-width: 100%;
+    width: initial;
+}
+
+/* header */
+.quiqqer-product-bricks-control-manufactureSlider-entry header {
+    display: none;
+    flex-direction: column;
+    flex-grow: 1;
+    float: none;
+    margin: 1em 0;
+    padding: 0 10px;
+}
+
+.quiqqer-product-bricks-control-manufactureSlider-entry header a {
+    color: inherit;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    white-space: normal;
+}
+
+/* more link */
+.quiqqer-product-bricks-control-manufactureSlider-entry__more a {
+    padding: 10px;
+    align-items: center;
+    color: inherit;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.quiqqer-product-bricks-control-manufactureSlider-entry__more a .quiqqer-moreLink-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    transition: 0.2s transform;
+}
+
+.quiqqer-product-bricks-control-manufactureSlider-entry__more a .quiqqer-moreLink-text {
+    line-height: 1.25em;
+    white-space: normal;
+}
+
+@media screen and (max-width: 767px) {
+    .quiqqer-product-bricks-control-manufactureSlider-entry {
+        width: 120px;
+    }
+
+    .quiqqer-product-bricks-control-manufactureSlider-entry__more a .quiqqer-moreLink-icon {
+        display: none;
+    }
+
+    .quiqqer-product-bricks-control-manufactureSlider-entry__more a .quiqqer-moreLink-text {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .quiqqer-product-bricks-control-manufactureSlider-entry {
+        width: 100px;
+    }
+}
+
+/* navigation arrows */
+.quiqqer-bricks-children-slider .quiqqer-bricks-children-slider-prev,
+.quiqqer-bricks-children-slider .quiqqer-bricks-children-slider-next {
+    align-items: center;
+    border-color: rgba(51, 51, 51, 0.2);
+    border-radius: 0;
+    color: #666;
+    display: flex;
+    height: calc(100% - 2px);
+    justify-content: center;
+}
+
+.quiqqer-bricks-children-slider-mobile .quiqqer-bricks-children-slider-prev:hover,
+.quiqqer-bricks-children-slider-mobile .quiqqer-bricks-children-slider-next:hover {
+    background: rgba(188, 188, 188, 0.5);
+}

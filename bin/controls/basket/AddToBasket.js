@@ -1,6 +1,7 @@
 /**
  * Add to basket button
  *
+ *
  * @module package/quiqqer/product-bricks/bin/controls/basket/AddToBasket
  * @author www.pcsg.de (Michael Danielczok)
  */
@@ -9,16 +10,15 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
     'qui/QUI',
     'qui/controls/Control',
     'qui/controls/loader/Loader',
-    'package/quiqqer/order/bin/frontend/Basket',
     'css!package/quiqqer/product-bricks/bin/controls/basket/AddToBasket.css'
 
-], function (QUI, QUIControl, QUILoader, Basket) {
+], function (QUI, QUIControl, QUILoader) {
     "use strict";
 
     return new Class({
 
         Extends: QUIControl,
-        Type   : 'package/quiqqer/order/bin/frontend/controls/frontendusers/Article',
+        Type   : 'package/quiqqer/product-bricks/bin/controls/basket/AddToBasket',
 
         Binds: [
             '$addArticleToBasket'
@@ -27,13 +27,13 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
         initialize: function (options) {
             this.parent(options);
 
-            this.animatable = false;
-            this.buttonWidth = null;
+            this.animatable         = false;
+            this.buttonWidth        = null;
             this.animationIsRunning = false;
             this.additionInProgress = false;
-            this.Label = null;
-            this.Icon = null;
-            this.Loader = new QUILoader({
+            this.Label              = null;
+            this.Icon               = null;
+            this.Loader             = new QUILoader({
                 type    : 'fa-refresh',
                 cssclass: 'add-to-basket-custom-loader',
                 opacity : 0.99
@@ -52,7 +52,7 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
                 self      = this,
                 productId = Elm.getAttribute('data-product-id');
 
-            this.animatable = Elm.getAttribute('data-product-animatable') === '1';
+            this.animatable  = Elm.getAttribute('data-product-animatable') === '1';
             this.buttonWidth = Elm.getSize().x;
 
             if (this.animatable) {
@@ -68,25 +68,33 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
             this.Label = Elm.getElement('label');
             this.Loader.inject(Elm);
 
-            Elm.addEvent('click', function (event) {
-                event.stop();
+            this.Loader.show();
 
-                // one click = add one article
-                if (self.additionInProgress) {
-                    return;
-                }
+            require(['package/quiqqer/order/bin/frontend/Basket'], function (Basket) {
+                Elm.addEvent('click', function (event) {
+                    event.stop();
 
-                self.additionInProgress = true;
+                    // one click = add one article
+                    if (self.additionInProgress) {
+                        return;
+                    }
 
-                if (self.animatable && self.animationIsRunning) {
-                    return;
-                }
+                    self.additionInProgress = true;
 
-                if (self.animatable) {
-                    self.animationIsRunning = true;
-                }
+                    if (self.animatable && self.animationIsRunning) {
+                        return;
+                    }
 
-                self.$addArticleToBasket(event, productId, Elm);
+                    if (self.animatable) {
+                        self.animationIsRunning = true;
+                    }
+
+                    self.$addArticleToBasket(event, productId, Elm);
+                });
+
+                self.Loader.hide();
+            }, function() {
+                Elm.destroy();
             });
         },
 
@@ -103,17 +111,19 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
             this.Label.setStyle('visibility', 'hidden');
             this.Loader.show();
 
-            Basket.addProduct(productId).then(function () {
-                self.Loader.hide();
+            require(['package/quiqqer/order/bin/frontend/Basket'], function (Basket) {
+                Basket.addProduct(productId).then(function () {
+                    self.Loader.hide();
 
-                if (self.animatable) {
-                    self.$animateButton(Button).then(function () {
+                    if (self.animatable) {
+                        self.$animateButton(Button).then(function () {
+                            self.additionInProgress = false;
+                        });
+                    } else {
+                        self.Label.setStyle('visibility', 'visible');
                         self.additionInProgress = false;
-                    });
-                } else {
-                    self.Label.setStyle('visibility', 'visible');
-                    self.additionInProgress = false;
-                }
+                    }
+                });
             });
         },
 

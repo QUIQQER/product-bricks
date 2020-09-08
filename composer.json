@@ -16,7 +16,8 @@
   },
   "require": {
     "quiqqer/quiqqer": "*@dev",
-    "quiqqer\/qui": ">=1|dev-master|dev-dev",
+    "quiqqer/controls": ">=1.4|dev-master|dev-dev",
+    "quiqqer\/qui": ">=1|*@dev",
     "quiqqer/utils": ">=1.4|dev-dev",
     "quiqqer\/bricks": ">=1|dev-master|dev-dev",
     "quiqqer\/products": ">=1|dev-master|dev-dev"

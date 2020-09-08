@@ -7,9 +7,21 @@
             <en><![CDATA[Product bricks]]></en>
         </locale>
         <locale name="package.description">
-            <de>
-                <![CDATA[Dieses Modul stellt Bausteine zur Verfügung, um Ihre Produkte auf einfache Art und Weise zu präsentieren.]]></de>
+            <de><![CDATA[Dieses Modul stellt Bausteine zur Verfügung, um Ihre Produkte auf einfache Art und Weise zu präsentieren.]]></de>
             <en><![CDATA[This module provides several bricks to show your products in an easy way.]]></en>
+        </locale>
+
+        <!--<locale name="brick.control.product.addToCart">
+            <de><![CDATA[In den Warenkorb]]></de>
+            <en><![CDATA[Add to cart]]></en>
+        </locale>-->
+        <locale name="button.product.addToCart">
+            <de><![CDATA[In den Warenkorb]]></de>
+            <en><![CDATA[Add to cart]]></en>
+        </locale>
+        <locale name="button.product.viewProduct">
+            <de><![CDATA[Zum Produkt]]></de>
+            <en><![CDATA[View product]]></en>
         </locale>
 
         <!-- order / sort -->
@@ -61,6 +73,14 @@
             <de><![CDATA[UVP oder Angebotspreis nicht anzeigen]]></de>
             <en><![CDATA[Hide recommended retails price (crossed out)]]></en>
         </locale>
+        <locale name="brick.control.productSlider.settings.showPrices">
+            <de><![CDATA[Preise anzeigen]]></de>
+            <en><![CDATA[Show prices]]></en>
+        </locale>
+        <locale name="brick.control.productSlider.settings.categoryIds">
+            <de><![CDATA[Kategorien]]></de>
+            <en><![CDATA[Categories]]></en>
+        </locale>
         <locale name="brick.control.productSlider.settings.showPrice">
             <de><![CDATA[Preise anzeigen (unverbindliche Preisempfehlung wenn verfügbar)]]></de>
             <en><![CDATA[Show prices (recommended retail price if available)]]></en>
@@ -93,11 +113,6 @@
                 <de><![CDATA[Hell]]></de>
                 <en><![CDATA[Light]]></en>
             </locale>
-        <locale name="brick.control.productSlider.buyNow">
-            <de><![CDATA[Jetzt kaufen]]></de>
-            <en><![CDATA[Buy now]]></en>
-        </locale>
-
 
         <!-- Category Box -->
         <locale name="brick.control.categoryBox.title">
@@ -146,9 +161,34 @@
             <de><![CDATA[Ein horizontaler Slider für Produkte. Wenn der Platz nicht ausreicht, können die Produkte horizontal gescrollt werden.]]></de>
             <en><![CDATA[Slider for products, witch can be horizontally scrolled, if there are more items as possible to show]]></en>
         </locale>
-        <locale name="brick.control.product.addToCart">
-            <de><![CDATA[In den Warenkorb]]></de>
-            <en><![CDATA[Add to cart]]></en>
+        <locale name="brick.control.productChildrenSlider.buttonAction">
+            <de><![CDATA[Aktion der Schaltfläche]]></de>
+            <en><![CDATA[Button action]]></en>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.buttonAction.addToBasket">
+            <de><![CDATA[Produkt in den Warenkorb hinzufügen]]></de>
+            <en><![CDATA[Add product to the shopping cart]]></en>
+        </locale>
+        <locale name="brick.control.productSlider.settings.limit">
+            <de><![CDATA[Maximale Anzahl an Produkten]]></de>
+            <en><![CDATA[Maximum amount of products]]></en>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.buttonAction.showProduct">
+            <de><![CDATA[Produkt anzeigen]]></de>
+            <en><![CDATA[Show product]]></en>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.buttonAction.desc">
+            <de><![CDATA[Um das Produkt in den Warenkorb hinzuzufügen, muss das Paket "quiqqer/order" installiert sein.]]></de>
+            <en><![CDATA[To add the product to the shopping cart, the package "quiqqer/order" must be installed.]]></en>
+        </locale>
+
+        <locale name="brick.control.productChildrenSlider.order">
+            <de><![CDATA[Sortierung]]></de>
+            <en><![CDATA[Order]]></en>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.order.orderCount">
+            <de><![CDATA[Meist verkaufte Produkte (Voreinstellung)]]></de>
+            <en><![CDATA[Best selling products (default)]]></en>
         </locale>
 
         <!-- Promo Box -->
@@ -341,6 +381,43 @@
         <locale name="brick.control.featuredProducts.button.showProduct">
             <de><![CDATA[Produkt ansehen]]></de>
             <en><![CDATA[Show product]]></en>
+        </locale>
+
+        <!-- manufascture slider -->
+        <locale name="brick.control.manufactureSlider.title">
+            <de><![CDATA[Produkte: Hersteller-Slider]]></de>
+            <en><![CDATA[Products: Manufacture Slider]]></en>
+        </locale>
+        <locale name="brick.control.manufactureSlider.description">
+            <de><![CDATA[Hersteller-Logo als horizontaler Slider (Carousel) darstellen.]]></de>
+            <en><![CDATA[Show manufacture logos as horizontal slider (carousel).]]></en>
+        </locale>
+
+        <locale name="brick.control.manufactureSlider.limit">
+            <de><![CDATA[Limit]]></de>
+            <en><![CDATA[Limit]]></en>
+        </locale>
+
+        <locale name="brick.control.manufactureSlider.moreLink">
+            <de><![CDATA[Alle Hersteller]]></de>
+            <en><![CDATA[All manufactures]]></en>
+        </locale>
+        <locale name="brick.control.manufactureSlider.moreLink.label">
+            <de><![CDATA[Weitere Hersteller entdecken]]></de>
+            <en><![CDATA[Find more manufacturers]]></en>
+        </locale>
+
+        <locale name="brick.control.manufactureSlider.sort">
+            <de><![CDATA[Sortierung]]></de>
+            <en><![CDATA[Order]]></en>
+        </locale>
+        <locale name="brick.control.manufactureSlider.sort.username.ASC">
+            <de><![CDATA[Namen aufsteigend]]></de>
+            <en><![CDATA[Name ascending]]></en>
+        </locale>
+        <locale name="brick.control.manufactureSlider.sort.username.DESC">
+            <de><![CDATA[Namen absteigend]]></de>
+            <en><![CDATA[Name descending]]></en>
         </locale>
     </groups>
 
