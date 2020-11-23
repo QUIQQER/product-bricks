@@ -24,6 +24,10 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
             '$addArticleToBasket'
         ],
 
+        options: {
+            disabled: false
+        },
+
         initialize: function (options) {
             this.parent(options);
 
@@ -33,7 +37,9 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
             this.additionInProgress = false;
             this.Label              = null;
             this.Icon               = null;
-            this.Loader             = new QUILoader({
+            this.$disabled          = false;
+
+            this.Loader = new QUILoader({
                 type    : 'fa-refresh',
                 cssclass: 'add-to-basket-custom-loader',
                 opacity : 0.99
@@ -51,6 +57,16 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
             var Elm       = this.getElm(),
                 self      = this,
                 productId = Elm.getAttribute('data-product-id');
+
+            this.$disabled = this.getAttribute('disabled');
+
+            if (this.$disabled) {
+                Elm.addEvent('click', function (event) {
+                    event.stop();
+                });
+
+                return;
+            }
 
             this.animatable  = Elm.getAttribute('data-product-animatable') === '1';
             this.buttonWidth = Elm.getSize().x;
@@ -93,7 +109,7 @@ define('package/quiqqer/product-bricks/bin/controls/basket/AddToBasket', [
                 });
 
                 self.Loader.hide();
-            }, function() {
+            }, function () {
                 Elm.destroy();
             });
         },
