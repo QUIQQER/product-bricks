@@ -4,6 +4,10 @@
     text-align: center;
 }
 
+.quiqqer-product-bricks-control-manufactureSlider .quiqqer-bricks-children-slider-child {
+    width: auto;
+}
+
 .quiqqer-product-bricks-control-manufactureSlider-entry {
     background: #fff;
     display: flex;
