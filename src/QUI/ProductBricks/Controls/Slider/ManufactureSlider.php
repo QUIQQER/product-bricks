@@ -32,9 +32,8 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
 
         parent::__construct($attributes);
 
-        $this->addCSSFile(
-            \dirname(__FILE__) . '/ManufactureSlider.css'
-        );
+        $this->setAttribute('cacheable', 0);
+        $this->addCSSFile(\dirname(__FILE__).'/ManufactureSlider.css');
     }
 
     /**
@@ -83,7 +82,7 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
                         ]
                     ],
                     'order'  => $this->getAttribute('order'),
-                    'limit'  => $start . ',' . $limit
+                    'limit'  => $start.','.$limit
                 ]);
 
                 foreach ($result as $row) {
@@ -108,6 +107,6 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
             'MoreLink'          => $MoreLink
         ]);
 
-        return $Engine->fetch(\dirname(__FILE__) . '/ManufactureSlider.html');
+        return $Engine->fetch(\dirname(__FILE__).'/ManufactureSlider.html');
     }
 }

@@ -32,12 +32,13 @@ class CategoryBox extends QUI\Control
             'order'             => 'manuell',
             'limit'             => false,
             'allCategoriesUrl'  => false,
-            'template'          => dirname(__FILE__) . '/CategoryBox.html'
+            'template'          => dirname(__FILE__).'/CategoryBox.html'
         ]);
 
-        $this->addCSSFile(dirname(__FILE__) . '/CategoryBox.css');
-
         parent::__construct($attributes);
+
+        $this->setAttribute('cacheable', 0);
+        $this->addCSSFile(dirname(__FILE__).'/CategoryBox.css');
     }
 
     public function getBody()
