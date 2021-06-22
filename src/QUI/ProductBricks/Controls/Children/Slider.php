@@ -33,8 +33,6 @@ class Slider extends QUI\Control
      */
     public function __construct($attributes = [])
     {
-        parent::__construct($attributes);
-
         // default options
         $this->setAttributes([
             'class'               => 'quiqqer-productbricks-slider',
@@ -48,6 +46,9 @@ class Slider extends QUI\Control
             'limit'               => 10
         ]);
 
+        parent::__construct($attributes);
+
+        $this->setAttribute('cacheable', 0);
         $this->addCSSFile(\dirname(__FILE__).'/Slider.css');
     }
 

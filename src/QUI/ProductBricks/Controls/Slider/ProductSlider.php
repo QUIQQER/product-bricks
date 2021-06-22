@@ -32,8 +32,6 @@ class ProductSlider extends QUI\Control
      */
     public function __construct($attributes = [])
     {
-        parent::__construct($attributes);
-
         // default options
         $this->setAttributes([
             'title'          => '',
@@ -48,6 +46,9 @@ class ProductSlider extends QUI\Control
             'template'       => dirname(__FILE__).'/ProductSlider.html'
         ]);
 
+        parent::__construct($attributes);
+
+        $this->setAttribute('cacheable', 0);
         $this->addCSSFile(dirname(__FILE__).'/ProductSlider.css');
     }
 
