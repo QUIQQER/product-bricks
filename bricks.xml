@@ -376,6 +376,10 @@
                 <setting name="url" class="project-site" type="text">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.promoBoxImageNextToContent.url"/>
+                    <description>
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBoxImageNextToContent.url.desc"/>
+                    </description>
                 </setting>
 
                 <setting name="target" type="select">

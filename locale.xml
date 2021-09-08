@@ -278,8 +278,12 @@
             <en><![CDATA[Content background color]]></en>
         </locale>
         <locale name="brick.control.promoBoxImageNextToContent.url">
-            <de><![CDATA[Url zu der gewünschten Seite, dass auf das Bild gelegt wird. Idealerweise sollte die Url auf die gleiche Seiten zeigen, wie der Link im Inhalt.]]></de>
-            <en><![CDATA[Url to the desired page that will be placed on the image. Ideally the url should point to the same pages as the link in the content.]]></en>
+            <de><![CDATA[Link]]></de>
+            <en><![CDATA[Link]]></en>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.url.desc">
+            <de><![CDATA[Wenn der Link gesetzt ist, wird das Bild klickbar.]]></de>
+            <en><![CDATA[huhu]]></en>
         </locale>
         <locale name="brick.control.promoBoxImageNextToContent.target">
             <de><![CDATA[Zielfensterbasis (Target) - wo soll der Link geöfftent werden?]]></de>
