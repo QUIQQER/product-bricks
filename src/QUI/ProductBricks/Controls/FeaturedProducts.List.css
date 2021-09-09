@@ -32,14 +32,7 @@
     margin-right: 20px;
     width: 50px;
     flex-shrink: 0;
-}
-
-.featuredProducts-list-box-entries-entry-image a {
-    align-items: flex-start;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    width: 100%;
+    text-align: center;
 }
 
 .featuredProducts-list-box-entries-entry-image img {

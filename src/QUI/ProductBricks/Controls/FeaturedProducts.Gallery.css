@@ -34,14 +34,6 @@
     margin-bottom: 1rem;
 }
 
-.featuredProducts-gallery-box-entries-entry-image a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-}
-
 .featuredProducts-gallery-box-entries-entry-image img {
     max-height: 100%;
     max-width: 100%;
