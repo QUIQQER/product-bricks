@@ -507,6 +507,12 @@
                             var="brick.control.featuredProducts.limit"/>
                 </setting>
 
+                <setting name="showVariantChildren" type="checkbox">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.featuredProducts.showVariantChildren"/>
+                </setting>
+
+
                 <setting name="order" type="select">
                     <locale group="quiqqer/product-bricks"
                             var="sort"/>

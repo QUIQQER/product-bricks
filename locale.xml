@@ -381,6 +381,10 @@
             <de><![CDATA[Maximale Anzahl angezeigter Produkte]]></de>
             <en><![CDATA[Maximum number of products]]></en>
         </locale>
+        <locale name="brick.control.featuredProducts.showVariantChildren">
+            <de><![CDATA[Einzelne Kindprodukte der Varianten anzeigen]]></de>
+            <en><![CDATA[Show child products of the variants]]></en>
+        </locale>
         <!-- featured product show product button -->
         <locale name="brick.control.featuredProducts.button.showProduct">
             <de><![CDATA[Produkt ansehen]]></de>

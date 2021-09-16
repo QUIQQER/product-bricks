@@ -28,6 +28,7 @@ class FeaturedProducts extends QUI\Control
             'class'                => 'quiqqer-productbricks-featuredProducts',
             'nodeName'             => 'section',
             'limit'                => 5,
+            'showVariantChildren'  => false,
             'order'                => 'c_date DESC',
             'layout'               => 'list',
             'featured1.title'      => false,
@@ -93,13 +94,13 @@ class FeaturedProducts extends QUI\Control
 
         switch ($this->getAttribute('layout')) {
             case 'gallery':
-                $templateFile = dirname(__FILE__) . '/FeaturedProducts.Gallery.html';
-                $cssFile      = dirname(__FILE__) . '/FeaturedProducts.Gallery.css';
+                $templateFile = dirname(__FILE__).'/FeaturedProducts.Gallery.html';
+                $cssFile      = dirname(__FILE__).'/FeaturedProducts.Gallery.css';
                 break;
             case 'list':
             default:
-                $templateFile = dirname(__FILE__) . '/FeaturedProducts.List.html';
-                $cssFile      = dirname(__FILE__) . '/FeaturedProducts.List.css';
+                $templateFile = dirname(__FILE__).'/FeaturedProducts.List.html';
+                $cssFile      = dirname(__FILE__).'/FeaturedProducts.List.css';
         }
 
         // custom template
@@ -149,10 +150,17 @@ class FeaturedProducts extends QUI\Control
         $where = [
             'categories' => [
                 'type'  => '%LIKE%',
-                'value' => ',' . $value . ','
+                'value' => ','.$value.','
             ],
             'active'     => 1
         ];
+
+        if (!$this->getAttribute('showVariantChildren')) {
+            $where['type'] = [
+                'type'  => 'NOT',
+                'value' => QUI\ERP\Products\Product\Types\VariantChild::class
+            ];
+        }
 
         if (isset($params['where'])) {
             $where = array_merge($where, $params['where']);
