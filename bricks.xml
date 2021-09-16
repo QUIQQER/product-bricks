@@ -185,9 +185,15 @@
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.productSlider.settings.hideRetailPrice"/>
                 </setting>
+
                 <setting name="showPrices" type="checkbox">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.productSlider.settings.showPrices"/>
+                </setting>
+
+                <setting name="showVariantChildren" type="checkbox">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.showVariantChildren"/>
                 </setting>
 
                 <setting name="buttonAction" type="select">
@@ -376,6 +382,10 @@
                 <setting name="url" class="project-site" type="text">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.promoBoxImageNextToContent.url"/>
+                    <description>
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.promoBoxImageNextToContent.url.desc"/>
+                    </description>
                 </setting>
 
                 <setting name="target" type="select">
@@ -502,6 +512,12 @@
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.featuredProducts.limit"/>
                 </setting>
+
+                <setting name="showVariantChildren" type="checkbox">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.featuredProducts.showVariantChildren"/>
+                </setting>
+
 
                 <setting name="order" type="select">
                     <locale group="quiqqer/product-bricks"

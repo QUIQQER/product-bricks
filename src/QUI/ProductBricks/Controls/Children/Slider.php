@@ -40,7 +40,7 @@ class Slider extends QUI\Control
             'entryHeight'         => 400,
             'hideRetailPrice'     => false, // hide crossed out price
             'showPrices'          => true,  // do not show prices
-            'showVariantChildren' => false,  // also show VariantChildren products
+            'showVariantChildren' => false,  // also show variant children products
             'buttonAction'        => 'addToBasket',
             'order'               => 'orderCount DESC', // Best selling products
             'limit'               => 10
@@ -114,13 +114,23 @@ class Slider extends QUI\Control
             foreach ($catIds as $catId) {
                 $Category = QUI\ERP\Products\Handler\Categories::getCategory($catId);
 
-                $catProducts = $Category->getProducts([
+                $query = [
                     'where' => [
                         'active' => 1,
                     ],
                     'limit' => $limit,
                     'order' => $order
-                ]);
+                ];
+
+                // do not show variant children
+                if (!$this->getAttribute('showVariantChildren')) {
+                    $query['where']['type'] = [
+                        'type'  => 'NOT',
+                        'value' => QUI\ERP\Products\Product\Types\VariantChild::class
+                    ];
+                }
+
+                $catProducts = $Category->getProducts($query);
 
                 $productsFromCat = \array_merge($catProducts, $productsFromCat);
             }
