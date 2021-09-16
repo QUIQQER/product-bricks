@@ -185,9 +185,15 @@
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.productSlider.settings.hideRetailPrice"/>
                 </setting>
+
                 <setting name="showPrices" type="checkbox">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.productSlider.settings.showPrices"/>
+                </setting>
+
+                <setting name="showVariantChildren" type="checkbox">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.showVariantChildren"/>
                 </setting>
 
                 <setting name="buttonAction" type="select">

@@ -161,8 +161,12 @@
             <de><![CDATA[Ein horizontaler Slider für Produkte. Wenn der Platz nicht ausreicht, können die Produkte horizontal gescrollt werden.]]></de>
             <en><![CDATA[Slider for products, witch can be horizontally scrolled, if there are more items as possible to show]]></en>
         </locale>
+        <locale name="brick.control.productSlider.settings.showVariantChildren">
+            <de><![CDATA[Einzelne Kindprodukte der Varianten anzeigen]]></de>
+            <en><![CDATA[Show child products of the variants]]></en>
+        </locale>
         <locale name="brick.control.productChildrenSlider.buttonAction">
-            <de><![CDATA[Aktion der Schaltfläche]]></de>
+            <de><![CDATA[Button Aktion]]></de>
             <en><![CDATA[Button action]]></en>
         </locale>
         <locale name="brick.control.productChildrenSlider.buttonAction.addToBasket">
