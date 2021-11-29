@@ -73,15 +73,9 @@
     text-decoration: line-through;
 }
 
-.quiqqer-productbricks-productslider-slide-left-description-prices-price {
+.quiqqer-productbricks-productslider-slide-left-description-prices-price .qui-products-price-display-value {
     font-size: 2rem;
     font-weight: 500;
-}
-
-.quiqqer-productbricks-productslider-slide-left-description-prices .qui-products-price-display-vat {
-    display: block;
-    font-weight: normal;
-    line-height: 1.5rem;
 }
 
 /* right / image */

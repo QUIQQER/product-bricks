@@ -47,14 +47,18 @@
 }
 
 .featuredProducts-list-box-entries-entry-content-price .qui-products-price-display {
-    text-align: left;
+    margin-top: 5px;
 }
 
 .featuredProducts-list-box-entries-entry-content-price .qui-products-price-display-value {
     color: inherit;
-    display: inline-block;
+    display: inline;
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
     text-align: inherit;
+}
+
+.featuredProducts-list-box-entries-entry-content-price .qui-products-price-display-value:after {
+    display: none;
 }
