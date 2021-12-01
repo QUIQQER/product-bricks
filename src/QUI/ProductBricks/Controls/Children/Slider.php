@@ -42,7 +42,7 @@ class Slider extends QUI\Control
             'showPrices'          => true,  // do not show prices
             'showVariantChildren' => false,  // also show variant children products
             'buttonAction'        => 'addToBasket',
-            'order'               => 'orderCount DESC', // Best selling products
+            'order'               => 'orderCount DESC', // best sellers
             'limit'               => 10
         ]);
 
