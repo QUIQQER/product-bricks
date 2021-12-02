@@ -1,12 +1,12 @@
 <?php
 
 /**
- * This file contains QUI\ProductBricks\Controls\Children\Slider
+ * This file contains QUI\ProductBricks\Controls\ProductCards
  *
- * Slider for products, witch can be horizontally scrolled (carousel).
+ * Show products in a grid
  */
 
-namespace QUI\ProductBricks\Controls\Children;
+namespace QUI\ProductBricks\Controls;
 
 use QUI;
 use QUI\ERP\Products\Controls\Products\ChildrenSlider;
@@ -14,18 +14,15 @@ use QUI\ERP\Products\Handler\Fields;
 use QUI\ERP\Products\Handler\Products;
 
 /**
- * Class Slider (carousel)
+ * Product Cards
+ *
+ * Show products cards in a grid
  *
  * @package QUI\Bricks\Controls
  * @author www.pcsg.de (Michael Danielczok)
  */
-class Slider extends QUI\Control
+class ProductCards extends QUI\Control
 {
-    /**
-     * @var null|ChildrenSlider
-     */
-    protected $Slider = null;
-
     /**
      * constructor
      *
@@ -35,23 +32,26 @@ class Slider extends QUI\Control
     {
         // default options
         $this->setAttributes([
-            'class'               => 'quiqqer-productbricks-slider',
+            'class'               => 'quiqqer-productbricks-productCards',
             'nodeName'            => 'section',
-            'entryHeight'         => 400,
             'hideRetailPrice'     => false, // hide crossed out price
             'showPrices'          => true,  // do not show prices
             'showVariantChildren' => false,  // also show variant children products
-            'productIds'          => '', // comma separated numbers
-            'categoryIds'         => '', // comma separated numbers
+            'productIds'          => '',
+            'categoryIds'         => '',
             'buttonAction'        => 'addToBasket',
             'order'               => 'orderCount DESC', // best sellers
-            'limit'               => 10
+            'limit'               => 6,
+            'perRow'              => 3,
+            'imgBg'               => true, // light background behind the images
+            'showButtons'         => true
         ]);
 
         parent::__construct($attributes);
 
         $this->setAttribute('cacheable', 0);
-        $this->addCSSFile(\dirname(__FILE__).'/Slider.css');
+
+        $this->addCSSFile(\dirname(__FILE__).'/ProductCards.css');
     }
 
     public function getBody()
@@ -61,21 +61,19 @@ class Slider extends QUI\Control
         $products   = [];
         $order      = $this->getAttribute('order');
         $limit      = $this->getAttribute('limit');
+        $perRow     = $this->getAttribute('perRow');
 
         if (!$order) {
             $order = 'orderCount DESC';
         }
 
-        if (!$limit) {
-            $order = 10;
+        if (!$limit || $limit < 1) {
+            $limit = 10;
         }
 
-        $this->Slider = new ChildrenSlider([
-            'showPrices'   => $this->getAttribute('showPrices'),
-            'buttonAction' => $this->getAttribute('buttonAction')
-        ]);
-
-        $this->addCSSFiles($this->Slider->getCSSFiles());
+        if (!$perRow || $perRow < 1) {
+            $perRow = 3;
+        }
 
         $allowedProductClasses = [
             '', // fix for old products
@@ -162,21 +160,79 @@ class Slider extends QUI\Control
         // limit / max
         $products = \array_slice($products, 0, $limit);
 
+        $productsData = [];
+
+        /* @var $Product QUI\ERP\Products\Interfaces\ProductInterface */
         foreach ($products as $Product) {
-            $this->Slider->addProduct($Product->getViewFrontend());
-        }
+            $ProductView = $Product->getViewFrontend();
 
-        $this->Slider->setAttribute('height', $this->getAttribute('entryHeight'));
+            $details = [
+                'Product' => $ProductView
+            ];
 
-        foreach ($this->Slider->getCSSFiles() as $file) {
-            $this->addCSSFile($file);
+            if ($this->getAttribute('showPrices')) {
+                $details['Price'] = new QUI\ERP\Products\Controls\Price([
+                    'Price' => $ProductView->getPrice()
+                ]);
+
+                $details['RetailPrice'] = $this->getRetailPrice($ProductView);
+            }
+
+            $productsData[] = $details;
         }
 
         $Engine->assign([
-            'this'   => $this,
-            "Slider" => $this->Slider
+            'this'         => $this,
+            'productsData' => $productsData
         ]);
 
-        return $Engine->fetch(\dirname(__FILE__).'/Slider.html');
+        return $Engine->fetch(\dirname(__FILE__).'/ProductCards.html');
+    }
+
+    /**
+     * Get retail price object
+     *
+     * @param $Product QUI\ERP\Products\Product\ViewFrontend
+     * @return QUI\ERP\Products\Controls\Price | null
+     *
+     * @throws QUI\Exception
+     */
+    public function getRetailPrice($Product)
+    {
+        if ($this->getAttribute('hideRetailPrice')) {
+            return null;
+        }
+
+        $CrossedOutPrice = null;
+        $Price           = $Product->getPrice();
+
+        try {
+            // Offer price (Angebotspreis) - it has higher priority than retail price
+            if ($Product->hasOfferPrice()) {
+                $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
+                    'Price'       => new QUI\ERP\Money\Price(
+                        $Product->getOriginalPrice()->getValue(),
+                        QUI\ERP\Currency\Handler::getDefaultCurrency()
+                    ),
+                    'withVatText' => false
+                ]);
+            } else {
+                // retail price (UVP)
+                if ($Product->getFieldValue('FIELD_PRICE_RETAIL')) {
+                    $PriceRetail = $Product->getCalculatedPrice(Fields::FIELD_PRICE_RETAIL)->getPrice();
+
+                    if ($Price->getPrice() < $PriceRetail->getPrice()) {
+                        $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
+                            'Price'       => $PriceRetail,
+                            'withVatText' => false
+                        ]);
+                    }
+                }
+            }
+
+            return $CrossedOutPrice;
+        } catch (QUI\Exception $Exception) {
+            QUI\System\Log::writeDebugException($Exception);
+        }
     }
 }

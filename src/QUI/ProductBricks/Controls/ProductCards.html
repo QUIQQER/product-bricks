@@ -1,0 +1,97 @@
+{if $this->getAttribute('showTitle') && $this->getAttribute('frontendTitle')}
+    <header class="control-header">
+        <h1>{$this->getAttribute('frontendTitle')}</h1>
+    </header>
+{/if}
+
+{if $this->getAttribute('content') != ""}
+    <div class="control-content">
+        {$this->getAttribute('content')}
+    </div>
+{/if}
+
+{* Image background class *}
+{assign var=imgBgClass value=''}
+{if $this->getAttribute('imgBg')}
+    {assign var=imgBgClass value='product-image-background'}
+{/if}
+
+<div class="quiqqer-productbricks-productCards-control control-template">
+    <div class="quiqqer-productbricks-productCards-control-items qui-productCards-list">
+        {strip}
+            {foreach $productsData as $entry}
+                {assign var=Product value=$entry.Product}
+                {assign var=hasImage value=0}
+
+                {if $Product->getImage()}
+                    {assign var=hasImage value=1}
+                {/if}
+                <div class="qui-productCards-item">
+                    <div class="qui-productCards-item-image {$imgBgClass}">
+                        <a href="{$Product->getUrl()}"
+                           class="qui-productCards-item-image-link"
+                           title="{$Product->getTitle()|escape:'html'}"
+                           data-pid="{$Product->getId()}"
+                        >
+                            {if $hasImage}
+                                {image image=$Product->getImage() height=$this->getAttribute('height') height="500" width="500"}
+                            {/if}
+                        </a>
+                    </div>
+
+                    <header class="qui-productCards-item-title">
+                        <a href="{$Product->getUrl()}"
+                           title="{$Product->getTitle()|escape:'html'}"
+                           data-pid="{$Product->getId()}"
+                           class="font-color-main"
+                        >
+                            {$Product->getTitle()}
+                        </a>
+                    </header>
+
+                    {if !empty($entry.Price)}
+                        {assign var=Price value=$entry.Price}
+                        {assign var=RetailPrice value=$entry.RetailPrice}
+
+                        <div class="qui-productCards-item-price">
+                            {if $RetailPrice}
+                                <div class="qui-productCards-item-price-retailPrice">{$RetailPrice->create()}</div>
+                            {/if}
+                            <div class="productCards-item-price-regularPrice">{$Product->getPriceDisplay()->create()}</div>
+                        </div>
+                    {/if}
+
+                    {if $this->getAttribute('showButtons')}
+                    <div class="qui-productCards-item-buttons">
+                        {template_event name="quiqqer::product-event::productCard::buttons::before" Product=$Product}
+
+                        {if $this->getAttribute('buttonAction') == 'addToBasket' && !$Product->hasRequiredUserInputFields()}
+                            <a href="{$Product->getUrl()}"
+                               class="btn btn-primary add-to-basket"
+                               data-product-id="{$Product->getId()}"
+                               data-product-animatable="1"
+                               data-qui="package/quiqqer/product-bricks/bin/controls/basket/AddToBasket"
+                               title="{locale group="quiqqer/product-bricks" var="button.product.addToCart"}"
+                            >
+                                <label>
+                                    {locale group="quiqqer/product-bricks" var="button.product.addToCart"}
+                                </label>
+                            </a>
+                        {else}
+                            <a href="{$Product->getUrl()}" class="btn btn-primary add-to-basket"
+                            title="{locale group="quiqqer/product-bricks" var="button.product.viewProduct"}">
+                                <label>
+                                    {locale group="quiqqer/product-bricks" var="button.product.viewProduct"}
+                                </label>
+                            </a>
+                        {/if}
+
+                        {template_event name="quiqqer::product-event::productCard::buttons::after" Product=$Product}
+                    </div>
+                    {/if}
+
+                </div>
+            {/foreach}
+        {/strip}
+    </div>
+</div>
