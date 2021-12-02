@@ -195,6 +195,16 @@
             <en><![CDATA[Best selling products (default)]]></en>
         </locale>
 
+        <!-- Product Cards -->
+        <locale name="brick.control.productCards.title">
+            <de><![CDATA[Produkte: Produkte in Grid]]></de>
+            <en><![CDATA[Products: Product cards]]></en>
+        </locale>
+        <locale name="brick.control.productCards.description">
+            <de><![CDATA[Produkte werden in einem Gitter angezeigt.]]></de>
+            <en><![CDATA[Products are shown in a grid.]]></en>
+        </locale>
+
         <!-- Promo Box -->
         <locale name="brick.control.promoBox.title">
             <de><![CDATA[Produkte: Promotion Box]]></de>
