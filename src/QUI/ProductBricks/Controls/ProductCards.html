@@ -65,25 +65,34 @@
                     <div class="qui-productCards-item-buttons">
                         {template_event name="quiqqer::product-event::productCard::buttons::before" Product=$Product}
 
-                        {if $this->getAttribute('buttonAction') == 'addToBasket' && !$Product->hasRequiredUserInputFields()}
+                        {if QUI\ERP\Products\Utils\Products::isVariant($Product)}
                             <a href="{$Product->getUrl()}"
-                               class="btn btn-primary add-to-basket"
-                               data-product-id="{$Product->getId()}"
-                               data-product-animatable="1"
-                               data-qui="package/quiqqer/product-bricks/bin/controls/basket/AddToBasket"
-                               title="{locale group="quiqqer/product-bricks" var="button.product.addToCart"}"
+                               title="{$Product->getTitle()|escape:'html'}"
+                               class="btn btn-primary"
                             >
-                                <label>
-                                    {locale group="quiqqer/product-bricks" var="button.product.addToCart"}
-                                </label>
+                                {locale group="quiqqer/order" var="control.basket.buttonVariantAdd.text"}
                             </a>
                         {else}
-                            <a href="{$Product->getUrl()}" class="btn btn-primary add-to-basket"
-                            title="{locale group="quiqqer/product-bricks" var="button.product.viewProduct"}">
-                                <label>
-                                    {locale group="quiqqer/product-bricks" var="button.product.viewProduct"}
-                                </label>
-                            </a>
+                            {if $this->getAttribute('buttonAction') == 'addToBasket' && !$Product->hasRequiredUserInputFields()}
+                                <a href="{$Product->getUrl()}"
+                                   class="btn btn-primary add-to-basket"
+                                   data-product-id="{$Product->getId()}"
+                                   data-product-animatable="1"
+                                   data-qui="package/quiqqer/product-bricks/bin/controls/basket/AddToBasket"
+                                   title="{locale group="quiqqer/product-bricks" var="button.product.addToCart"}"
+                                >
+                                    <label>
+                                        {locale group="quiqqer/product-bricks" var="button.product.addToCart"}
+                                    </label>
+                                </a>
+                            {else}
+                                <a href="{$Product->getUrl()}" class="btn btn-primary add-to-basket"
+                                title="{locale group="quiqqer/product-bricks" var="button.product.viewProduct"}">
+                                    <label>
+                                        {locale group="quiqqer/product-bricks" var="button.product.viewProduct"}
+                                    </label>
+                                </a>
+                            {/if}
                         {/if}
 
                         {template_event name="quiqqer::product-event::productCard::buttons::after" Product=$Product}
