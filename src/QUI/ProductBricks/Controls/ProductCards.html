@@ -74,12 +74,19 @@
                             </a>
                         {else}
                             {if $this->getAttribute('buttonAction') == 'addToBasket' && !$Product->hasRequiredUserInputFields()}
+                                {assign var=disabled value=0}
+                                {if $Product->getMaximumQuantity() < 1}
+                                    {assign var=disabled value=1}
+                                {/if}
+
                                 <a href="{$Product->getUrl()}"
                                    class="btn btn-primary add-to-basket"
                                    data-product-id="{$Product->getId()}"
                                    data-product-animatable="1"
                                    data-qui="package/quiqqer/product-bricks/bin/controls/basket/AddToBasket"
-                                   title="{locale group="quiqqer/product-bricks" var="button.product.addToCart"}"
+                                   title="{locale group="quiqqer/product-bricks" var="button.product.addToCart"}
+                                   {if $disabled}disabled="disabled"{/if}
+                                   data-qui-options-disabled="{$disabled}"
                                 >
                                     <label>
                                         {locale group="quiqqer/product-bricks" var="button.product.addToCart"}
