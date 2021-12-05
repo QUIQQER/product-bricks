@@ -197,11 +197,11 @@
 
         <!-- Product Cards -->
         <locale name="brick.control.productCards.title">
-            <de><![CDATA[Produkte: Produkte in Grid]]></de>
-            <en><![CDATA[Products: Product cards]]></en>
+            <de><![CDATA[Produkte: Produkte im Raster (Grid)]]></de>
+            <en><![CDATA[Products: Product cards in grid]]></en>
         </locale>
         <locale name="brick.control.productCards.description">
-            <de><![CDATA[Produkte werden in einem Gitter angezeigt.]]></de>
+            <de><![CDATA[Produkte werden in einem Raster angezeigt.]]></de>
             <en><![CDATA[Products are shown in a grid.]]></en>
         </locale>
 
