@@ -204,6 +204,18 @@
             <de><![CDATA[Produkte werden in einem Raster angezeigt.]]></de>
             <en><![CDATA[Products are shown in a grid.]]></en>
         </locale>
+        <locale name="brick.control.productCards.settings.moreUrl">
+            <de><![CDATA[Weitere Produkte]]></de>
+            <en><![CDATA[More products]]></en>
+        </locale>
+        <locale name="brick.control.productCards.settings.moreUrl.description">
+            <de><![CDATA[Wenn eine Seite ausgewählt ist, wird unter dem Produkt-Raster ein Button eingeblendet.]]></de>
+            <en><![CDATA[If a page is selected, a button appears under the product grid.]]></en>
+        </locale>
+        <locale name="brick.control.productCards.frontend.moreUrl">
+            <de><![CDATA[Weitere Produkte]]></de>
+            <en><![CDATA[More products]]></en>
+        </locale>
 
         <!-- Promo Box -->
         <locale name="brick.control.promoBox.title">

@@ -306,6 +306,16 @@
                             var="brick.control.productSlider.settings.showVariantChildren"/>
                 </setting>
 
+                <setting name="moreUrl" class="project-site">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productCards.settings.moreUrl"/>
+
+                    <description>
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productCards.settings.moreUrl.description"/>
+                    </description>
+                </setting>
+
                 <!--<setting name="buttonAction" type="select">
                     <locale group="quiqqer/product-bricks"
                             var="brick.control.productChildrenSlider.buttonAction"/>
