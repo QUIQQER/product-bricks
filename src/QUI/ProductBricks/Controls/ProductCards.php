@@ -84,6 +84,11 @@ class ProductCards extends QUI\Control
             });
         }
 
+        // Remove leading slashes from classes
+        \array_walk($allowedProductClasses, function (&$productClass) {
+            $productClass = \ltrim($productClass, '\\');
+        });
+
         $allowedProductClasses[] = ''; // fix for old products
 
         if ($productIds) {
