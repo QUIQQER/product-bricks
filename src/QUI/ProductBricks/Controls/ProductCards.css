@@ -69,3 +69,8 @@
 .qui-productCards-item-price .qui-productCards-item-price-retailPrice .qui-products-price-display-value {
     text-decoration: line-through;
 }
+
+.quiqqer-productbricks-productCards-control-moreButton {
+    margin-top: 4rem;
+    text-align: center;
+}
