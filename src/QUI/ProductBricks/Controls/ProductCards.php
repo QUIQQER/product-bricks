@@ -40,6 +40,7 @@ class ProductCards extends QUI\Control
             'productIds'          => '',
             'categoryIds'         => '',
             'buttonAction'        => 'addToBasket',
+            'moreUrl'             => '', // url to more products
             'order'               => 'orderCount DESC', // best sellers
             'limit'               => 6,
             'perRow'              => 3,
@@ -62,6 +63,7 @@ class ProductCards extends QUI\Control
         $order      = $this->getAttribute('order');
         $limit      = $this->getAttribute('limit');
         $perRow     = $this->getAttribute('perRow');
+        $moreUrl    = $this->getAttribute('moreUrl');
 
         if (!$order) {
             $order = 'orderCount DESC';
@@ -100,7 +102,6 @@ class ProductCards extends QUI\Control
                         'value' => $allowedProductClasses
                     ]
                 ],
-
                 'order' => $order,
                 'limit' => $limit
             ]);
@@ -184,7 +185,8 @@ class ProductCards extends QUI\Control
 
         $Engine->assign([
             'this'         => $this,
-            'productsData' => $productsData
+            'productsData' => $productsData,
+            'moreUrl'      => $moreUrl
         ]);
 
         return $Engine->fetch(\dirname(__FILE__).'/ProductCards.html');
