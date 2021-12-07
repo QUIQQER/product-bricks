@@ -77,15 +77,16 @@ class Slider extends QUI\Control
 
         $this->addCSSFiles($this->Slider->getCSSFiles());
 
-        $allowedProductClasses = [
-            '', // fix for old products
-            QUI\ERP\Products\Product\Types\Product::class,
-            QUI\ERP\Products\Product\Types\VariantParent::class
-        ];
+        $allowedProductClasses = QUI\ERP\Products\Utils\ProductTypes::getInstance()->getProductTypes();
 
-        if ($this->getAttribute('showVariantChildren')) {
-            $allowedProductClasses[] = QUI\ERP\Products\Product\Types\VariantChild::class;
+        // If variant children are not allowed, filter them out
+        if (empty($this->getAttribute('showVariantChildren'))) {
+            $allowedProductClasses = \array_filter($allowedProductClasses, function ($productClass) {
+                return !\is_a($productClass, QUI\ERP\Products\Product\Types\VariantChild::class, true);
+            });
         }
+
+        $allowedProductClasses[] = ''; // fix for old products
 
         if ($productIds) {
             $productIds = \explode(',', $productIds);
