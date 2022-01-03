@@ -52,7 +52,7 @@ class ProductCards extends QUI\Control
 
         $this->setAttribute('cacheable', 0);
 
-        $this->addCSSFile(\dirname(__FILE__).'/ProductCards.css');
+        $this->addCSSFile($this->getCSSFilePath());
     }
 
     public function getBody()
@@ -179,12 +179,23 @@ class ProductCards extends QUI\Control
     }
 
     /**
+     * Get path to html file
      *
      * @return string
      */
     protected function getHtmlFilePath(): string
     {
         return \dirname(__FILE__).'/ProductCards.html';
+    }
+
+    /**
+     * Get path to css file
+     *
+     * @return string
+     */
+    protected function getCSSFilePath(): string
+    {
+        return \dirname(__FILE__).'/ProductCards.css';
     }
 
     /**
