@@ -399,6 +399,127 @@
             </settings>
         </brick>
 
+        <!-- Product Cards Details -->
+        <brick control="\QUI\ProductBricks\Controls\ProductCardsDetails">
+            <title>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.productCardsDetails.title"/>
+            </title>
+            <description>
+                <locale group="quiqqer/product-bricks"
+                        var="brick.control.productCardsDetails.description"/>
+            </description>
+
+            <settings>
+
+                <setting name="hideRetailPrice" type="checkbox">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.hideRetailPrice"/>
+                </setting>
+
+                <setting name="showPrices" type="checkbox">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.showPrices"/>
+                </setting>
+
+                <setting name="showVariantChildren" type="checkbox">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.showVariantChildren"/>
+                </setting>
+
+                <setting name="moreUrl" class="project-site">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productCards.settings.moreUrl"/>
+
+                    <description>
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productCards.settings.moreUrl.description"/>
+                    </description>
+                </setting>
+
+                <!--<setting name="buttonAction" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productChildrenSlider.buttonAction"/>
+                    <description>
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productChildrenSlider.buttonAction.desc"/>
+                    </description>
+
+                    <option value="addToBasket">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productChildrenSlider.buttonAction.addToBasket"/>
+                    </option>
+                    <option value="showProduct">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productChildrenSlider.buttonAction.showProduct"/>
+                    </option>
+                </setting>-->
+
+                <setting name="limit" type="number">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.limit"/>
+                </setting>
+
+                <setting name="order" type="select">
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productChildrenSlider.order"/>
+
+                    <option value="orderCount DESC">
+                        <locale group="quiqqer/product-bricks"
+                                var="brick.control.productChildrenSlider.order.orderCount"/>
+                    </option>
+                    <option value="manuell">
+                        <locale group="quiqqer/quiqqer" var="manually"/>
+                    </option>
+                    <option value="name ASC">
+                        <locale group="quiqqer/quiqqer" var="name_asc"/>
+                    </option>
+                    <option value="name DESC">
+                        <locale group="quiqqer/quiqqer" var="name_desc"/>
+                    </option>
+                    <option value="title ASC">
+                        <locale group="quiqqer/quiqqer" var="title_asc"/>
+                    </option>
+                    <option value="title DESC">
+                        <locale group="quiqqer/quiqqer" var="title_desc"/>
+                    </option>
+                    <option value="c_date ASC">
+                        <locale group="quiqqer/quiqqer" var="c_date_asc"/>
+                    </option>
+                    <option value="c_date DESC">
+                        <locale group="quiqqer/quiqqer" var="c_date_desc"/>
+                    </option>
+                    <option value="e_date ASC">
+                        <locale group="quiqqer/quiqqer" var="e_date_asc"/>
+                    </option>
+                    <option value="e_date DESC">
+                        <locale group="quiqqer/quiqqer" var="e_date_desc"/>
+                    </option>
+                    <option value="release_from ASC">
+                        <locale group="quiqqer/quiqqer" var="release_from_asc"/>
+                    </option>
+                    <option value="release_from DESC">
+                        <locale group="quiqqer/quiqqer" var="release_from_desc"/>
+                    </option>
+                </setting>
+
+                <setting name="productIds" type="hidden"
+                         data-qui="package/quiqqer/products/bin/controls/products/Select"
+                >
+                    <locale group="quiqqer/products" var="quiqqer.products.settings.productIds"/>
+                </setting>
+
+                <setting name="categoryIds" type="hidden"
+                         data-qui="package/quiqqer/products/bin/controls/categories/Select"
+                         data-qui-options-multiple="1"
+                >
+                    <locale group="quiqqer/product-bricks"
+                            var="brick.control.productSlider.settings.categoryIds"/>
+                </setting>
+
+            </settings>
+        </brick>
+
         <!-- Promo Box -->
         <brick control="\QUI\ProductBricks\Controls\PromoBox">
             <title>

@@ -52,7 +52,7 @@ class ProductCards extends QUI\Control
 
         $this->setAttribute('cacheable', 0);
 
-        $this->addCSSFile(\dirname(__FILE__).'/ProductCards.css');
+        $this->addCSSFile($this->getCSSFilePath());
     }
 
     public function getBody()
@@ -167,34 +167,68 @@ class ProductCards extends QUI\Control
         // limit / max
         $products = \array_slice($products, 0, $limit);
 
+        $Engine->assign([
+            'this'         => $this,
+            'productsData' => $this->getProductsData($products),
+            'moreUrl'      => $moreUrl
+        ]);
+
+        $html = $this->getHtmlFilePath();
+
+        return $Engine->fetch($this->getHtmlFilePath());
+    }
+
+    /**
+     * Get path to html file
+     *
+     * @return string
+     */
+    protected function getHtmlFilePath(): string
+    {
+        return \dirname(__FILE__).'/ProductCards.html';
+    }
+
+    /**
+     * Get path to css file
+     *
+     * @return string
+     */
+    protected function getCSSFilePath(): string
+    {
+        return \dirname(__FILE__).'/ProductCards.css';
+    }
+
+    /**
+     * Get products data as array
+     *
+     * @param array $products
+     * @return array
+     * @throws QUI\Exception
+     */
+    protected function getProductsData(array $products): array
+    {
         $productsData = [];
 
         /* @var $Product QUI\ERP\Products\Interfaces\ProductInterface */
         foreach ($products as $Product) {
             $ProductView = $Product->getViewFrontend();
 
-            $details = [
+            $data = [
                 'Product' => $ProductView
             ];
 
             if ($this->getAttribute('showPrices')) {
-                $details['Price'] = new QUI\ERP\Products\Controls\Price([
+                $data['Price'] = new QUI\ERP\Products\Controls\Price([
                     'Price' => $ProductView->getPrice()
                 ]);
 
-                $details['RetailPrice'] = $this->getRetailPrice($ProductView);
+                $data['RetailPrice'] = $this->getRetailPrice($ProductView);
             }
 
-            $productsData[] = $details;
+            $productsData[] = $data;
         }
 
-        $Engine->assign([
-            'this'         => $this,
-            'productsData' => $productsData,
-            'moreUrl'      => $moreUrl
-        ]);
-
-        return $Engine->fetch(\dirname(__FILE__).'/ProductCards.html');
+        return $productsData;
     }
 
     /**
