@@ -217,6 +217,20 @@
             <en><![CDATA[More products]]></en>
         </locale>
 
+        <!-- Product Cards Details -->
+        <locale name="brick.control.productCardsDetails.title">
+            <de><![CDATA[Produkte: Produkte im Raster (Grid) mit Details]]></de>
+            <en><![CDATA[Products: Product cards in grid with details]]></en>
+        </locale>
+        <locale name="brick.control.productCardsDetails.description">
+            <de><![CDATA[Produkte werden in einem Raster angezeigt. Dabei werden die Produkteigenschaften tabellarisch dargestellt.]]></de>
+            <en><![CDATA[Products are shown in a grid. The product properties are presented in tabular form.]]></en>
+        </locale>
+        <locale name="frontend.productCardsDetails.empty">
+            <de><![CDATA[---]]></de>
+            <en><![CDATA[---]]></en>
+        </locale>
+
         <!-- Promo Box -->
         <locale name="brick.control.promoBox.title">
             <de><![CDATA[Produkte: Promotion Box]]></de>

@@ -66,7 +66,31 @@
     text-decoration: line-through;
 }
 
-.quiqqer-productbricks-productCards-control-moreButton {
+.quiqqer-productbricks-productCardsDetails-control-moreButton {
     margin-top: 4rem;
     text-align: center;
 }
+
+/* Details */
+.qui-productCardsDetails-item-details {
+    padding-left: var(--spacing-sm, 1rem);
+    padding-right: var(--spacing-sm, 1rem);
+    margin-bottom: var(--spacing-sm, 1rem);
+}
+
+.qui-productCardsDetails-item-details-item,
+.qui-productCardsDetails-item-details-item .quiqqer-product-field {
+    display: flex;
+    width: 100%;
+}
+
+.qui-productCardsDetails-item-details-item {
+    padding: 0.25rem 0;
+}
+
+.qui-productCardsDetails-item-details-item-title,
+.qui-productCardsDetails-item-details-item .quiqqer-product-field-title {
+    width: 40%;
+    flex-shrink: 0;
+}
+
