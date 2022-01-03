@@ -52,18 +52,18 @@
                         </header>
 
                         {if count($details)}
-                            <div class="qui-productCardsDetails-item-details">
+                            <div class="qui-productCards-item-details">
                             {foreach $details as $Field}
                                 {if !empty($Field->getValue()) || is_numeric($Field->getValue())}
-                                    <div class="qui-productCardsDetails-item-details-item">
+                                    <div class="qui-productCards-item-details-item">
                                     {$Field->getValueView()->create()}
                                     </div>
                                 {else}
-                                    <div class="qui-productCardsDetails-item-details-item">
-                                        <div class="qui-productCardsDetails-item-details-item-title">
+                                    <div class="qui-productCards-item-details-item">
+                                        <div class="qui-productCards-item-details-item-title">
                                             {$Field->getTitle()}
                                         </div>
-                                        <div class="qui-productCardsDetails-item-details-item-value">
+                                        <div class="qui-productCards-item-details-item-value">
                                             {locale group='quiqqer/product-bricks' var='frontend.productCardsDetails.empty'}
                                         </div>
                                     </div>
@@ -71,31 +71,6 @@
                             {/foreach}
                             </div>
                         {/if}
-
-                        {*if count($details)}
-                            <table class="product-data-more-details-table">
-                                {foreach $details as $Field}
-                                    {if !empty($Field->getValue()) || is_numeric($Field->getValue())}
-                                        <tr>
-                                            <td>
-                                                {$Field->getValueView()->create()}
-                                            </td>
-                                        </tr>
-                                    {else}
-                                        <tr>
-                                            <td>
-                                                <div class="quiqqer-product-field-title">
-                                                    {$Field->getTitle()}
-                                                </div>
-                                                <div class="quiqqer-product-field-value">
-                                                    ---
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    {/if}
-                                {/foreach}
-                            </table>
-                        {/if*}
 
                         {if !empty($entry.Price)}
                             {assign var=Price value=$entry.Price}
