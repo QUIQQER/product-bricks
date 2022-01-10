@@ -20,7 +20,7 @@
                 {if $entry.image|strstr:"image.php"}
                     {* Image *}
                     <div class="quiqqer-bricks-categorybox-box-image"
-                         style="background-image: url({image src=$entry.image width=350 onlysrc=true})"
+                         style="background-image: url('{image src=$entry.image width=350 onlysrc=true}')"
                          title={$entry.title}>
                     </div>
                 {else}
