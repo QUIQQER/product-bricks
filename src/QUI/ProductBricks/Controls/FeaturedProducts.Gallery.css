@@ -49,13 +49,16 @@
 }
 
 .featuredProducts-gallery-box-entries-entry-price {
+    margin-bottom: 1rem;
+}
+
+.featuredProducts-gallery-box-entries-entry-price .qui-products-price-display-value {
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
 .featuredProducts-gallery-box-entries-entry-link {
     margin-top: auto;
-    align-self: center;
 }
 
 @media screen and (max-width: 767px) {

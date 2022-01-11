@@ -50,6 +50,10 @@
     margin-top: 5px;
 }
 
+.featuredProducts-list-box-entries-entry-content-price .qui-products-price-display br {
+    display: none;
+}
+
 .featuredProducts-list-box-entries-entry-content-price .qui-products-price-display-value {
     color: inherit;
     display: inline;
