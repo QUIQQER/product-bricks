@@ -38,6 +38,8 @@
 .featuredProducts-list-box-entries-entry-image img {
     max-height: 100%;
     max-width: 100%;
+    height: auto;
+    width: auto;
 }
 
 .featuredProducts-list-box-entries-entry-content-title {

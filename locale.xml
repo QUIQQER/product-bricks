@@ -469,10 +469,4 @@
         </locale>
     </groups>
 
-
-    <groups name="quiqqer/product-bricks" datatype="php">
-
-
-    </groups>
-
 </locales>

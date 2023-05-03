@@ -26,8 +26,7 @@
             <li class="featuredProducts-list-box-entries-entry">
                 <div class="featuredProducts-list-box-entries-entry-image">
                     <a href="{$Product->getUrl()}">
-                        <img src="{$Product->getImage()->createResizeCache(80, 150)}"
-                             title="{$Product->getTitle()}" alt="{$Product->getTitle()}"/>
+                        {image image=$Product->getImage() width="200" height="100"}
                     </a>
                 </div>
                 <div class="featuredProducts-list-box-entries-entry-content">
