@@ -25,20 +25,20 @@ class CategoryBox extends QUI\Control
     {
         // default options
         $this->setAttributes([
-            'class'             => 'quiqqer-productbricks-categorybox',
-            'nodeName'          => 'section',
-            'bgColor'           => '#fff',
+            'class' => 'quiqqer-productbricks-categorybox',
+            'nodeName' => 'section',
+            'bgColor' => '#fff',
             'imageAsBackground' => false,
-            'order'             => 'manuell',
-            'limit'             => false,
-            'allCategoriesUrl'  => false,
-            'template'          => dirname(__FILE__).'/CategoryBox.html'
+            'order' => 'manuell',
+            'limit' => false,
+            'allCategoriesUrl' => false,
+            'template' => dirname(__FILE__) . '/CategoryBox.html'
         ]);
 
         parent::__construct($attributes);
 
         $this->setAttribute('cacheable', 0);
-        $this->addCSSFile(dirname(__FILE__).'/CategoryBox.css');
+        $this->addCSSFile(dirname(__FILE__) . '/CategoryBox.css');
     }
 
     public function getBody()
@@ -78,9 +78,9 @@ class CategoryBox extends QUI\Control
         }
 
         $Engine->assign([
-            'this'              => $this,
+            'this' => $this,
             'imageAsBackground' => $imageAsBackground,
-            'entries'           => $entries
+            'entries' => $entries
         ]);
 
 
@@ -97,14 +97,14 @@ class CategoryBox extends QUI\Control
     public function setCategoryAttributes($Site)
     {
         $title = $Site->getAttribute('title');
-        $desc  = $Site->getAttribute('short');
-        $url   = $Site->getUrl();
+        $desc = $Site->getAttribute('short');
+        $url = $Site->getUrl();
         $image = $Site->getAttribute('image_site');
 
         // site has no short description? try by category
         if (!$desc) {
             $Category = $this->getCategoryFromSite($Site);
-            $desc     = $Category->getDescription();
+            $desc = $Category->getDescription();
         }
 
         // set placeholder if no image available
@@ -113,10 +113,10 @@ class CategoryBox extends QUI\Control
         }*/
 
         return [
-            'Site'  => $Site,
+            'Site' => $Site,
             'title' => $title,
-            'desc'  => $desc,
-            'url'   => $url,
+            'desc' => $desc,
+            'url' => $url,
             'image' => $image
         ];
     }
@@ -140,7 +140,7 @@ class CategoryBox extends QUI\Control
                     ],
                     404,
                     [
-                        'siteId'    => $Site->getAttribute('id'),
+                        'siteId' => $Site->getAttribute('id'),
                         'siteTitle' => $Site->getAttribute('title')
                     ]
                 );
