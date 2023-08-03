@@ -25,15 +25,15 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
         // default options
         $this->setAttributes([
             'moreLink' => false,
-            'height'   => 120,
-            'limit'    => 10,
-            'order'    => 'username ASC'
+            'height' => 120,
+            'limit' => 10,
+            'order' => 'username ASC'
         ]);
 
         parent::__construct($attributes);
 
         $this->setAttribute('cacheable', 0);
-        $this->addCSSFile(\dirname(__FILE__).'/ManufactureSlider.css');
+        $this->addCSSFile(\dirname(__FILE__) . '/ManufactureSlider.css');
     }
 
     /**
@@ -50,7 +50,7 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
         }
 
         $height = $this->getAttribute('height');
-        $limit  = $this->getAttribute('limit');
+        $limit = $this->getAttribute('limit');
 
         $this->setAttribute('height', false);
 
@@ -63,9 +63,9 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
         }
 
         $manufacturerUserIds = [];
-        $start               = 0;
+        $start = 0;
 
-        $Users    = QUI::getUsers();
+        $Users = QUI::getUsers();
         $MoreLink = null;
 
         try {
@@ -74,15 +74,15 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
             if (!empty($userIds)) {
                 $result = QUI::getDataBase()->fetch([
                     'select' => ['id'],
-                    'from'   => $Users::table(),
-                    'where'  => [
+                    'from' => $Users::table(),
+                    'where' => [
                         'id' => [
-                            'type'  => 'IN',
+                            'type' => 'IN',
                             'value' => $userIds
                         ]
                     ],
-                    'order'  => $this->getAttribute('order'),
-                    'limit'  => $start.','.$limit
+                    'order' => $this->getAttribute('order'),
+                    'limit' => $start . ',' . $limit
                 ]);
 
                 foreach ($result as $row) {
@@ -101,12 +101,12 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
         }
 
         $Engine->assign([
-            'this'              => $this,
-            'height'            => $height,
+            'this' => $this,
+            'height' => $height,
             'manufacturerUsers' => $manufacturerUserIds,
-            'MoreLink'          => $MoreLink
+            'MoreLink' => $MoreLink
         ]);
 
-        return $Engine->fetch(\dirname(__FILE__).'/ManufactureSlider.html');
+        return $Engine->fetch(\dirname(__FILE__) . '/ManufactureSlider.html');
     }
 }

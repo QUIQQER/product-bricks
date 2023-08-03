@@ -9,9 +9,7 @@
 namespace QUI\ProductBricks\Controls;
 
 use QUI;
-use QUI\ERP\Products\Controls\Products\ChildrenSlider;
 use QUI\ERP\Products\Handler\Fields;
-use QUI\ERP\Products\Handler\Products;
 
 /**
  * Product Cards
@@ -32,20 +30,20 @@ class ProductCards extends QUI\Control
     {
         // default options
         $this->setAttributes([
-            'class'               => 'quiqqer-productbricks-productCards',
-            'nodeName'            => 'section',
-            'hideRetailPrice'     => false, // hide crossed out price
-            'showPrices'          => true,  // do not show prices
+            'class' => 'quiqqer-productbricks-productCards',
+            'nodeName' => 'section',
+            'hideRetailPrice' => false, // hide crossed out price
+            'showPrices' => true,  // do not show prices
             'showVariantChildren' => false,  // also show variant children products
-            'productIds'          => '',
-            'categoryIds'         => '',
-            'buttonAction'        => 'addToBasket',
-            'moreUrl'             => '', // url to more products
-            'order'               => 'orderCount DESC', // best sellers
-            'limit'               => 6,
-            'perRow'              => 3,
-            'imgBg'               => true, // light background behind the images
-            'showButtons'         => true
+            'productIds' => '',
+            'categoryIds' => '',
+            'buttonAction' => 'addToBasket',
+            'moreUrl' => '', // url to more products
+            'order' => 'orderCount DESC', // best sellers
+            'limit' => 6,
+            'perRow' => 3,
+            'imgBg' => true, // light background behind the images
+            'showButtons' => true
         ]);
 
         parent::__construct($attributes);
@@ -57,13 +55,13 @@ class ProductCards extends QUI\Control
 
     public function getBody()
     {
-        $Engine     = QUI::getTemplateManager()->getEngine();
+        $Engine = QUI::getTemplateManager()->getEngine();
         $productIds = $this->getAttribute('productIds');
-        $products   = [];
-        $order      = $this->getAttribute('order');
-        $limit      = $this->getAttribute('limit');
-        $perRow     = $this->getAttribute('perRow');
-        $moreUrl    = $this->getAttribute('moreUrl');
+        $products = [];
+        $order = $this->getAttribute('order');
+        $limit = $this->getAttribute('limit');
+        $perRow = $this->getAttribute('perRow');
+        $moreUrl = $this->getAttribute('moreUrl');
 
         if (!$order) {
             $order = 'orderCount DESC';
@@ -95,15 +93,15 @@ class ProductCards extends QUI\Control
 
         if ($productIds) {
             $productIds = \explode(',', $productIds);
-            $products   = QUI\ERP\Products\Handler\Products::getProducts([
+            $products = QUI\ERP\Products\Handler\Products::getProducts([
                 'where' => [
                     'active' => 1,
-                    'id'     => [
-                        'type'  => 'IN',
+                    'id' => [
+                        'type' => 'IN',
                         'value' => $productIds
                     ],
-                    'type'   => [
-                        'type'  => 'IN',
+                    'type' => [
+                        'type' => 'IN',
                         'value' => $allowedProductClasses
                     ]
                 ],
@@ -112,7 +110,7 @@ class ProductCards extends QUI\Control
             ]);
         }
 
-        $catIds          = $this->getAttribute('categoryIds');
+        $catIds = $this->getAttribute('categoryIds');
         $productsFromCat = [];
 
         if (is_string($catIds) && strlen($catIds) > 0) {
@@ -132,7 +130,7 @@ class ProductCards extends QUI\Control
                 // do not show variant children
                 if (!$this->getAttribute('showVariantChildren')) {
                     $query['where']['type'] = [
-                        'type'  => 'NOT',
+                        'type' => 'NOT',
                         'value' => QUI\ERP\Products\Product\Types\VariantChild::class
                     ];
                 }
@@ -168,9 +166,9 @@ class ProductCards extends QUI\Control
         $products = \array_slice($products, 0, $limit);
 
         $Engine->assign([
-            'this'         => $this,
+            'this' => $this,
             'productsData' => $this->getProductsData($products),
-            'moreUrl'      => $moreUrl
+            'moreUrl' => $moreUrl
         ]);
 
         $html = $this->getHtmlFilePath();
@@ -185,7 +183,7 @@ class ProductCards extends QUI\Control
      */
     protected function getHtmlFilePath(): string
     {
-        return \dirname(__FILE__).'/ProductCards.html';
+        return \dirname(__FILE__) . '/ProductCards.html';
     }
 
     /**
@@ -195,7 +193,7 @@ class ProductCards extends QUI\Control
      */
     protected function getCSSFilePath(): string
     {
-        return \dirname(__FILE__).'/ProductCards.css';
+        return \dirname(__FILE__) . '/ProductCards.css';
     }
 
     /**
@@ -246,13 +244,13 @@ class ProductCards extends QUI\Control
         }
 
         $CrossedOutPrice = null;
-        $Price           = $Product->getPrice();
+        $Price = $Product->getPrice();
 
         try {
             // Offer price (Angebotspreis) - it has higher priority than retail price
             if ($Product->hasOfferPrice()) {
                 $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
-                    'Price'       => new QUI\ERP\Money\Price(
+                    'Price' => new QUI\ERP\Money\Price(
                         $Product->getOriginalPrice()->getValue(),
                         QUI\ERP\Currency\Handler::getDefaultCurrency()
                     ),
@@ -265,7 +263,7 @@ class ProductCards extends QUI\Control
 
                     if ($Price->getPrice() < $PriceRetail->getPrice()) {
                         $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
-                            'Price'       => $PriceRetail,
+                            'Price' => $PriceRetail,
                             'withVatText' => false
                         ]);
                     }
