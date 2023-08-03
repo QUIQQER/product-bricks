@@ -25,20 +25,20 @@ class FeaturedProducts extends QUI\Control
     {
         // default options
         $this->setAttributes([
-            'class'                => 'quiqqer-productbricks-featuredProducts',
-            'nodeName'             => 'section',
-            'limit'                => 5,
-            'showVariantChildren'  => false,
-            'order'                => 'c_date DESC',
-            'layout'               => 'list',
-            'featured1.title'      => false,
+            'class' => 'quiqqer-productbricks-featuredProducts',
+            'nodeName' => 'section',
+            'limit' => 5,
+            'showVariantChildren' => false,
+            'order' => 'c_date DESC',
+            'layout' => 'list',
+            'featured1.title' => false,
             'featured1.categoryId' => false, // Featured products category ID's
-            'featured2.title'      => false,
+            'featured2.title' => false,
             'featured2.categoryId' => false, // Featured products category ID's
-            'featured3.title'      => false,
+            'featured3.title' => false,
             'featured3.categoryId' => false, // Featured products category ID's
-            'customTemplate'       => false, // Custom template (path to html file). Overwrites "layout".
-            'customCss'            => false  // Custom  template css (path to css file). Overwrites "layout".
+            'customTemplate' => false, // Custom template (path to html file). Overwrites "layout".
+            'customCss' => false  // Custom  template css (path to css file). Overwrites "layout".
         ]);
 
         parent::__construct($attributes);
@@ -69,38 +69,42 @@ class FeaturedProducts extends QUI\Control
             ]);
 
             $featuredData[] = [
-                'title'    => $this->getAttribute('featured1.title'),
+                'title' => $this->getAttribute('featured1.title'),
                 'products' => $this->getProductsViews($products)
             ];
         }
 
         if ($this->getAttribute('featured2.categoryId')) {
             $featuredData[] = [
-                'title'    => $this->getAttribute('featured2.title'),
-                'products' => $this->getProductsViews($this->getProducts([
-                    'categoryId' => $this->getAttribute('featured2.categoryId')
-                ]))
+                'title' => $this->getAttribute('featured2.title'),
+                'products' => $this->getProductsViews(
+                    $this->getProducts([
+                        'categoryId' => $this->getAttribute('featured2.categoryId')
+                    ])
+                )
             ];
         }
 
         if ($this->getAttribute('featured3.categoryId')) {
             $featuredData[] = [
-                'title'    => $this->getAttribute('featured3.title'),
-                'products' => $this->getProductsViews($this->getProducts([
-                    'categoryId' => $this->getAttribute('featured3.categoryId')
-                ]))
+                'title' => $this->getAttribute('featured3.title'),
+                'products' => $this->getProductsViews(
+                    $this->getProducts([
+                        'categoryId' => $this->getAttribute('featured3.categoryId')
+                    ])
+                )
             ];
         }
 
         switch ($this->getAttribute('layout')) {
             case 'gallery':
-                $templateFile = dirname(__FILE__).'/FeaturedProducts.Gallery.html';
-                $cssFile      = dirname(__FILE__).'/FeaturedProducts.Gallery.css';
+                $templateFile = dirname(__FILE__) . '/FeaturedProducts.Gallery.html';
+                $cssFile = dirname(__FILE__) . '/FeaturedProducts.Gallery.css';
                 break;
             case 'list':
             default:
-                $templateFile = dirname(__FILE__).'/FeaturedProducts.List.html';
-                $cssFile      = dirname(__FILE__).'/FeaturedProducts.List.css';
+                $templateFile = dirname(__FILE__) . '/FeaturedProducts.List.html';
+                $cssFile = dirname(__FILE__) . '/FeaturedProducts.List.css';
         }
 
         // custom template
@@ -114,7 +118,7 @@ class FeaturedProducts extends QUI\Control
         }
 
         $Engine->assign([
-            'this'         => $this,
+            'this' => $this,
             'featuredData' => $featuredData
         ]);
 
@@ -149,15 +153,15 @@ class FeaturedProducts extends QUI\Control
 
         $where = [
             'categories' => [
-                'type'  => '%LIKE%',
-                'value' => ','.$value.','
+                'type' => '%LIKE%',
+                'value' => ',' . $value . ','
             ],
-            'active'     => 1
+            'active' => 1
         ];
 
         if (!$this->getAttribute('showVariantChildren')) {
             $where['type'] = [
-                'type'  => 'NOT',
+                'type' => 'NOT',
                 'value' => QUI\ERP\Products\Product\Types\VariantChild::class
             ];
         }

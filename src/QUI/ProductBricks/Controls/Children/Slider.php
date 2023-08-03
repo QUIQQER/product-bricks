@@ -10,8 +10,6 @@ namespace QUI\ProductBricks\Controls\Children;
 
 use QUI;
 use QUI\ERP\Products\Controls\Products\ChildrenSlider;
-use QUI\ERP\Products\Handler\Fields;
-use QUI\ERP\Products\Handler\Products;
 
 /**
  * Class Slider (carousel)
@@ -35,32 +33,32 @@ class Slider extends QUI\Control
     {
         // default options
         $this->setAttributes([
-            'class'               => 'quiqqer-productbricks-slider',
-            'nodeName'            => 'section',
-            'entryHeight'         => 400,
-            'hideRetailPrice'     => false, // hide crossed out price
-            'showPrices'          => true,  // do not show prices
+            'class' => 'quiqqer-productbricks-slider',
+            'nodeName' => 'section',
+            'entryHeight' => 400,
+            'hideRetailPrice' => false, // hide crossed out price
+            'showPrices' => true,  // do not show prices
             'showVariantChildren' => false,  // also show variant children products
-            'productIds'          => '', // comma separated numbers
-            'categoryIds'         => '', // comma separated numbers
-            'buttonAction'        => 'addToBasket',
-            'order'               => 'orderCount DESC', // best sellers
-            'limit'               => 10
+            'productIds' => '', // comma separated numbers
+            'categoryIds' => '', // comma separated numbers
+            'buttonAction' => 'addToBasket',
+            'order' => 'orderCount DESC', // best sellers
+            'limit' => 10
         ]);
 
         parent::__construct($attributes);
 
         $this->setAttribute('cacheable', 0);
-        $this->addCSSFile(\dirname(__FILE__).'/Slider.css');
+        $this->addCSSFile(\dirname(__FILE__) . '/Slider.css');
     }
 
     public function getBody()
     {
-        $Engine     = QUI::getTemplateManager()->getEngine();
+        $Engine = QUI::getTemplateManager()->getEngine();
         $productIds = $this->getAttribute('productIds');
-        $products   = [];
-        $order      = $this->getAttribute('order');
-        $limit      = $this->getAttribute('limit');
+        $products = [];
+        $order = $this->getAttribute('order');
+        $limit = $this->getAttribute('limit');
 
         if (!$order) {
             $order = 'orderCount DESC';
@@ -71,7 +69,7 @@ class Slider extends QUI\Control
         }
 
         $this->Slider = new ChildrenSlider([
-            'showPrices'   => $this->getAttribute('showPrices'),
+            'showPrices' => $this->getAttribute('showPrices'),
             'buttonAction' => $this->getAttribute('buttonAction')
         ]);
 
@@ -95,15 +93,15 @@ class Slider extends QUI\Control
 
         if ($productIds) {
             $productIds = \explode(',', $productIds);
-            $products   = QUI\ERP\Products\Handler\Products::getProducts([
+            $products = QUI\ERP\Products\Handler\Products::getProducts([
                 'where' => [
                     'active' => 1,
-                    'id'     => [
-                        'type'  => 'IN',
+                    'id' => [
+                        'type' => 'IN',
                         'value' => $productIds
                     ],
-                    'type'   => [
-                        'type'  => 'IN',
+                    'type' => [
+                        'type' => 'IN',
                         'value' => $allowedProductClasses
                     ]
                 ],
@@ -113,7 +111,7 @@ class Slider extends QUI\Control
             ]);
         }
 
-        $catIds          = $this->getAttribute('categoryIds');
+        $catIds = $this->getAttribute('categoryIds');
         $productsFromCat = [];
 
         if (is_string($catIds) && strlen($catIds) > 0) {
@@ -133,7 +131,7 @@ class Slider extends QUI\Control
                 // do not show variant children
                 if (!$this->getAttribute('showVariantChildren')) {
                     $query['where']['type'] = [
-                        'type'  => 'NOT',
+                        'type' => 'NOT',
                         'value' => QUI\ERP\Products\Product\Types\VariantChild::class
                     ];
                 }
@@ -179,10 +177,10 @@ class Slider extends QUI\Control
         }
 
         $Engine->assign([
-            'this'   => $this,
+            'this' => $this,
             "Slider" => $this->Slider
         ]);
 
-        return $Engine->fetch(\dirname(__FILE__).'/Slider.html');
+        return $Engine->fetch(\dirname(__FILE__) . '/Slider.html');
     }
 }

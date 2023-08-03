@@ -9,9 +9,6 @@
 namespace QUI\ProductBricks\Controls;
 
 use QUI;
-use QUI\ERP\Products\Controls\Products\ChildrenSlider;
-use QUI\ERP\Products\Handler\Fields;
-use QUI\ERP\Products\Handler\Products;
 
 /**
  * Product Cards
@@ -32,20 +29,20 @@ class ProductCardsDetails extends QUI\ProductBricks\Controls\ProductCards
     {
         // default options
         $this->setAttributes([
-            'class'               => 'quiqqer-productbricks-productCardsDetails',
-            'nodeName'            => 'section',
-            'hideRetailPrice'     => false, // hide crossed out price
-            'showPrices'          => true,  // do not show prices
+            'class' => 'quiqqer-productbricks-productCardsDetails',
+            'nodeName' => 'section',
+            'hideRetailPrice' => false, // hide crossed out price
+            'showPrices' => true,  // do not show prices
             'showVariantChildren' => false,  // also show variant children products
-            'productIds'          => '',
-            'categoryIds'         => '',
-            'buttonAction'        => 'addToBasket',
-            'moreUrl'             => '', // url to more products
-            'order'               => 'orderCount DESC', // best sellers
-            'limit'               => 6,
-            'perRow'              => 3,
-            'imgBg'               => true, // light background behind the images
-            'showButtons'         => true
+            'productIds' => '',
+            'categoryIds' => '',
+            'buttonAction' => 'addToBasket',
+            'moreUrl' => '', // url to more products
+            'order' => 'orderCount DESC', // best sellers
+            'limit' => 6,
+            'perRow' => 3,
+            'imgBg' => true, // light background behind the images
+            'showButtons' => true
         ]);
 
         parent::__construct($attributes);
@@ -62,7 +59,7 @@ class ProductCardsDetails extends QUI\ProductBricks\Controls\ProductCards
      */
     protected function getHtmlFilePath(): string
     {
-        return \dirname(__FILE__).'/ProductCardsDetails.html';
+        return \dirname(__FILE__) . '/ProductCardsDetails.html';
     }
 
     /**
@@ -72,7 +69,7 @@ class ProductCardsDetails extends QUI\ProductBricks\Controls\ProductCards
      */
     protected function getCSSFilePath(): string
     {
-        return \dirname(__FILE__).'/ProductCardsDetails.css';
+        return \dirname(__FILE__) . '/ProductCardsDetails.css';
     }
 
     /**

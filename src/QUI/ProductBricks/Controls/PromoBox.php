@@ -24,15 +24,15 @@ class PromoBox extends QUI\Control
     {
         // default options
         $this->setAttributes([
-            'class'           => 'quiqqer-productbricks-promobox',
-            'nodeName'        => 'section',
-            'minHeight'       => 250,
+            'class' => 'quiqqer-productbricks-promobox',
+            'nodeName' => 'section',
+            'minHeight' => 250,
             'contentPosition' => 'center',
-            'image'           => false,
-            'url'             => false,
-            'target'          => '_self',
-            'colorScheme'     => 'none',
-            'template'        => dirname(__FILE__) . '/PromoBox.html'
+            'image' => false,
+            'url' => false,
+            'target' => '_self',
+            'colorScheme' => 'none',
+            'template' => dirname(__FILE__) . '/PromoBox.html'
         ]);
 
         $this->addCSSFile(dirname(__FILE__) . '/PromoBox.css');
@@ -68,11 +68,11 @@ class PromoBox extends QUI\Control
         }
 
         $Engine->assign([
-            'this'            => $this,
-            'minHeight'       => $this->getAttribute('minHeight'),
-            'image'           => $this->getAttribute('image'),
+            'this' => $this,
+            'minHeight' => $this->getAttribute('minHeight'),
+            'image' => $this->getAttribute('image'),
             'contentPosition' => $this->getAttribute('contentPosition'),
-            'colorScheme'     => $colorScheme
+            'colorScheme' => $colorScheme
         ]);
 
         return $Engine->fetch($this->getAttribute('template'));

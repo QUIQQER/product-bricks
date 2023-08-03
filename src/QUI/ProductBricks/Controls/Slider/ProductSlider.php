@@ -34,22 +34,22 @@ class ProductSlider extends QUI\Control
     {
         // default options
         $this->setAttributes([
-            'title'          => '',
-            'text'           => '',
-            'class'          => 'quiqqer-productbricks-productslider',
-            'showPrice'      => false,
-            'nodeName'       => 'section',
-            'autostart'      => false,
-            'delay'          => 7000,
-            'showarrows'     => false,
+            'title' => '',
+            'text' => '',
+            'class' => 'quiqqer-productbricks-productslider',
+            'showPrice' => false,
+            'nodeName' => 'section',
+            'autostart' => false,
+            'delay' => 7000,
+            'showarrows' => false,
             'dotsAppearance' => 'dark', // slider navigation dots
-            'template'       => dirname(__FILE__).'/ProductSlider.html'
+            'template' => dirname(__FILE__) . '/ProductSlider.html'
         ]);
 
         parent::__construct($attributes);
 
         $this->setAttribute('cacheable', 0);
-        $this->addCSSFile(dirname(__FILE__).'/ProductSlider.css');
+        $this->addCSSFile(dirname(__FILE__) . '/ProductSlider.css');
     }
 
     public function getBody()
@@ -61,10 +61,10 @@ class ProductSlider extends QUI\Control
         $Engine = QUI::getTemplateManager()->getEngine();
         $Slider = new QUI\Bricks\Controls\Slider\Promoslider([
             'shownavigation' => true,
-            'showarrows'     => $this->getAttribute('showarrows'),
-            'autostart'      => $this->getAttribute('autostart'),
-            'delay'          => $this->getAttribute('delay'),
-            'imageSize'      => 400
+            'showarrows' => $this->getAttribute('showarrows'),
+            'autostart' => $this->getAttribute('autostart'),
+            'delay' => $this->getAttribute('delay'),
+            'imageSize' => 400
         ]);
 
         foreach ($Slider->getCSSFiles() as $file) {
@@ -72,7 +72,7 @@ class ProductSlider extends QUI\Control
         }
 
         $this->setStyle('background-color', $this->getAttribute('bgColor'));
-        $this->setStyle('background-image', 'url('.$this->getAttribute('bgImage').')');
+        $this->setStyle('background-image', 'url(' . $this->getAttribute('bgImage') . ')');
         $this->setAttribute('data-dots-appearance', $this->getAttribute('dotsAppearance'));
         $this->addCSSFiles($Slider->getCSSFiles());
 
@@ -83,14 +83,14 @@ class ProductSlider extends QUI\Control
 
         foreach ($productIds as $productId) {
             try {
-                $Product    = Products::getProduct($productId);
+                $Product = Products::getProduct($productId);
                 $products[] = $Product->getView();
             } catch (QUI\Exception $Exception) {
                 QUI\System\Log::writeException($Exception);
             }
         }
 
-        $slideTemplate = dirname(__FILE__).'/ProductSlider.Slide.html';
+        $slideTemplate = dirname(__FILE__) . '/ProductSlider.Slide.html';
 
         /* @var $Product QUI\ERP\Products\Product\ViewFrontend */
         foreach ($products as $Product) {
@@ -103,7 +103,7 @@ class ProductSlider extends QUI\Control
             }
 
             $EngineSlide->assign([
-                'Product'   => $Product,
+                'Product' => $Product,
                 'priceHtml' => $priceHtml
             ]);
 
@@ -140,17 +140,17 @@ class ProductSlider extends QUI\Control
      */
     private function getPriceHtml($Product)
     {
-        $html            = '<div class="quiqqer-productbricks-productslider-slide-left-description-prices">';
+        $html = '<div class="quiqqer-productbricks-productslider-slide-left-description-prices">';
         $retailPriceHtml = '';
         $CrossedOutPrice = null;
-        $Price           = $Product->getPrice();
-        $PriceDisplay    = $Product->getPriceDisplay();
+        $Price = $Product->getPrice();
+        $PriceDisplay = $Product->getPriceDisplay();
 
         try {
             // Offer price (Angebotspreis) - it has higher priority than retail price
             if ($Product->hasOfferPrice()) {
                 $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
-                    'Price'       => new QUI\ERP\Money\Price(
+                    'Price' => new QUI\ERP\Money\Price(
                         $Product->getOriginalPrice()->getValue(),
                         QUI\ERP\Currency\Handler::getDefaultCurrency()
                     ),
@@ -163,7 +163,7 @@ class ProductSlider extends QUI\Control
 
                     if ($Price->getPrice() < $PriceRetail->getPrice()) {
                         $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
-                            'Price'       => $PriceRetail,
+                            'Price' => $PriceRetail,
                             'withVatText' => false
                         ]);
                     }
@@ -172,14 +172,15 @@ class ProductSlider extends QUI\Control
 
             if ($CrossedOutPrice) {
                 $retailPriceHtml = '<div class="quiqqer-productbricks-productslider-slide-left-description-prices-retail text-muted">';
-                $retailPriceHtml .= $CrossedOutPrice->create().'</div>';
+                $retailPriceHtml .= $CrossedOutPrice->create() . '</div>';
             }
         } catch (QUI\Exception $Exception) {
             QUI\System\Log::writeDebugException($Exception);
         }
 
         $html .= $retailPriceHtml;
-        $html .= '<div class="quiqqer-productbricks-productslider-slide-left-description-prices-price">'.$PriceDisplay->create();
+        $html .= '<div class="quiqqer-productbricks-productslider-slide-left-description-prices-price">' .
+            $PriceDisplay->create();
         $html .= '</div></div>';
 
         return $html;
