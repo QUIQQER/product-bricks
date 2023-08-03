@@ -179,8 +179,8 @@ class ProductSlider extends QUI\Control
         }
 
         $html .= $retailPriceHtml;
-        $html .= '<div class="quiqqer-productbricks-productslider-slide-left-description-prices-price">' . $PriceDisplay->create(
-            );
+        $html .= '<div class="quiqqer-productbricks-productslider-slide-left-description-prices-price">' .
+            $PriceDisplay->create();
         $html .= '</div></div>';
 
         return $html;
