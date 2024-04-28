@@ -7,7 +7,7 @@
     {
       "name": "Michael Danielczok",
       "email": "michael@pcsg.de",
-      "homepage": "http://www.pcsg.de",
+      "homepage": "https://www.pcsg.de",
       "role": "Developer"
     }
   ],
@@ -15,12 +15,12 @@
     "email": "support@pcsg.de"
   },
   "require": {
-    "quiqqer/quiqqer": "*@dev",
-    "quiqqer/controls": ">=1.4|dev-master|dev-dev",
-    "quiqqer\/qui": ">=1|*@dev",
-    "quiqqer/utils": ">=1.4|dev-dev",
-    "quiqqer\/bricks": ">=1|dev-master|dev-dev",
-    "quiqqer\/products": ">=1|dev-master|dev-dev"
+    "quiqqer/core": "^2",
+    "quiqqer/controls": "^2",
+    "quiqqer\/qui": "^1",
+    "quiqqer/utils": "^2",
+    "quiqqer\/bricks": "^2",
+    "quiqqer\/products": "^2"
   },
   "autoload": {
     "psr-4": {
