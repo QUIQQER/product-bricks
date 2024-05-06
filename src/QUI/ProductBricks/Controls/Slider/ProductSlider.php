@@ -8,6 +8,7 @@
 
 namespace QUI\ProductBricks\Controls\Slider;
 
+use Exception;
 use QUI;
 use QUI\ERP\Products\Handler\Fields;
 use QUI\ERP\Products\Handler\Products;
@@ -23,14 +24,14 @@ class ProductSlider extends QUI\Control
     /**
      * @var QUI\ERP\Products\Utils\Calc
      */
-    private $Calc;
+    protected QUI\ERP\Products\Utils\Calc $Calc;
 
     /**
      * constructor
      *
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    public function __construct(array $attributes = [])
     {
         // default options
         $this->setAttributes([
@@ -52,11 +53,9 @@ class ProductSlider extends QUI\Control
         $this->addCSSFile(dirname(__FILE__) . '/ProductSlider.css');
     }
 
-    public function getBody()
+    public function getBody(): string
     {
         $this->Calc = QUI\ERP\Products\Utils\Calc::getInstance(QUI::getUserBySession());
-
-        $showArrows = $this->getAttribute('showarrows');
 
         $Engine = QUI::getTemplateManager()->getEngine();
         $Slider = new QUI\Bricks\Controls\Slider\Promoslider([
@@ -137,8 +136,9 @@ class ProductSlider extends QUI\Control
      * @return string HTML
      *
      * @throws QUI\Exception
+     * @throws Exception
      */
-    private function getPriceHtml($Product)
+    private function getPriceHtml(QUI\ERP\Products\Product\ViewFrontend $Product): string
     {
         $html = '<div class="quiqqer-productbricks-productslider-slide-left-description-prices">';
         $retailPriceHtml = '';
@@ -176,6 +176,8 @@ class ProductSlider extends QUI\Control
             }
         } catch (QUI\Exception $Exception) {
             QUI\System\Log::writeDebugException($Exception);
+        } catch (Exception $e) {
+            QUI\System\Log::writeDebugException($e);
         }
 
         $html .= $retailPriceHtml;

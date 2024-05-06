@@ -10,6 +10,9 @@ namespace QUI\ProductBricks\Controls;
 
 use QUI;
 
+use function array_filter;
+use function dirname;
+
 /**
  * Product Cards
  *
@@ -25,7 +28,7 @@ class ProductCardsDetails extends QUI\ProductBricks\Controls\ProductCards
      *
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    public function __construct(array $attributes = [])
     {
         // default options
         $this->setAttributes([
@@ -59,7 +62,7 @@ class ProductCardsDetails extends QUI\ProductBricks\Controls\ProductCards
      */
     protected function getHtmlFilePath(): string
     {
-        return \dirname(__FILE__) . '/ProductCardsDetails.html';
+        return dirname(__FILE__) . '/ProductCardsDetails.html';
     }
 
     /**
@@ -69,7 +72,7 @@ class ProductCardsDetails extends QUI\ProductBricks\Controls\ProductCards
      */
     protected function getCSSFilePath(): string
     {
-        return \dirname(__FILE__) . '/ProductCardsDetails.css';
+        return dirname(__FILE__) . '/ProductCardsDetails.css';
     }
 
     /**
@@ -88,7 +91,7 @@ class ProductCardsDetails extends QUI\ProductBricks\Controls\ProductCards
             $ProductView = $Product->getViewFrontend();
 
             // fields for the details
-            $details = \array_filter($ProductView->getFields(), function ($Field) {
+            $details = array_filter($ProductView->getFields(), function ($Field) {
                 /* @var $Field QUI\ERP\Products\Field\View */
                 if (!QUI\ERP\Products\Utils\Fields::showFieldInProductDetails($Field)) {
                     return false;

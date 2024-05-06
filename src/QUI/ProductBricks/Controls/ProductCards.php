@@ -11,6 +11,17 @@ namespace QUI\ProductBricks\Controls;
 use QUI;
 use QUI\ERP\Products\Handler\Fields;
 
+use function array_filter;
+use function array_merge;
+use function array_slice;
+use function array_values;
+use function array_walk;
+use function count;
+use function dirname;
+use function explode;
+use function is_a;
+use function ltrim;
+
 /**
  * Product Cards
  *
@@ -26,7 +37,7 @@ class ProductCards extends QUI\Control
      *
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    public function __construct(array $attributes = [])
     {
         // default options
         $this->setAttributes([
@@ -53,7 +64,7 @@ class ProductCards extends QUI\Control
         $this->addCSSFile($this->getCSSFilePath());
     }
 
-    public function getBody()
+    public function getBody(): string
     {
         $Engine = QUI::getTemplateManager()->getEngine();
         $productIds = $this->getAttribute('productIds');
@@ -79,20 +90,20 @@ class ProductCards extends QUI\Control
 
         // If variant children are not allowed, filter them out
         if (empty($this->getAttribute('showVariantChildren'))) {
-            $allowedProductClasses = \array_filter($allowedProductClasses, function ($productClass) {
-                return !\is_a($productClass, QUI\ERP\Products\Product\Types\VariantChild::class, true);
+            $allowedProductClasses = array_filter($allowedProductClasses, function ($productClass) {
+                return !is_a($productClass, QUI\ERP\Products\Product\Types\VariantChild::class, true);
             });
         }
 
         // Remove leading slashes from classes
-        \array_walk($allowedProductClasses, function (&$productClass) {
-            $productClass = \ltrim($productClass, '\\');
+        array_walk($allowedProductClasses, function (&$productClass) {
+            $productClass = ltrim($productClass, '\\');
         });
 
         $allowedProductClasses[] = ''; // fix for old products
 
         if ($productIds) {
-            $productIds = \explode(',', $productIds);
+            $productIds = explode(',', $productIds);
             $products = QUI\ERP\Products\Handler\Products::getProducts([
                 'where' => [
                     'active' => 1,
@@ -114,7 +125,7 @@ class ProductCards extends QUI\Control
         $productsFromCat = [];
 
         if (is_string($catIds) && strlen($catIds) > 0) {
-            $catIds = \explode(',', $catIds);
+            $catIds = explode(',', $catIds);
 
             foreach ($catIds as $catId) {
                 $Category = QUI\ERP\Products\Handler\Categories::getCategory($catId);
@@ -137,11 +148,11 @@ class ProductCards extends QUI\Control
 
                 $catProducts = $Category->getProducts($query);
 
-                $productsFromCat = \array_merge($catProducts, $productsFromCat);
+                $productsFromCat = array_merge($catProducts, $productsFromCat);
             }
         }
 
-        $products = \array_merge($products, $productsFromCat);
+        $products = array_merge($products, $productsFromCat);
 
         // Remove duplicates
         $checked = [];
@@ -156,22 +167,20 @@ class ProductCards extends QUI\Control
             $checked[$Product->getId()] = true;
         }
 
-        $products = \array_values($products);
+        $products = array_values($products);
 
-        if (\count($products) < 1) {
+        if (count($products) < 1) {
             return '';
         }
 
         // limit / max
-        $products = \array_slice($products, 0, $limit);
+        $products = array_slice($products, 0, $limit);
 
         $Engine->assign([
             'this' => $this,
             'productsData' => $this->getProductsData($products),
             'moreUrl' => $moreUrl
         ]);
-
-        $html = $this->getHtmlFilePath();
 
         return $Engine->fetch($this->getHtmlFilePath());
     }
@@ -183,7 +192,7 @@ class ProductCards extends QUI\Control
      */
     protected function getHtmlFilePath(): string
     {
-        return \dirname(__FILE__) . '/ProductCards.html';
+        return dirname(__FILE__) . '/ProductCards.html';
     }
 
     /**
@@ -193,7 +202,7 @@ class ProductCards extends QUI\Control
      */
     protected function getCSSFilePath(): string
     {
-        return \dirname(__FILE__) . '/ProductCards.css';
+        return dirname(__FILE__) . '/ProductCards.css';
     }
 
     /**
@@ -237,7 +246,7 @@ class ProductCards extends QUI\Control
      *
      * @throws QUI\Exception
      */
-    public function getRetailPrice($Product)
+    public function getRetailPrice(QUI\ERP\Products\Product\ViewFrontend $Product): ?QUI\ERP\Products\Controls\Price
     {
         if ($this->getAttribute('hideRetailPrice')) {
             return null;
@@ -274,5 +283,7 @@ class ProductCards extends QUI\Control
         } catch (QUI\Exception $Exception) {
             QUI\System\Log::writeDebugException($Exception);
         }
+
+        return null;
     }
 }
