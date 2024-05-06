@@ -20,7 +20,7 @@ class PromoBox extends QUI\Control
      *
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    public function __construct(array $attributes = [])
     {
         // default options
         $this->setAttributes([
@@ -40,7 +40,7 @@ class PromoBox extends QUI\Control
         parent::__construct($attributes);
     }
 
-    public function getBody()
+    public function getBody(): string
     {
         $Engine = QUI::getTemplateManager()->getEngine();
 
@@ -55,17 +55,11 @@ class PromoBox extends QUI\Control
             }
         }
 
-        switch ($this->getAttribute('colorScheme')) {
-            case 'light':
-                $colorScheme = 'colorScheme-light';
-                break;
-            case 'dark':
-                $colorScheme = 'colorScheme-dark';
-                break;
-            default:
-                $colorScheme = 'colorScheme-none';
-                break;
-        }
+        $colorScheme = match ($this->getAttribute('colorScheme')) {
+            'light' => 'colorScheme-light',
+            'dark' => 'colorScheme-dark',
+            default => 'colorScheme-none',
+        };
 
         $Engine->assign([
             'this' => $this,
