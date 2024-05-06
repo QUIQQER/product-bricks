@@ -6,8 +6,11 @@
 
 namespace QUI\ProductBricks\Controls\Slider;
 
+use Exception;
 use QUI;
 use QUI\ERP\Products\Handler\Manufacturers as ManufacturersHandler;
+
+use function dirname;
 
 /**
  * Class ChildrenSlider
@@ -20,7 +23,7 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
      * ChildrenSlider constructor.
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    public function __construct(array $attributes = [])
     {
         // default options
         $this->setAttributes([
@@ -33,22 +36,15 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
         parent::__construct($attributes);
 
         $this->setAttribute('cacheable', 0);
-        $this->addCSSFile(\dirname(__FILE__) . '/ManufactureSlider.css');
+        $this->addCSSFile(dirname(__FILE__) . '/ManufactureSlider.css');
     }
 
     /**
-     * (non-PHPdoc)
-     *
      * @see \QUI\Control::create()
      */
-    public function getBody()
+    public function getBody(): string
     {
-        try {
-            $Engine = QUI::getTemplateManager()->getEngine();
-        } catch (QUI\Exception $Exception) {
-            return '';
-        }
-
+        $Engine = QUI::getTemplateManager()->getEngine();
         $height = $this->getAttribute('height');
         $limit = $this->getAttribute('limit');
 
@@ -89,14 +85,14 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
                     $manufacturerUserIds[] = $row['id'];
                 }
             }
-        } catch (\Exception $Exception) {
+        } catch (Exception $Exception) {
             QUI\System\Log::writeException($Exception, QUI\System\Log::LEVEL_NOTICE);
         }
 
         if ($this->getAttribute('moreLink')) {
             try {
                 $MoreLink = QUI\Projects\Site\Utils::getSiteByLink($this->getAttribute('moreLink'));
-            } catch (QUI\Exception $Exception) {
+            } catch (QUI\Exception) {
             }
         }
 
@@ -107,6 +103,6 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
             'MoreLink' => $MoreLink
         ]);
 
-        return $Engine->fetch(\dirname(__FILE__) . '/ManufactureSlider.html');
+        return $Engine->fetch(dirname(__FILE__) . '/ManufactureSlider.html');
     }
 }

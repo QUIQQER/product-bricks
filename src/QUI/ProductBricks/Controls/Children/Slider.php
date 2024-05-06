@@ -11,6 +11,17 @@ namespace QUI\ProductBricks\Controls\Children;
 use QUI;
 use QUI\ERP\Products\Controls\Products\ChildrenSlider;
 
+use function array_filter;
+use function array_merge;
+use function array_slice;
+use function array_values;
+use function array_walk;
+use function count;
+use function dirname;
+use function explode;
+use function is_a;
+use function ltrim;
+
 /**
  * Class Slider (carousel)
  *
@@ -22,14 +33,14 @@ class Slider extends QUI\Control
     /**
      * @var null|ChildrenSlider
      */
-    protected $Slider = null;
+    protected ?ChildrenSlider $Slider = null;
 
     /**
      * constructor
      *
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    public function __construct(array $attributes = [])
     {
         // default options
         $this->setAttributes([
@@ -49,10 +60,10 @@ class Slider extends QUI\Control
         parent::__construct($attributes);
 
         $this->setAttribute('cacheable', 0);
-        $this->addCSSFile(\dirname(__FILE__) . '/Slider.css');
+        $this->addCSSFile(dirname(__FILE__) . '/Slider.css');
     }
 
-    public function getBody()
+    public function getBody(): string
     {
         $Engine = QUI::getTemplateManager()->getEngine();
         $productIds = $this->getAttribute('productIds');
@@ -79,20 +90,20 @@ class Slider extends QUI\Control
 
         // If variant children are not allowed, filter them out
         if (empty($this->getAttribute('showVariantChildren'))) {
-            $allowedProductClasses = \array_filter($allowedProductClasses, function ($productClass) {
-                return !\is_a($productClass, QUI\ERP\Products\Product\Types\VariantChild::class, true);
+            $allowedProductClasses = array_filter($allowedProductClasses, function ($productClass) {
+                return !is_a($productClass, QUI\ERP\Products\Product\Types\VariantChild::class, true);
             });
         }
 
         // Remove leading slashes from classes
-        \array_walk($allowedProductClasses, function (&$productClass) {
-            $productClass = \ltrim($productClass, '\\');
+        array_walk($allowedProductClasses, function (&$productClass) {
+            $productClass = ltrim($productClass, '\\');
         });
 
         $allowedProductClasses[] = ''; // fix for old products
 
         if ($productIds) {
-            $productIds = \explode(',', $productIds);
+            $productIds = explode(',', $productIds);
             $products = QUI\ERP\Products\Handler\Products::getProducts([
                 'where' => [
                     'active' => 1,
@@ -115,7 +126,7 @@ class Slider extends QUI\Control
         $productsFromCat = [];
 
         if (is_string($catIds) && strlen($catIds) > 0) {
-            $catIds = \explode(',', $catIds);
+            $catIds = explode(',', $catIds);
 
             foreach ($catIds as $catId) {
                 $Category = QUI\ERP\Products\Handler\Categories::getCategory($catId);
@@ -138,11 +149,11 @@ class Slider extends QUI\Control
 
                 $catProducts = $Category->getProducts($query);
 
-                $productsFromCat = \array_merge($catProducts, $productsFromCat);
+                $productsFromCat = array_merge($catProducts, $productsFromCat);
             }
         }
 
-        $products = \array_merge($products, $productsFromCat);
+        $products = array_merge($products, $productsFromCat);
 
         // Remove duplicates
         $checked = [];
@@ -157,14 +168,14 @@ class Slider extends QUI\Control
             $checked[$Product->getId()] = true;
         }
 
-        $products = \array_values($products);
+        $products = array_values($products);
 
-        if (\count($products) < 1) {
+        if (count($products) < 1) {
             return '';
         }
 
         // limit / max
-        $products = \array_slice($products, 0, $limit);
+        $products = array_slice($products, 0, $limit);
 
         foreach ($products as $Product) {
             $this->Slider->addProduct($Product->getViewFrontend());
@@ -181,6 +192,6 @@ class Slider extends QUI\Control
             "Slider" => $this->Slider
         ]);
 
-        return $Engine->fetch(\dirname(__FILE__) . '/Slider.html');
+        return $Engine->fetch(dirname(__FILE__) . '/Slider.html');
     }
 }

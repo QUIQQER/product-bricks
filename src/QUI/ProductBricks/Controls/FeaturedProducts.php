@@ -9,6 +9,8 @@ namespace QUI\ProductBricks\Controls;
 use QUI;
 use QUI\ERP\Products\Handler\Products;
 
+use function is_array;
+
 /**
  * Class CategoryBox
  *
@@ -21,7 +23,7 @@ class FeaturedProducts extends QUI\Control
      *
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    public function __construct(array $attributes = [])
     {
         // default options
         $this->setAttributes([
@@ -49,11 +51,10 @@ class FeaturedProducts extends QUI\Control
     /**
      * (non-PHPdoc)
      *
-     * @throws QUI\Exception
      * @see \QUI\Control::create()
      *
      */
-    public function getBody()
+    public function getBody(): string
     {
         $Engine = QUI::getTemplateManager()->getEngine();
 
@@ -137,7 +138,7 @@ class FeaturedProducts extends QUI\Control
      *                              $queryParams['debug']
      * @return array
      */
-    public function getProducts($params = [])
+    public function getProducts(array $params = []): array
     {
         $query = [
             'limit' => $this->getAttribute('limit'),
@@ -194,9 +195,9 @@ class FeaturedProducts extends QUI\Control
      * @param array $products - array with products
      * @return array|bool
      */
-    private function getProductsViews($products = [])
+    private function getProductsViews(array $products = []): bool|array
     {
-        if (!\is_array($products) || empty($products)) {
+        if (!is_array($products) || empty($products)) {
             return [];
         }
 

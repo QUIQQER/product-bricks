@@ -8,6 +8,7 @@ namespace QUI\ProductBricks\Controls;
 
 use QUI;
 use QUI\ERP\Products\Handler\Categories;
+use QUI\Projects\Site;
 
 /**
  * Class CategoryBox
@@ -21,7 +22,7 @@ class CategoryBox extends QUI\Control
      *
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    public function __construct(array $attributes = [])
     {
         // default options
         $this->setAttributes([
@@ -41,7 +42,7 @@ class CategoryBox extends QUI\Control
         $this->addCSSFile(dirname(__FILE__) . '/CategoryBox.css');
     }
 
-    public function getBody()
+    public function getBody(): string
     {
         $Engine = QUI::getTemplateManager()->getEngine();
 
@@ -67,7 +68,7 @@ class CategoryBox extends QUI\Control
 
         $entries = [];
 
-        /** @var $Entry \QUI\Projects\Site */
+        /** @var $Entry Site */
         foreach ($sites as $Site) {
             // no assigned category? then skip and go to next element
             if (!$this->checkAssignedCategory($Site)) {
@@ -90,11 +91,11 @@ class CategoryBox extends QUI\Control
     /**
      * Set entry attributes to use it in html template
      *
-     * @param $Site \QUI\Projects\Site
+     * @param $Site Site
      * @return array
      * @throws QUI\Exception
      */
-    public function setCategoryAttributes($Site)
+    public function setCategoryAttributes(Site $Site): array
     {
         $title = $Site->getAttribute('title');
         $desc = $Site->getAttribute('short');
@@ -124,10 +125,10 @@ class CategoryBox extends QUI\Control
     /**
      * Check if site has assigned category
      *
-     * @param $Site \QUI\Projects\Site
-     * @return bool|QUI\ERP\Products\Interfaces\CategoryInterface
+     * @param Site $Site
+     * @return bool
      */
-    public function checkAssignedCategory($Site)
+    public function checkAssignedCategory(Site $Site): bool
     {
         $id = (int)$Site->getAttribute('quiqqer.products.settings.categoryId');
 
@@ -159,11 +160,11 @@ class CategoryBox extends QUI\Control
     /**
      * Get assigned category to the site
      *
-     * @param $Site \QUI\Projects\Site
+     * @param $Site Site
      * @return QUI\ERP\Products\Interfaces\CategoryInterface
      * @throws QUI\Exception
      */
-    public function getCategoryFromSite($Site)
+    public function getCategoryFromSite(Site $Site): QUI\ERP\Products\Interfaces\CategoryInterface
     {
         return Categories::getCategory(
             $Site->getAttribute('quiqqer.products.settings.categoryId')
