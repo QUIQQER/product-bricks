@@ -1,0 +1,36 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(\\$Entry Site\\)\\: Unexpected token \"\\$Entry\", expected type at offset 9$#"
+			count: 1
+			path: src/QUI/ProductBricks/Controls/CategoryBox.php
+
+		-
+			message: "#^Method QUI\\\\ProductBricks\\\\Controls\\\\FeaturedProducts\\:\\:getProductsViews\\(\\) never returns bool so it can be removed from the return type\\.$#"
+			count: 1
+			path: src/QUI/ProductBricks/Controls/FeaturedProducts.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of method QUI\\\\Bricks\\\\Controls\\\\Slider\\\\AbstractPromoslider\\:\\:addMobileSlide\\(\\) expects string, false given\\.$#"
+			count: 1
+			path: src/QUI/ProductBricks/Controls/Slider/ProductSlider.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of method QUI\\\\Bricks\\\\Controls\\\\Slider\\\\AbstractPromoslider\\:\\:addSlide\\(\\) expects string, false given\\.$#"
+			count: 1
+			path: src/QUI/ProductBricks/Controls/Slider/ProductSlider.php
+
+		-
+			message: "#^Parameter \\#1 \\$pid of static method QUI\\\\ERP\\\\Products\\\\Handler\\\\Products\\:\\:getProduct\\(\\) expects int, string given\\.$#"
+			count: 1
+			path: src/QUI/ProductBricks/Controls/Slider/ProductSlider.php
+
+		-
+			message: "#^Parameter \\#2 \\$title of method QUI\\\\Bricks\\\\Controls\\\\Slider\\\\AbstractPromoslider\\:\\:addMobileSlide\\(\\) expects string, false given\\.$#"
+			count: 1
+			path: src/QUI/ProductBricks/Controls/Slider/ProductSlider.php
+
+		-
+			message: "#^Parameter \\#2 \\$title of method QUI\\\\Bricks\\\\Controls\\\\Slider\\\\AbstractPromoslider\\:\\:addSlide\\(\\) expects string, false given\\.$#"
+			count: 1
+			path: src/QUI/ProductBricks/Controls/Slider/ProductSlider.php
