@@ -193,9 +193,9 @@ class FeaturedProducts extends QUI\Control
      * Returns array of product views
      *
      * @param array $products - array with products
-     * @return array|bool
+     * @return array
      */
-    private function getProductsViews(array $products = []): bool|array
+    private function getProductsViews(array $products = []): array
     {
         if (!is_array($products) || empty($products)) {
             return [];

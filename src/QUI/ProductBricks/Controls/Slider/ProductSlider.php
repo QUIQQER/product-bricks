@@ -82,7 +82,7 @@ class ProductSlider extends QUI\Control
 
         foreach ($productIds as $productId) {
             try {
-                $Product = Products::getProduct($productId);
+                $Product = Products::getProduct((int)$productId);
                 $products[] = $Product->getView();
             } catch (QUI\Exception $Exception) {
                 QUI\System\Log::writeException($Exception);
@@ -107,16 +107,16 @@ class ProductSlider extends QUI\Control
             ]);
 
             $Slider->addSlide(
-                false,
-                false,
+                '',
+                '',
                 $EngineSlide->fetch($slideTemplate),
                 'left',
                 $Product->getUrl()
             );
 
             $Slider->addMobileSlide(
-                false,
-                false,
+                '',
+                '',
                 $EngineSlide->fetch($slideTemplate),
                 $Product->getUrl()
             );
