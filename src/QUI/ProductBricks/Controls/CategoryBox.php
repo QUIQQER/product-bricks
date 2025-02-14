@@ -68,7 +68,6 @@ class CategoryBox extends QUI\Control
 
         $entries = [];
 
-        /** @var $Entry Site */
         foreach ($sites as $Site) {
             // no assigned category? then skip and go to next element
             if (!$this->checkAssignedCategory($Site)) {
