@@ -58,7 +58,8 @@ class ProductSlider extends QUI\Control
         $this->Calc = QUI\ERP\Products\Utils\Calc::getInstance(QUI::getUserBySession());
 
         $Engine = QUI::getTemplateManager()->getEngine();
-        $Slider = new QUI\Bricks\Controls\Slider\Promoslider([
+        $Slider = new QUI\Bricks\Controls\Slider\Promoslider();
+        $Slider->setAttributes([
             'shownavigation' => true,
             'showarrows' => $this->getAttribute('showarrows'),
             'autostart' => $this->getAttribute('autostart'),

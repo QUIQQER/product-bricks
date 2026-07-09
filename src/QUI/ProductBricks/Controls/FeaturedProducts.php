@@ -197,7 +197,7 @@ class FeaturedProducts extends QUI\Control
      */
     private function getProductsViews(array $products = []): array
     {
-        if (!is_array($products) || empty($products)) {
+        if (empty($products)) {
             return [];
         }
 
