@@ -35,7 +35,7 @@ class ProductCards extends QUI\Control
     /**
      * constructor
      *
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -208,8 +208,8 @@ class ProductCards extends QUI\Control
     /**
      * Get products data as array
      *
-     * @param array $products
-     * @return array
+     * @param array<int, QUI\ERP\Products\Product\Product> $products
+     * @return array<int, array<string, mixed>>
      * @throws QUI\Exception
      */
     protected function getProductsData(array $products): array
@@ -258,17 +258,28 @@ class ProductCards extends QUI\Control
         try {
             // Offer price (Angebotspreis) - it has higher priority than retail price
             if ($Product->hasOfferPrice()) {
-                $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
-                    'Price' => new QUI\ERP\Money\Price(
-                        $Product->getOriginalPrice()->getValue(),
-                        QUI\ERP\Currency\Handler::getDefaultCurrency()
-                    ),
-                    'withVatText' => false
-                ]);
+                $OriginalPrice = $Product->getOriginalPrice();
+                $Currency = QUI\ERP\Currency\Handler::getDefaultCurrency();
+
+                if ($OriginalPrice !== false && $Currency !== null) {
+                    $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
+                        'Price' => new QUI\ERP\Money\Price(
+                            $OriginalPrice->getValue(),
+                            $Currency
+                        ),
+                        'withVatText' => false
+                    ]);
+                }
             } else {
                 // retail price (UVP)
                 if ($Product->getFieldValue('FIELD_PRICE_RETAIL')) {
-                    $PriceRetail = $Product->getCalculatedPrice(Fields::FIELD_PRICE_RETAIL)->getPrice();
+                    $PriceRetailField = $Product->getCalculatedPrice(Fields::FIELD_PRICE_RETAIL);
+
+                    if ($PriceRetailField === null) {
+                        return null;
+                    }
+
+                    $PriceRetail = $PriceRetailField->getPrice();
 
                     if ($Price->getPrice() < $PriceRetail->getPrice()) {
                         $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([

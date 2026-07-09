@@ -20,7 +20,7 @@ class CategoryBox extends QUI\Control
     /**
      * constructor
      *
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -91,7 +91,13 @@ class CategoryBox extends QUI\Control
      * Set entry attributes to use it in html template
      *
      * @param $Site Site
-     * @return array
+     * @return array{
+     *     Site: Site,
+     *     title: mixed,
+     *     desc: mixed,
+     *     url: string,
+     *     image: mixed
+     * }
      * @throws QUI\Exception
      */
     public function setCategoryAttributes(Site $Site): array

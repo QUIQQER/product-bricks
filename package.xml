@@ -27,9 +27,9 @@
 
         <support>
             <email><![CDATA[support@pcsg.de]]></email>
-            <forum><![CDATA[https://community.quiqqer.com]]></forum>
             <source><![CDATA[https://dev.quiqqer.com/quiqqer/product-bricks]]></source>
             <issues><![CDATA[https://dev.quiqqer.com/quiqqer/product-bricks/issues]]></issues>
+            <wiki><![CDATA[https://dev.quiqqer.com/quiqqer/product-bricks/wikis/home]]></wiki>
         </support>
 
         <copyright>
