@@ -3,11 +3,12 @@
 QUIQQER Product Bricks
 ========
 
-The Product-Bricks Module gives you the possibility to display your products
-in different sliders and galleries.
+The Product Bricks module extends QUIQQER shops with ready-to-use bricks for
+presenting products in sliders, category boxes, grids, and promotional
+layouts.
 
-Let your products stand in a completely beautiful light.
-The Product-Bricks Module comes with a handful of new controls to put your products in the right light.
+It helps you build sales-focused landing pages and category teasers without
+creating custom frontend components from scratch.
 
 
 Package name:
@@ -18,26 +19,25 @@ Package name:
 Features
 --------
 
-#### Product-Slider:
-- Select products to show them in the slider.
-- Set background color and image of the slider.
-- Delay (time between slides).
-- Auto start.
+#### Product slider
+- Select products or categories to highlight them in a large stage slider.
+- Configure autoplay, slide delay, background color, and background image.
+- Optionally show prices and variant child products.
 
-#### Category-Boxes:
-- Select sites associated with your shop categories.
-- Set background color.
-- Fall back, if you site has no description.
-- If you do not connected site with category, it will be not displayed at all.
-- Use site image as background (fill in the entire space and ignore padding).
-- Select a site to show button "All categories" under the boxes.
+#### Category boxes
+- Display product categories as visual teaser boxes.
+- Map shop categories to sites and use site images as box backgrounds.
+- Add an optional "All categories" button that links to an overview page.
 
-#### Children Product-Slider:
-- Horizontal slider. To navigate between products use the arrows.
-- Select as many products as you wish.
-- It supports mobile view too.
-- It used the QUIQQER Children-Slider.
-- Add-to-cart animation button.
+#### Horizontal product slider
+- Show products in a compact, horizontally scrollable slider.
+- Works on mobile devices and supports quick product navigation.
+- Can be configured to link to the product or add it directly to the basket.
+
+#### Product grids and promo bricks
+- Present products in card grids with or without detail tables.
+- Add promotional boxes with image, content, and link targets.
+- Combine multiple brick types for shop start pages, teasers, and campaigns.
 
 
 
@@ -45,7 +45,7 @@ Features
 Installation
 ------------
 
-The Package name is: quiqqer/product-bricks
+The package name is: `quiqqer/product-bricks`
 
 
 Contribution
@@ -53,16 +53,17 @@ Contribution
 
 - Issue Tracker: https://dev.quiqqer.com/quiqqer/product-bricks/issues
 - Source Code: https://dev.quiqqer.com/quiqqer/product-bricks
+- Wiki: https://dev.quiqqer.com/quiqqer/product-bricks/wikis/home
 
 
 Support
 -------
 
-If you have found an error or want improvements, please send an e-mail to support@pcsg.de.
+If you have found a bug or want improvements, please send an e-mail to
+support@pcsg.de.
 
 
-Licence
+License
 -------
 GPL-3.0+
-
 
