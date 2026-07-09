@@ -26,7 +26,7 @@ class ProductCardsDetails extends QUI\ProductBricks\Controls\ProductCards
     /**
      * constructor
      *
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -78,8 +78,8 @@ class ProductCardsDetails extends QUI\ProductBricks\Controls\ProductCards
     /**
      * Get products data as array
      *
-     * @param array $products
-     * @return array
+     * @param array<int, QUI\ERP\Products\Interfaces\ProductInterface> $products
+     * @return array<int, array<string, mixed>>
      * @throws QUI\Exception
      */
     protected function getProductsData(array $products): array

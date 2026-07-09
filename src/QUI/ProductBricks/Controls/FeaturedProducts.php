@@ -9,8 +9,6 @@ namespace QUI\ProductBricks\Controls;
 use QUI;
 use QUI\ERP\Products\Handler\Products;
 
-use function is_array;
-
 /**
  * Class CategoryBox
  *
@@ -21,7 +19,7 @@ class FeaturedProducts extends QUI\Control
     /**
      * constructor
      *
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -131,12 +129,12 @@ class FeaturedProducts extends QUI\Control
     /**
      * Return products from the category
      *
-     * @param array $params - query parameter
+     * @param array<string, mixed> $params - query parameter
      *                              $queryParams['where']
      *                              $queryParams['limit']
      *                              $queryParams['order']
      *                              $queryParams['debug']
-     * @return array
+     * @return array<int, QUI\ERP\Products\Product\Product>
      */
     public function getProducts(array $params = []): array
     {
@@ -192,8 +190,8 @@ class FeaturedProducts extends QUI\Control
     /**
      * Returns array of product views
      *
-     * @param array $products - array with products
-     * @return array
+     * @param array<int, QUI\ERP\Products\Product\Product> $products - array with products
+     * @return array<int, QUI\ERP\Products\Product\ViewBackend|QUI\ERP\Products\Product\ViewFrontend>
      */
     private function getProductsViews(array $products = []): array
     {

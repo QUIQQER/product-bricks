@@ -21,7 +21,7 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
 {
     /**
      * ChildrenSlider constructor.
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      */
     public function __construct(array $attributes = [])
     {
