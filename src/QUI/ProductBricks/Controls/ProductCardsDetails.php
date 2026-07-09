@@ -78,7 +78,7 @@ class ProductCardsDetails extends QUI\ProductBricks\Controls\ProductCards
     /**
      * Get products data as array
      *
-     * @param array<int, QUI\ERP\Products\Interfaces\ProductInterface> $products
+     * @param array<int, QUI\ERP\Products\Product\Product> $products
      * @return array<int, array<string, mixed>>
      * @throws QUI\Exception
      */

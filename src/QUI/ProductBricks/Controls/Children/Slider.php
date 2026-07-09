@@ -79,12 +79,13 @@ class Slider extends QUI\Control
             $order = 10;
         }
 
-        $this->Slider = new ChildrenSlider([
+        $Slider = new ChildrenSlider([
             'showPrices' => $this->getAttribute('showPrices'),
             'buttonAction' => $this->getAttribute('buttonAction')
         ]);
+        $this->Slider = $Slider;
 
-        $this->addCSSFiles($this->Slider->getCSSFiles());
+        $this->addCSSFiles($Slider->getCSSFiles());
 
         $allowedProductClasses = QUI\ERP\Products\Utils\ProductTypes::getInstance()->getProductTypes();
 
@@ -178,18 +179,18 @@ class Slider extends QUI\Control
         $products = array_slice($products, 0, $limit);
 
         foreach ($products as $Product) {
-            $this->Slider->addProduct($Product->getViewFrontend());
+            $Slider->addProduct($Product->getViewFrontend());
         }
 
-        $this->Slider->setAttribute('height', $this->getAttribute('entryHeight'));
+        $Slider->setAttribute('height', $this->getAttribute('entryHeight'));
 
-        foreach ($this->Slider->getCSSFiles() as $file) {
+        foreach ($Slider->getCSSFiles() as $file) {
             $this->addCSSFile($file);
         }
 
         $Engine->assign([
             'this' => $this,
-            "Slider" => $this->Slider
+            "Slider" => $Slider
         ]);
 
         return $Engine->fetch(dirname(__FILE__) . '/Slider.html');

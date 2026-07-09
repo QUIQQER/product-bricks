@@ -84,7 +84,7 @@ class ProductSlider extends QUI\Control
         foreach ($productIds as $productId) {
             try {
                 $Product = Products::getProduct((int)$productId);
-                $products[] = $Product->getView();
+                $products[] = $Product->getViewFrontend();
             } catch (QUI\Exception $Exception) {
                 QUI\System\Log::writeException($Exception);
             }
@@ -150,23 +150,32 @@ class ProductSlider extends QUI\Control
         try {
             // Offer price (Angebotspreis) - it has higher priority than retail price
             if ($Product->hasOfferPrice()) {
-                $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
-                    'Price' => new QUI\ERP\Money\Price(
-                        $Product->getOriginalPrice()->getValue(),
-                        QUI\ERP\Currency\Handler::getDefaultCurrency()
-                    ),
-                    'withVatText' => false
-                ]);
+                $OriginalPrice = $Product->getOriginalPrice();
+                $Currency = QUI\ERP\Currency\Handler::getDefaultCurrency();
+
+                if ($OriginalPrice !== false && $Currency !== null) {
+                    $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
+                        'Price' => new QUI\ERP\Money\Price(
+                            $OriginalPrice->getValue(),
+                            $Currency
+                        ),
+                        'withVatText' => false
+                    ]);
+                }
             } else {
                 // retail price (UVP)
                 if ($Product->getFieldValue('FIELD_PRICE_RETAIL')) {
-                    $PriceRetail = $Product->getCalculatedPrice(Fields::FIELD_PRICE_RETAIL)->getPrice();
+                    $PriceRetailField = $Product->getCalculatedPrice(Fields::FIELD_PRICE_RETAIL);
 
-                    if ($Price->getPrice() < $PriceRetail->getPrice()) {
-                        $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
-                            'Price' => $PriceRetail,
-                            'withVatText' => false
-                        ]);
+                    if ($PriceRetailField !== null) {
+                        $PriceRetail = $PriceRetailField->getPrice();
+
+                        if ($Price->getPrice() < $PriceRetail->getPrice()) {
+                            $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
+                                'Price' => $PriceRetail,
+                                'withVatText' => false
+                            ]);
+                        }
                     }
                 }
             }
