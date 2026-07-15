@@ -9,6 +9,11 @@ use QUI\ProductBricks\Controls\Children\Slider;
 
 class SliderTest extends TestCase
 {
+    public function testReturnsEmptyBodyWithoutConfiguredProductsOrCategories(): void
+    {
+        self::assertSame('', (new Slider())->getBody());
+    }
+
     public function testUsesDefaultLimitForMissingAndInvalidValues(): void
     {
         self::assertSame(10, $this->resolveLimit(false));

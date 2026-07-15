@@ -13,6 +13,11 @@ use QUI\ProductBricks\Controls\ProductCardsDetails;
 
 class ProductCardsDataTest extends TestCase
 {
+    public function testReturnsEmptyBodyWithoutConfiguredProductsOrCategories(): void
+    {
+        self::assertSame('', (new ProductCards())->getBody());
+    }
+
     public function testProductCardsBuildDataWithoutPrices(): void
     {
         $ProductView = $this->createMock(ViewFrontend::class);
