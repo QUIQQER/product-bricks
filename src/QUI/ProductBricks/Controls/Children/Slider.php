@@ -69,14 +69,10 @@ class Slider extends QUI\Control
         $productIds = $this->getAttribute('productIds');
         $products = [];
         $order = $this->getAttribute('order');
-        $limit = $this->getAttribute('limit');
+        $limit = $this->getProductLimit();
 
         if (!$order) {
             $order = 'orderCount DESC';
-        }
-
-        if (!$limit) {
-            $order = 10;
         }
 
         $Slider = new ChildrenSlider([
@@ -194,5 +190,12 @@ class Slider extends QUI\Control
         ]);
 
         return $Engine->fetch(dirname(__FILE__) . '/Slider.html');
+    }
+
+    protected function getProductLimit(): int
+    {
+        $limit = (int)$this->getAttribute('limit');
+
+        return $limit > 0 ? $limit : 10;
     }
 }
