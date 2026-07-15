@@ -3,8 +3,11 @@ includes:
 
 parameters:
     level: 8
+    phpVersion:
+        min: 80200
+        max: 80509
     paths:
         - src
     bootstrapFiles:
         - tests/phpstan-bootstrap.php
-    customRulesetUsed: true
+    tipsOfTheDay: false
