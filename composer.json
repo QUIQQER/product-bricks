@@ -2,25 +2,29 @@
     "name": "quiqqer/product-bricks",
     "type": "quiqqer-module",
     "description": "The Product-Bricks Module gives you the possibility to display your products in different sliders and galleries.",
-    "license": "GPL-3.0+",
+    "license": "GPL-3.0-or-later",
+    "homepage": "https://www.quiqqer.com",
     "authors": [
         {
-            "name": "Michael Danielczok",
-            "email": "michael@pcsg.de",
-            "homepage": "https://www.pcsg.de",
-            "role": "Developer"
+            "name": "PCSG - Computer & Internet Service OHG",
+            "email": "info@quiqqer.com",
+            "homepage": "https://www.quiqqer.com",
+            "role": "Maintainer"
         }
     ],
     "support": {
-        "email": "support@pcsg.de"
+        "email": "support@pcsg.de",
+        "issues": "https://dev.quiqqer.com/quiqqer/product-bricks/issues",
+        "source": "https://dev.quiqqer.com/quiqqer/product-bricks"
     },
     "require": {
-        "quiqqer/core": "^2",
+        "php": "^8.2",
+        "quiqqer/core": "^2.24",
         "quiqqer/controls": "^2",
         "quiqqer/qui": "^1",
         "quiqqer/utils": "^2",
         "quiqqer/bricks": "^2",
-        "quiqqer/products": "^2"
+        "quiqqer/products": "^2.8"
     },
     "autoload": {
         "psr-4": {
