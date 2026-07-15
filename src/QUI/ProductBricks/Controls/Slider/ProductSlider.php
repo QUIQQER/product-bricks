@@ -153,7 +153,13 @@ class ProductSlider extends QUI\Control
                 $OriginalPrice = $Product->getOriginalPrice();
                 $Currency = QUI\ERP\Currency\Handler::getDefaultCurrency();
 
-                if ($OriginalPrice !== false && $Currency !== null) {
+                if (
+                    (
+                        $OriginalPrice instanceof QUI\ERP\Money\Price
+                        || $OriginalPrice instanceof QUI\ERP\Products\Interfaces\UniqueFieldInterface
+                    )
+                    && $Currency !== null
+                ) {
                     $CrossedOutPrice = new QUI\ERP\Products\Controls\Price([
                         'Price' => new QUI\ERP\Money\Price(
                             $OriginalPrice->getValue(),

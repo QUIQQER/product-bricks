@@ -6,10 +6,12 @@
 
 namespace QUI\ProductBricks\Controls\Slider;
 
+use Doctrine\DBAL\ArrayParameterType;
 use Exception;
 use QUI;
 use QUI\ERP\Products\Handler\Manufacturers as ManufacturersHandler;
 
+use function array_map;
 use function dirname;
 
 /**
@@ -59,31 +61,13 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
         }
 
         $manufacturerUserIds = [];
-        $start = 0;
-
-        $Users = QUI::getUsers();
         $MoreLink = null;
 
         try {
             $userIds = ManufacturersHandler::getManufacturerUserIds(true);
 
             if (!empty($userIds)) {
-                $result = QUI::getDataBase()->fetch([
-                    'select' => ['id'],
-                    'from' => $Users::table(),
-                    'where' => [
-                        'id' => [
-                            'type' => 'IN',
-                            'value' => $userIds
-                        ]
-                    ],
-                    'order' => $this->getAttribute('order'),
-                    'limit' => $start . ',' . $limit
-                ]);
-
-                foreach ($result as $row) {
-                    $manufacturerUserIds[] = $row['id'];
-                }
+                $manufacturerUserIds = $this->getOrderedManufacturerUserIds($userIds, (int)$limit);
             }
         } catch (Exception $Exception) {
             QUI\System\Log::writeException($Exception, QUI\System\Log::LEVEL_NOTICE);
@@ -104,5 +88,45 @@ class ManufactureSlider extends QUI\Bricks\Controls\Children\Slider
         ]);
 
         return $Engine->fetch(dirname(__FILE__) . '/ManufactureSlider.html');
+    }
+
+    /**
+     * @param array<int, int|string> $userIds
+     * @return list<int>
+     * @throws \Doctrine\DBAL\Exception
+     */
+    protected function getOrderedManufacturerUserIds(array $userIds, int $limit): array
+    {
+        if ($userIds === [] || $limit < 1) {
+            return [];
+        }
+
+        $allowedOrders = [
+            'username ASC' => ['username', 'ASC'],
+            'username DESC' => ['username', 'DESC'],
+            'c_date ASC' => ['c_date', 'ASC'],
+            'c_date DESC' => ['c_date', 'DESC'],
+            'e_date ASC' => ['e_date', 'ASC'],
+            'e_date DESC' => ['e_date', 'DESC']
+        ];
+        $order = (string)$this->getAttribute('order');
+        [$orderField, $orderDirection] = $allowedOrders[$order] ?? $allowedOrders['username ASC'];
+
+        $Connection = QUI::getDataBaseConnection();
+        $Platform = $Connection->getDatabasePlatform();
+        $idField = $Platform->quoteSingleIdentifier('id');
+        $QueryBuilder = $Connection->createQueryBuilder();
+        $result = $QueryBuilder
+            ->select($idField)
+            ->from($Platform->quoteSingleIdentifier(QUI::getUsers()::table()))
+            ->where($QueryBuilder->expr()->in($idField, ':userIds'))
+            ->setParameter('userIds', array_map('intval', $userIds), ArrayParameterType::INTEGER)
+            ->orderBy($Platform->quoteSingleIdentifier($orderField), $orderDirection)
+            ->setFirstResult(0)
+            ->setMaxResults($limit)
+            ->executeQuery()
+            ->fetchFirstColumn();
+
+        return array_map(static fn(mixed $id): int => (int)$id, $result);
     }
 }

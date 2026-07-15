@@ -113,7 +113,7 @@ class FeaturedProducts extends QUI\Control
 
         // custom css
         if ($this->getAttribute('customCss')) {
-            $templateFile = $this->getAttribute('customCss');
+            $cssFile = $this->getAttribute('customCss');
         }
 
         $Engine->assign([
