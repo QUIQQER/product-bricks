@@ -7,6 +7,7 @@ namespace QUITests\ProductBricks\Controls;
 use PHPUnit\Framework\TestCase;
 use QUI\ERP\Products\Product\Product;
 use QUI\ERP\Products\Product\ViewFrontend;
+use QUI\ERP\Products\Controls\Price as PriceControl;
 use QUI\ProductBricks\Controls\ProductCards;
 use QUI\ProductBricks\Controls\ProductCardsDetails;
 
@@ -52,6 +53,26 @@ class ProductCardsDataTest extends TestCase
         self::assertStringEndsWith('/ProductCardsDetails.css', $Cards->getPublicCssFilePath());
     }
 
+    public function testDetailedCardsAddPriceControlsWhenEnabled(): void
+    {
+        $ProductView = $this->createMock(ViewFrontend::class);
+        $ProductView->method('getFields')->willReturn([]);
+        $ProductView->method('getPrice')->willReturn(
+            new \QUI\ERP\Money\Price(10, \QUI\ERP\Defaults::getCurrency())
+        );
+        $Product = $this->getMockBuilder(Product::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['getViewFrontend'])
+            ->getMock();
+        $Product->method('getViewFrontend')->willReturn($ProductView);
+        $Cards = $this->createDetailedProductCards(true);
+
+        $data = $Cards->getPublicProductsData([$Product]);
+
+        self::assertInstanceOf(PriceControl::class, $data[0]['Price']);
+        self::assertNull($data[0]['RetailPrice']);
+    }
+
     private function createProductCards(): ProductCards
     {
         return new class (['showPrices' => false]) extends ProductCards {
@@ -76,9 +97,9 @@ class ProductCardsDataTest extends TestCase
         };
     }
 
-    private function createDetailedProductCards(): ProductCardsDetails
+    private function createDetailedProductCards(bool $showPrices = false): ProductCardsDetails
     {
-        return new class (['showPrices' => false]) extends ProductCardsDetails {
+        return new class (['showPrices' => $showPrices]) extends ProductCardsDetails {
             /**
              * @param array<int, Product> $products
              * @return array<int, array<string, mixed>>
@@ -96,6 +117,11 @@ class ProductCardsDataTest extends TestCase
             public function getPublicCssFilePath(): string
             {
                 return $this->getCSSFilePath();
+            }
+
+            public function getRetailPrice(ViewFrontend $Product): ?PriceControl
+            {
+                return null;
             }
         };
     }
