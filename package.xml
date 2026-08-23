@@ -8,6 +8,15 @@
             <locale group="quiqqer/product-bricks" var="package.description"/>
         </description>
 
+        <capabilities schemaVersion="1">
+            <capability id="commerce.storefront-merchandising">
+                <title>Storefront merchandising</title>
+                <description>
+                    Provides configurable storefront displays for products, categories, manufacturers and promotions.
+                </description>
+            </capability>
+        </capabilities>
+
         <image src="URL_OPT_DIR/quiqqer/product-bricks/bin/images/Logo.jpg"/>
 
         <preview>
