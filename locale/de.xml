@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locales>
+
+    <groups name="quiqqer/product-bricks" datatype="php,js">
+        <locale name="package.title">
+<de><![CDATA[Produkt Bausteine]]></de>
+        </locale>
+        <locale name="package.description">
+<de><![CDATA[Dieses Modul stellt Bausteine zur Verfügung, um Ihre Produkte auf einfache Art und Weise zu präsentieren.]]></de>
+        </locale>
+
+<!--<locale name="brick.control.product.addToCart">
+            <de><![CDATA[In den Warenkorb]]></de>
+            <en><![CDATA[Add to cart]]></en>
+        </locale>-->
+        <locale name="button.product.addToCart">
+<de><![CDATA[In den Warenkorb]]></de>
+        </locale>
+        <locale name="button.product.viewProduct">
+<de><![CDATA[Zum Produkt]]></de>
+        </locale>
+
+<!-- order / sort -->
+        <locale name="sort">
+<de><![CDATA[Standard Sortierung]]></de>
+        </locale>
+        <locale name="sort.title.DESC">
+<de><![CDATA[Titel absteigend]]></de>
+        </locale>
+        <locale name="sort.title.ASC">
+<de><![CDATA[Titel aufsteigend]]></de>
+        </locale>
+        <locale name="sort.productNo.DESC">
+<de><![CDATA[Art. Nr. absteigend]]></de>
+        </locale>
+        <locale name="sort.productNo.ASC">
+<de><![CDATA[Art. Nr. aufsteigend]]></de>
+        </locale>
+        <locale name="sort.sorting">
+<de><![CDATA[Nach Sortierung]]></de>
+        </locale>
+        <locale name="sort.cdate.ASC">
+<de><![CDATA[Älteste Produkte zuerst]]></de>
+        </locale>
+        <locale name="sort.cdate.DESC">
+<de><![CDATA[Neueste Produkte zuerst]]></de>
+        </locale>
+
+<!-- Product Slider -->
+        <locale name="brick.control.productSlider.title">
+<de><![CDATA[Produkte: Promoslider]]></de>
+        </locale>
+        <locale name="brick.control.productSlider.description">
+<de><![CDATA[
+                Ein Slider für Ihre Produkte, den Sie zum Beispiel auf der Startseite platzieren können.]]></de>
+        </locale>
+
+        <locale name="brick.control.productSlider.settings.hideRetailPrice">
+<de><![CDATA[Durchgestrichenen Preis ausblenden (UVP oder Originalpreis bei Angeboten)]]></de>
+        </locale>
+        <locale name="brick.control.productSlider.settings.showPrices">
+<de><![CDATA[Preise anzeigen]]></de>
+        </locale>
+        <locale name="brick.control.productSlider.settings.categoryIds">
+<de><![CDATA[Kategorien]]></de>
+        </locale>
+        <locale name="brick.control.productSlider.settings.showPrice">
+<de><![CDATA[Preise anzeigen (unverbindliche Preisempfehlung wenn verfügbar)]]></de>
+        </locale>
+        <locale name="brick.control.productSlider.settings.autostart">
+<de><![CDATA[Autostart]]></de>
+        </locale>
+        <locale name="brick.control.productSlider.settings.delay">
+<de><![CDATA[Zeit zum nächsten Slide (Verzögerung)]]></de>
+        </locale>
+        <locale name="brick.control.productSlider.bgColor">
+<de><![CDATA[Hintergrundfarbe]]></de>
+        </locale>
+        <locale name="brick.control.productSlider.bgImage">
+<de><![CDATA[Hintergrundbild]]></de>
+        </locale>
+        <locale name="brick.control.productSlider.dotsAppearance">
+<de><![CDATA[Darstellung der Navigationspunkte]]></de>
+        </locale>
+            <locale name="brick.control.productSlider.dotsAppearance.dark">
+<de><![CDATA[Dunkel]]></de>
+        </locale>
+            <locale name="brick.control.productSlider.dotsAppearance.light">
+<de><![CDATA[Hell]]></de>
+        </locale>
+
+<!-- Category Box -->
+        <locale name="brick.control.categoryBox.title">
+<de><![CDATA[Produkte: Kategorie-Boxen]]></de>
+        </locale>
+        <locale name="brick.control.categoryBox.description">
+<de><![CDATA[Vorgefertigte Boxen, um die Kategorien z.B. auf der Startseite zu platzieren.]]></de>
+        </locale>
+        <locale name="brick.control.categoryBox.bgColor">
+<de><![CDATA[Hintergrundfarbe]]></de>
+        </locale>
+        <locale name="brick.control.categoryBox.imageAsBackground">
+<de><![CDATA[Seitenbilder als Hintergrund?]]></de>
+        </locale>
+        <locale name="brick.control.categoryBox.categorySites">
+<de><![CDATA[Seiten mit Kategorien auswählen]]></de>
+        </locale>
+        <locale name="brick.control.categoryBox.viewProduct">
+<de><![CDATA[Produkte ansehen]]></de>
+        </locale>
+        <locale name="brick.control.categoryBox.allCategoriesUrl">
+<de><![CDATA[URL zu "Alle Kategorien" Seite]]></de>
+        </locale>
+        <locale name="brick.control.categoryBox.allCategoriesUrl.button">
+<de><![CDATA[Alle Kategorien]]></de>
+        </locale>
+        <locale name="brick.control.categoryBox.limit">
+<de><![CDATA[Maximale Anzahl der Kategorien]]></de>
+        </locale>
+
+<!-- Product Children Slider (horizontal) -->
+        <locale name="brick.control.productChildrenSlider.title">
+<de><![CDATA[Produkte: Horizontaler Slider]]></de>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.description">
+<de><![CDATA[Ein horizontaler Slider für Produkte. Wenn der Platz nicht ausreicht, können die Produkte horizontal gescrollt werden.]]></de>
+        </locale>
+        <locale name="brick.control.productSlider.settings.showVariantChildren">
+<de><![CDATA[Einzelne Kindprodukte der Varianten anzeigen]]></de>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.buttonAction">
+<de><![CDATA[Button Aktion]]></de>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.buttonAction.addToBasket">
+<de><![CDATA[Produkt in den Warenkorb hinzufügen]]></de>
+        </locale>
+        <locale name="brick.control.productSlider.settings.limit">
+<de><![CDATA[Maximale Anzahl an Produkten]]></de>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.buttonAction.showProduct">
+<de><![CDATA[Produkt anzeigen]]></de>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.buttonAction.desc">
+<de><![CDATA[Um das Produkt in den Warenkorb hinzuzufügen, muss das Paket "quiqqer/order" installiert sein.]]></de>
+        </locale>
+
+        <locale name="brick.control.productChildrenSlider.order">
+<de><![CDATA[Sortierung]]></de>
+        </locale>
+        <locale name="brick.control.productChildrenSlider.order.orderCount">
+<de><![CDATA[Meist verkaufte Produkte (Voreinstellung)]]></de>
+        </locale>
+
+<!-- Product Cards -->
+        <locale name="brick.control.productCards.title">
+<de><![CDATA[Produkte: Produkte im Raster (Grid)]]></de>
+        </locale>
+        <locale name="brick.control.productCards.description">
+<de><![CDATA[Produkte werden in einem Raster angezeigt.]]></de>
+        </locale>
+        <locale name="brick.control.productCards.settings.moreUrl">
+<de><![CDATA[Weitere Produkte]]></de>
+        </locale>
+        <locale name="brick.control.productCards.settings.moreUrl.description">
+<de><![CDATA[Wenn eine Seite ausgewählt ist, wird unter dem Produkt-Raster ein Button eingeblendet.]]></de>
+        </locale>
+        <locale name="brick.control.productCards.frontend.moreUrl">
+<de><![CDATA[Weitere Produkte]]></de>
+        </locale>
+
+<!-- Product Cards Details -->
+        <locale name="brick.control.productCardsDetails.title">
+<de><![CDATA[Produkte: Produkte im Raster (Grid) mit Details]]></de>
+        </locale>
+        <locale name="brick.control.productCardsDetails.description">
+<de><![CDATA[Produkte werden in einem Raster angezeigt. Dabei werden die Produkteigenschaften tabellarisch dargestellt.]]></de>
+        </locale>
+        <locale name="frontend.productCardsDetails.empty">
+<de><![CDATA[---]]></de>
+        </locale>
+
+<!-- Promo Box -->
+        <locale name="brick.control.promoBox.title">
+<de><![CDATA[Produkte: Promotion Box]]></de>
+        </locale>
+        <locale name="brick.control.promoBox.description">
+<de><![CDATA[Eine Box zum Präsentieren verschiedener Inhalte ("Neue Kollektion", "Sonderrabatte", Mitteilungen an Kunden, etc.) in der Sidebar oder auch vor / nach dem Inhalt. Idealerweise verwenden Sie auch ein Bild.]]></de>
+        </locale>
+        <locale name="brick.control.promoBox.image">
+<de><![CDATA[Hintergrundbild]]></de>
+        </locale>
+        <locale name="brick.control.promoBox.url">
+<de><![CDATA[Url zu der gewünschten Seite. Wenn Sie die Url bestimmen, verwenden Sie keine Links im Inhalt.]]></de>
+        </locale>
+        <locale name="brick.control.promoBox.target">
+<de><![CDATA[Zielfensterbasis (Target) - wo soll der Link geöffnet werden?]]></de>
+        </locale>
+            <locale name="brick.control.promoBox.target.self">
+<de><![CDATA[Im gleichen Fenster / Tab]]></de>
+        </locale>
+            <locale name="brick.control.promoBox.target.blank">
+<de><![CDATA[Im neuen Fenster / Tab]]></de>
+        </locale>
+        <locale name="brick.control.promoBox.contentPosition">
+<de><![CDATA[Inhaltsposition - wo soll der Text positioniert werden]]></de>
+        </locale>
+            <locale name="brick.control.promoBox.contentPosition.flexStart">
+<de><![CDATA[Oben]]></de>
+        </locale>
+            <locale name="brick.control.promoBox.contentPosition.center">
+<de><![CDATA[Mittig]]></de>
+        </locale>
+            <locale name="brick.control.promoBox.contentPosition.flexEnd">
+<de><![CDATA[Unten]]></de>
+        </locale>
+
+        <locale name="brick.control.promoBox.minHeight">
+<de><![CDATA[Minimale Höhe. Die Promotion Box nimmt die Höhe als Basis. Wenn der Inhalt mehr Platz benötigt, wird die Box höher. Standardwert ist 250px.]]></de>
+        </locale>
+
+        <locale name="brick.control.promoBox.colorScheme">
+<de><![CDATA[Farbschema. Die Einstellung hat keine Auswirkung auf die im Inhalt enthaltenen Links und Schaltflächen (Buttons).]]></de>
+        </locale>
+            <locale name="brick.control.promoBox.colorScheme.none">
+<de><![CDATA[Keines]]></de>
+        </locale>
+            <locale name="brick.control.promoBox.colorScheme.light">
+<de><![CDATA[Hell]]></de>
+        </locale>
+            <locale name="brick.control.promoBox.colorScheme.dark">
+<de><![CDATA[Dunkel]]></de>
+        </locale>
+
+<!-- Promo Box: image next to the content -->
+        <locale name="brick.control.promoBoxImageNextToContent.title">
+<de><![CDATA[Produkte: Promotion Box. Bild neben dem Inhalt.]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.description">
+<de><![CDATA[Baustein zum Präsentieren von verschiedenen Inhalten ("Neue Kollektion", "Sonderrabatte", Mitteilungen an Kunden, etc.). Meistens zu verwenden vor oder nach dem Inhalt, weil der Baustein mehr Platz benötigt.]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.image">
+<de><![CDATA[Bild]]></de>
+        </locale>
+
+        <locale name="brick.control.promoBoxImageNextToContent.backgroundColor">
+<de><![CDATA[Inhalt Hintergrundfarbe]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.url">
+<de><![CDATA[Link]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.url.desc">
+<de><![CDATA[Wenn der Link gesetzt ist, wird das Bild klickbar.]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.target">
+<de><![CDATA[Zielfensterbasis (Target) - wo soll der Link geöffnet werden?]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.target.self">
+<de><![CDATA[Im gleichen Fenster / Tab]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.target.blank">
+<de><![CDATA[Im neuen Fenster / Tab]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.contentPosition">
+<de><![CDATA[Inhaltsposition - wo soll der Text positioniert werden]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.contentPosition.flexStart">
+<de><![CDATA[Oben]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.contentPosition.center">
+<de><![CDATA[Mittig]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.contentPosition.flexEnd">
+<de><![CDATA[Unten]]></de>
+        </locale>
+
+        <locale name="brick.control.promoBoxImageNextToContent.minHeight">
+<de><![CDATA[Minimale Höhe. Der Baustein nimmt die Höhe als Basis. Wenn der Inhalt mehr Platz benötigt, wird die Box höher. Standardwert ist 400px.]]></de>
+        </locale>
+
+        <locale name="brick.control.promoBoxImageNextToContent.layout">
+<de><![CDATA[Layout]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.layout.imageRight">
+<de><![CDATA[Bild auf der rechten Seite]]></de>
+        </locale>
+        <locale name="brick.control.promoBoxImageNextToContent.layout.imageLeft">
+<de><![CDATA[Bild auf der linken Seite]]></de>
+        </locale>
+
+<!-- Featured Products -->
+        <locale name="brick.control.featuredProducts.title">
+<de><![CDATA[Produkte: Featured Products]]></de>
+        </locale>
+        <locale name="brick.control.featuredProducts.description">
+<de><![CDATA[Mit dem Baustein können Sie bis zu 3 Boxen mit Produkten aus ausgewählten Kategorien anzeigen. Eine Box eignet sich für Footer oder Sidebar, drei Boxen passen ideal z. B. auf eine Startseite.]]></de>
+        </locale>
+        <locale name="brick.control.featuredProducts.layout">
+<de><![CDATA[Layout]]></de>
+        </locale>
+            <locale name="brick.control.featuredProducts.layout.list">
+<de><![CDATA[Liste]]></de>
+        </locale>
+            <locale name="brick.control.featuredProducts.layout.gallery">
+<de><![CDATA[Galerie]]></de>
+        </locale>
+        <locale name="brick.control.featuredProducts.featured1.title">
+<de><![CDATA[Titel für die erste Box]]></de>
+        </locale>
+        <locale name="brick.control.featuredProducts.featured1.categoryId">
+<de><![CDATA[Kategorie für die erste Box]]></de>
+        </locale>
+        <locale name="brick.control.featuredProducts.featured2.title">
+<de><![CDATA[Titel für die zweite Box]]></de>
+        </locale>
+        <locale name="brick.control.featuredProducts.featured2.categoryId">
+<de><![CDATA[Kategorie für die zweite Box]]></de>
+        </locale>
+        <locale name="brick.control.featuredProducts.featured3.title">
+<de><![CDATA[Titel für die dritte Box]]></de>
+        </locale>
+        <locale name="brick.control.featuredProducts.featured3.categoryId">
+<de><![CDATA[Kategorie für die dritte Box]]></de>
+        </locale>
+        <locale name="brick.control.featuredProducts.limit">
+<de><![CDATA[Maximale Anzahl angezeigter Produkte]]></de>
+        </locale>
+        <locale name="brick.control.featuredProducts.showVariantChildren">
+<de><![CDATA[Einzelne Kindprodukte der Varianten anzeigen]]></de>
+        </locale>
+<!-- featured product show product button -->
+        <locale name="brick.control.featuredProducts.button.showProduct">
+<de><![CDATA[Produkt ansehen]]></de>
+        </locale>
+
+<!-- manufascture slider -->
+        <locale name="brick.control.manufactureSlider.title">
+<de><![CDATA[Produkte: Hersteller-Slider]]></de>
+        </locale>
+        <locale name="brick.control.manufactureSlider.description">
+<de><![CDATA[Hersteller-Logo als horizontaler Slider (Carousel) darstellen.]]></de>
+        </locale>
+
+        <locale name="brick.control.manufactureSlider.limit">
+<de><![CDATA[Limit]]></de>
+        </locale>
+
+        <locale name="brick.control.manufactureSlider.moreLink">
+<de><![CDATA[Alle Hersteller]]></de>
+        </locale>
+        <locale name="brick.control.manufactureSlider.moreLink.label">
+<de><![CDATA[Weitere Hersteller entdecken]]></de>
+        </locale>
+
+        <locale name="brick.control.manufactureSlider.sort">
+<de><![CDATA[Sortierung]]></de>
+        </locale>
+        <locale name="brick.control.manufactureSlider.sort.username.ASC">
+<de><![CDATA[Namen aufsteigend]]></de>
+        </locale>
+        <locale name="brick.control.manufactureSlider.sort.username.DESC">
+<de><![CDATA[Namen absteigend]]></de>
+        </locale>
+    </groups>
+
+</locales>
