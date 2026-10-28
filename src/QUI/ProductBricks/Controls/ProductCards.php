@@ -10,17 +10,14 @@ namespace QUI\ProductBricks\Controls;
 
 use QUI;
 use QUI\ERP\Products\Handler\Fields;
+use QUI\ProductBricks\Utils\ProductSearch;
 
-use function array_filter;
 use function array_merge;
 use function array_slice;
 use function array_values;
-use function array_walk;
 use function count;
 use function dirname;
 use function explode;
-use function is_a;
-use function ltrim;
 
 /**
  * Product Cards
@@ -86,39 +83,13 @@ class ProductCards extends QUI\Control
             $perRow = 3;
         }
 
-        $allowedProductClasses = QUI\ERP\Products\Utils\ProductTypes::getInstance()->getProductTypes();
-
-        // If variant children are not allowed, filter them out
-        if (empty($this->getAttribute('showVariantChildren'))) {
-            $allowedProductClasses = array_filter($allowedProductClasses, function ($productClass) {
-                return !is_a($productClass, QUI\ERP\Products\Product\Types\VariantChild::class, true);
-            });
-        }
-
-        // Remove leading slashes from classes
-        array_walk($allowedProductClasses, function (&$productClass) {
-            $productClass = ltrim($productClass, '\\');
-        });
-
-        $allowedProductClasses[] = ''; // fix for old products
-
         if ($productIds) {
-            $productIds = explode(',', $productIds);
-            $products = QUI\ERP\Products\Handler\Products::getProducts([
-                'where' => [
-                    'active' => 1,
-                    'id' => [
-                        'type' => 'IN',
-                        'value' => $productIds
-                    ],
-                    'type' => [
-                        'type' => 'IN',
-                        'value' => $allowedProductClasses
-                    ]
-                ],
-                'order' => $order,
-                'limit' => $limit
-            ]);
+            $products = ProductSearch::getProducts(
+                ['productIds' => explode(',', $productIds)],
+                (bool)$this->getAttribute('showVariantChildren'),
+                (int)$limit,
+                $order
+            );
         }
 
         $catIds = $this->getAttribute('categoryIds');
@@ -128,25 +99,12 @@ class ProductCards extends QUI\Control
             $catIds = explode(',', $catIds);
 
             foreach ($catIds as $catId) {
-                $Category = QUI\ERP\Products\Handler\Categories::getCategory($catId);
-
-                $query = [
-                    'where' => [
-                        'active' => 1,
-                    ],
-                    'limit' => $limit,
-                    'order' => $order
-                ];
-
-                // do not show variant children
-                if (!$this->getAttribute('showVariantChildren')) {
-                    $query['where']['type'] = [
-                        'type' => 'NOT',
-                        'value' => QUI\ERP\Products\Product\Types\VariantChild::class
-                    ];
-                }
-
-                $catProducts = $Category->getProducts($query);
+                $catProducts = ProductSearch::getProducts(
+                    ['categories' => [(int)$catId]],
+                    (bool)$this->getAttribute('showVariantChildren'),
+                    (int)$limit,
+                    $order
+                );
 
                 $productsFromCat = array_merge($catProducts, $productsFromCat);
             }
