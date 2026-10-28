@@ -24,7 +24,8 @@
         "quiqqer/qui": "^1",
         "quiqqer/utils": "^2",
         "quiqqer/bricks": "^2",
-        "quiqqer/products": "^2.8"
+        "quiqqer/products": "^2.8",
+        "quiqqer/productsearch": "^2.8"
     },
     "autoload": {
         "psr-4": {
