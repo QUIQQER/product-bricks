@@ -8,6 +8,7 @@ namespace QUI\ProductBricks\Controls;
 
 use QUI;
 use QUI\ERP\Products\Handler\Products;
+use QUI\ProductBricks\Utils\ProductSearch;
 
 /**
  * Class CategoryBox
@@ -133,57 +134,32 @@ class FeaturedProducts extends QUI\Control
      *                              $queryParams['where']
      *                              $queryParams['limit']
      *                              $queryParams['order']
-     *                              $queryParams['debug']
      * @return array<int, QUI\ERP\Products\Product\Product>
      */
     public function getProducts(array $params = []): array
     {
-        $query = [
-            'limit' => $this->getAttribute('limit'),
-            'order' => $this->getAttribute('order')
-        ];
+        $categoryId = (int)($params['categoryId'] ?? 0);
 
-
-        $value = '';
-
-        if (isset($params['categoryId'])) {
-            $value = $params['categoryId'];
+        if ($categoryId < 1) {
+            return [];
         }
 
-        $where = [
-            'categories' => [
-                'type' => '%LIKE%',
-                'value' => ',' . $value . ','
-            ],
-            'active' => 1
-        ];
+        $searchParams = ['categories' => [$categoryId]];
 
-        if (!$this->getAttribute('showVariantChildren')) {
-            $where['type'] = [
-                'type' => 'NOT',
-                'value' => QUI\ERP\Products\Product\Types\VariantChild::class
-            ];
-        }
-
+        // Preserve additional constraints accepted by this public method.
         if (isset($params['where'])) {
-            $where = array_merge($where, $params['where']);
+            $searchParams['productIds'] = Products::getProductIds(['where' => $params['where']]);
         }
 
-        $query['where'] = $where;
+        $limit = (int)($params['limit'] ?? $this->getAttribute('limit'));
+        $order = (string)($params['order'] ?? $this->getAttribute('order'));
 
-        if (isset($params['limit'])) {
-            $query['limit'] = $params['limit'];
-        }
-
-        if (isset($params['order'])) {
-            $query['order'] = $params['order'];
-        }
-
-        if (isset($params['debug'])) {
-            $query['debug'] = $params['debug'];
-        }
-
-        return Products::getProducts($query);
+        return ProductSearch::getProducts(
+            $searchParams,
+            (bool)$this->getAttribute('showVariantChildren'),
+            $limit > 0 ? $limit : 5,
+            $order ?: 'c_date DESC'
+        );
     }
 
 
